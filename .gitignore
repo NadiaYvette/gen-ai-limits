@@ -27,3 +27,6 @@
 # Editors / OS
 *~
 .DS_Store
+
+# latexmk failure artifacts
+*-SAVE-ERROR
