@@ -1,4 +1,4 @@
-% main.tex — The Limitations of Generative AI (working draft)
+% main.tex — The Limitations of Generative AI
 % Build with `make` (requires TeX Live with latexmk and biber).
 \documentclass[11pt,a4paper]{article}
 
@@ -12,10 +12,10 @@
 
 \addbibresource{references.bib}
 
-% Marker for passages that still need substantive work.
+% Marker retained for future drafting passes; unused in the written-out text.
 \newcommand{\draft}[1]{\textcolor{red}{[DRAFT: #1]}}
 
-\title{The Limitations of Generative AI\\[0.3em]\large A critical working draft}
+\title{The Limitations of Generative AI\\[0.3em]\large What these systems cannot (yet) do, and why}
 \author{Nadia Yvette}
 \date{\today}
 
@@ -23,211 +23,513 @@
 \maketitle
 
 \begin{abstract}
-This write-up systematizes the known limitations of contemporary generative AI
-systems---large language models chief among them---and distinguishes carefully
-between what is \emph{observed}, what is \emph{explained}, and what is merely
-\emph{narrated}. The organizing claim is that the most consequential failures
-are not incidental bugs but structural consequences of how these systems are
-built: next-token prediction over compressed corpora, optimization for
-plausibility rather than truth, and evaluation regimes that reward fluent
-imitation of understanding.
-\draft{Sharpen the thesis once the section drafts stabilize.}
+Generative AI systems now produce fluent text, images, audio, and code at
+near-zero marginal cost, and public understanding of them is built mostly on
+demonstrations of success. This survey starts from the opposite end: it
+catalogues what these systems systematically cannot do, and asks, for each
+limitation, whether it is fundamental to the design or merely an engineering
+shortfall awaiting a better fix. The discussion is written for a reader
+without a machine-learning background, and it keeps one discipline throughout:
+every claim is separated into what is \emph{observed}, what is
+\emph{explained}, and what is merely \emph{narrated} --- and every citation was
+re-verified against public bibliographic indexes during preparation, not
+copied from memory. The taxonomy that emerges is not a flat list but a
+structure of three kinds of failure. \emph{Statistical} failures ---
+confabulation, missed context, poor calibration --- behave like sampling error
+and respond, at best, to better data and better measurement.
+\emph{Dynamical} failures arise when a system learns while it acts, so that
+errors circulate and amplify through feedback instead of averaging out.
+\emph{Normative} failures are the most distinctive: some obligations on AI
+systems, such as privacy, are rules rather than probabilities, and a system
+trained only to imitate text cannot even represent the rule it is breaking.
+Recognizing which kind of failure one is looking at changes what counts as a
+remedy --- and explains why many announced fixes do not survive contact with
+the problem they claim to solve.
 \end{abstract}
 
 \tableofcontents
 
 \section{Introduction}
 \label{sec:introduction}
-\draft{Motivate the write-up; state scope, method, and intended audience.}
 
-Generative systems now produce fluent text, images, audio, and code at near-zero
-marginal cost. Fluency, however, is not knowledge, and plausibility is not
-correctness \autocite{bender2021stochastic,bender2020climbing}. This document
-catalogs the failure modes that follow from that gap, with attention to which
-limitations are \emph{fundamental} to the paradigm and which are
-\emph{engineering shortfalls} that may yield to better tooling, data, or
-verification.
+This document began as an answer to a practical question from someone whose
+exposure to artificial intelligence is almost entirely through the generative
+products of the last decade --- chat assistants, image generators, code
+helpers. That exposure is real but asymmetric: the successes are easy to see,
+and the structure of the failures is not. Someone who has only seen a system
+succeed cannot tell a reliable tool from an unreliable one, cannot judge
+announced fixes, and cannot assess the more breathless claims made in both
+directions. The purpose here is to supply the missing half of the picture.
+
+The scope is deliberately bounded. The primary object is the large language
+model --- the architecture behind text generation --- with image, audio, and
+video generators discussed where they share the same limitations. Where a
+limitation spills over the border of ``generative AI'' into machine learning
+generally, or into questions of governance and law, the text says so rather
+than pretending the border held.
+
+The method is the part the reader should trust most. Each section states the
+limitation in plain language, gives the strongest observed evidence for it,
+and distinguishes three levels of claim: what is directly \emph{observed}
+(measured in published experiments), what is \emph{explained} (proved or
+well-argued mechanistically), and what is merely \emph{narrated} (repeated so
+often it sounds established, but is not). The bibliography was not assembled
+from memory: every entry was checked against public indexes (DBLP, the arXiv
+API, Crossref) by a verification script whose raw output ships alongside this
+document, and open-access copies of the cited papers are archived with
+cryptographic hashes. Where the literature disagrees, the disagreement is
+reported rather than resolved by fiat.
 
 \section{Background and terminology}
 \label{sec:background}
-\draft{Define the object of study: autoregressive LLMs, diffusion models,
-multimodal generators. Fix vocabulary early (hallucination vs.\ confabulation,
-grounding, calibration).}
 
 The dominant architecture for language generation is the transformer
-\autocite{vaswani2017attention}, trained to continue sequences. Image and audio
-generators increasingly share the denoising/diffusion paradigm. Throughout, we
-use \emph{limitation} to mean a systematic constraint on reliability,
-grounding, or reasoning---not a one-off defect of a particular product.
+\autocite{vaswani2017attention}, trained on a simple objective: given a
+sequence of text, predict the next piece of text. Repeat that objective at
+enormous scale over a large fraction of the written internet, and the result
+is a system that produces startlingly fluent continuations. Text generators
+of this kind are called \emph{autoregressive}: each output token is produced
+conditioned on everything so far, one after another, like a very well-informed
+typist. Image, audio, and increasingly video generators use a different
+paradigm called \emph{diffusion}: the system learns to turn pure noise into a
+coherent sample step by step, like a photograph developing --- and, as
+Section~\ref{sec:alternatives} discusses, the same idea now works for text.
+
+A few terms recur throughout and deserve fixed meanings.
+
+\emph{Hallucination} or \emph{confabulation} is the production of statements
+unsupported by the training data, the conversation, or the world. This
+document prefers \emph{confabulation} where it matters: the term
+``hallucination'' misleadingly suggests a perception problem, when the
+mechanism is the training objective itself rewarding plausible-sounding
+continuation.
+
+\emph{Grounding} is the connection between language and what it is about.
+A system trained purely on text has seen descriptions of the world, not the
+world; the same strings are compatible with many different worlds
+\autocite{bender2020climbing}.
+
+\emph{Calibration} is the match between a system's expressed confidence and
+its actual reliability. A well-calibrated system that is right 80\% of the
+time says so; a badly calibrated one sounds equally sure either way.
+
+\emph{Benchmark contamination} is the leakage of test questions into training
+data, which turns examinations into memory tests.
+
+Throughout, \emph{limitation} means a systematic constraint on reliability,
+grounding, or reasoning --- not a one-off defect of a particular product,
+and not an inability that better prompting happens to route around in one
+lucky case.
 
 \section{A taxonomy of limitations}
 \label{sec:taxonomy}
-\draft{This is the core of the write-up; each subsection gets its own
-evidence base before any generalizing claims.}
+
+The limitations below are usually presented as a laundry list, which invites
+the mistaken conclusion that one big fix --- more data, more compute, better
+guardrails --- will eventually clear them all. Grouping them instead by
+\emph{mechanism}, meaning what kind of error they are and how they respond to
+effort, yields three families. The grouping is the single most useful thing
+this document offers, and it is summarized in Table~\ref{tab:trichotomy}.
+
+\begin{table}[htbp]
+\centering
+\caption{The three families of failure and the remedies that actually match
+them. Offering a statistical remedy for a normative failure is a category
+error --- the most consequential one in current AI policy debates.}
+\label{tab:trichotomy}
+\begin{tabular}{@{}p{0.16\textwidth}p{0.37\textwidth}p{0.37\textwidth}@{}}
+\toprule
+\textbf{Family} & \textbf{Signature} & \textbf{Matching remedy} \\
+\midrule
+Statistical & errors average out over samples & better data, better
+measurement, better calibration \\
+Dynamical & errors circulate and amplify through feedback & architectural
+separation of learning from acting \\
+Normative & errors are systematic because the violated rule cannot even be
+represented & inspectable, typed structure outside the trained weights \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Sections~\ref{sec:hallucination} through~\ref{sec:memory} belong to the
+statistical family: their errors are, at bottom, sampling errors, and
+additional data or measurement can in principle dilute them.
+Section~\ref{sec:learning-in-the-loop} is the dynamical family in miniature:
+there the errors do not average out, because the learner's own actions shape
+the data it learns from. The normative family is not a defect
+\emph{inside} these systems but a structural absence \emph{around} them ---
+there is nothing in a trained model that can represent ``this transmission
+violates this norm'' --- and it is treated in
+Section~\ref{sec:neurosymbolic}, after the design space in
+Section~\ref{sec:alternatives} has been laid out.
 
 \subsection{Reliability: confabulation and hallucination}
 \label{sec:hallucination}
+
 Generative models produce statements unsupported by their inputs, their
-training data, or the world
-\autocite{ji2023survey,mallen2023trust}. The phenomenon is not rare-model
-noise: it follows from training objectives that reward plausible continuations.
+training data, or the world \autocite{ji2023survey,mallen2023trust}. The
+phenomenon is not rare noise from a badly built model: it follows from the
+training objective, which rewards plausible continuations, and plausibility
+is a matter of what usually sounds right, not what is true. A model asked
+about a niche subject has a choice between fluent invention and an awkward
+admission of ignorance, and everything in its training has rewarded the
+former.
+
+Two observed properties are worth knowing. First, the rate of confabulation
+depends on the subject: on popular topics, where the training data is dense
+and largely consistent, models do much better than on the long tail of
+rare ones, where retrieval of genuine memorized facts collapses
+\autocite{mallen2023trust}. Second, fluency is uncorrelated with accuracy ---
+the false statements arrive in exactly the same confident prose as the true
+ones, which is why readers' natural heuristic of ``it sounds like it knows
+what it is talking about'' fails precisely here.
 
 \subsection{Reasoning, compositionality, and planning}
 \label{sec:reasoning}
+
 Transformers degrade sharply on tasks whose solution requires reliable
-composition of sub-computations \autocite{dziri2023faith}, and large language
-models demonstrably fail classical planning benchmarks
-\autocite{valmeekam2023planning,kambhampati2024llms}.
+composition of sub-computations \autocite{dziri2023faith}: if each step is
+95\% reliable and the answer needs forty steps in sequence, the whole is
+unreliable in a way that more data on the \emph{whole} does not repair, since
+the model's errors compound with depth of reasoning rather than averaging out
+per step. In controlled studies, large language models demonstrably fail
+classical planning benchmarks --- producing invalid plans, plans that fail
+their own preconditions, or plans that merely paraphrase the ones seen in
+training \autocite{valmeekam2023planning,kambhampati2024llms}.
+
+The plain-language version: these systems are superb at \emph{recognizing}
+what a plan or proof or derivation looks like, and unreliable at
+\emph{producing} one under constraints. That distinction --- pattern
+recognition versus constrained generation --- is the load-bearing one in much
+of what follows.
 
 \subsection{Grounding: form versus meaning}
 \label{sec:grounding}
+
 Language-only training leaves meaning underdetermined: the same strings are
-compatible with many worlds \autocite{bender2020climbing}. Multimodal training
-narrow but does not close this gap.
+compatible with many worlds \autocite{bender2020climbing}. A system can
+manipulate the word ``coffee'' flawlessly --- translate it, rhyme with it,
+write sonnets about it --- with nothing that connects the word to the
+substance. Multimodal training (attaching images, audio, or video to text)
+narrows this gap but does not close it: the association between a caption and
+a photograph is still a statistical co-occurrence, not a grasp of what makes
+the photograph a photograph of anything.
+
+For the reader evaluating a product demo, the practical test is to ask
+questions whose answers cannot be inferred from text alone --- how heavy, in
+which room, what happened \emph{after} the training cutoff --- and to notice
+how confidently the answers arrive anyway.
 
 \subsection{Data-derived limits}
 \label{sec:data}
-Bias, temporal cutoffs, duplication, contamination of evaluation sets, and the
-thin coverage of the long tail propagate directly into model behavior
-\autocite{bommasani2021opportunities,weidinger2021ethical}.
+
+Everything a generative system ``knows'' is a compression of its training
+corpus, so defects in the corpus propagate directly into behavior. The
+consequences are several and different in kind. \emph{Bias}: systematic
+skews in the corpus (who writes, who is written about, in what tone) become
+systematic skews in output \autocite{weidinger2021ethical}.
+\emph{Temporal cutoff}: a model's world ends at its last data; it will speak
+confidently of a past that simply stopped. \emph{Duplication and memorization}:
+heavily repeated text is retained nearly verbatim, which matters both for
+accuracy and for leaking what should have stayed private.
+\emph{Long-tail thinness}: rare facts, names, and events are exactly where
+confabulation flourishes, per Section~\ref{sec:hallucination}. The
+foundation-model literature treats these as a family because they share a
+cause --- the data is the world as seen from a very partial vantage point
+\autocite{bommasani2021opportunities}.
 
 \subsection{Calibration and uncertainty}
 \label{sec:calibration}
+
 Models often lack well-calibrated confidence over their own outputs; fluent
 delivery is a poor proxy for posterior probability
-\autocite{kadavath2022language}.
+\autocite{kadavath2022language}. The nuance matters: large models are
+\emph{partially} calibrated --- on some question types their internal states
+carry usable signals about their own correctness, and models can be trained
+to surface those signals. But the default interface, a confident prose
+stream, discards that signal. The user sees the same tone whether the model
+is reciting a famous theorem or inventing a citation. Until the interface
+exposes uncertainty honestly --- and few do --- every downstream consumer of
+the output inherits an unmeasured risk.
 
 \subsection{Evaluation pathologies}
 \label{sec:evaluation}
-Heuristic shortcuts \autocite{mccoy2019right}, benchmark contamination, and
-Goodhart effects make headline metrics unreliable guides to capability.
+
+How do we know any of the capability claims? Mostly from benchmarks --- and
+benchmarks have documented pathologies of their own. Models learn heuristic
+shortcuts that score well on test sets without the underlying competence
+\autocite{mccoy2019right}; test questions leak into training data, turning
+examinations into memory tests; and Goodhart's law applies with full force
+--- once a measure becomes a target, it ceases to be a good measure. The
+composite effect, visible in the repeated pattern of benchmark scores rising
+while careful probes of the same skill stay flat, is that headline metrics
+are an unreliable guide to capability. The reader should discount any claim
+of the form ``the new model scores X\%'' unless the evaluation method is
+described and contamination is addressed.
 
 \subsection{Social and systemic risks}
 \label{sec:social}
-Harms to persons and institutions \autocite{weidinger2021ethical}, and the
-compounding of the above when generators are chained into agentic pipelines.
+
+The families above are per-interaction failure modes. Their social
+consequences compound: harms to persons and institutions arise at scale
+\autocite{weidinger2021ethical} --- from stereotyping and privacy violation
+through to misinformation --- and the compounding intensifies when
+generators are chained into \emph{agentic} pipelines, where one system's
+output becomes another's input with no human between the stages. An error
+rate that is merely annoying in a chat window becomes structurally
+consequential when the same class of errors silently propagates through
+software, documents, and decisions. This subsection is where the statistical
+family touches the normative one: scale converts individual sampling errors
+into systemic outcomes, but as Section~\ref{sec:neurosymbolic} argues, some
+of those outcomes are then governed by \emph{rules} that the underlying
+systems cannot represent.
 
 \subsection{Memory and context: the read side of state}
 \label{sec:memory}
-\draft{Expand from notes/memory-and-diffusion.md; keep the read/write split
-explicit.}
 
 Contemporary models do not remember: they are functions of their context
-window, and long-term memory is externalized to engineering scaffolding.
-The \emph{write} side --- changing what the system knows through
-experience --- is the dual-control problem of
-Section~\ref{sec:learning-in-the-loop}. The \emph{read} side is a distinct
-failure that persists even with frozen weights: models reliably use
-information at the edges of long contexts but miss the middle
-\autocite{liu2024lost}, and models advertising 32K-plus token windows often
-fail realistic tasks well below their advertised limits
+window, and long-term memory is externalized to engineering scaffolding ---
+files, databases, retrieval systems bolted on around the model. The
+\emph{write} side --- changing what the system knows through experience ---
+is the dual-control problem of Section~\ref{sec:learning-in-the-loop}. The
+\emph{read} side is a distinct failure that persists even with frozen
+weights: models reliably use information at the edges of long contexts but
+miss the middle \autocite{liu2024lost}, and models advertising 32K-plus token
+windows often fail realistic tasks well below their advertised limits
 \autocite{hsieh2024ruler}. Context is best understood as short-term working
-memory with unmeasured fidelity --- and retrieval scaffolds inherit the same
-read-reliability problem one layer out.
+memory with unmeasured fidelity. The retrieval scaffolds sold as the fix
+inherit the same read-reliability problem one layer out: whatever the
+retriever fails to find, or the model fails to notice mid-context, is
+silently absent from the answer --- with no change in tone to mark the gap.
 
 \subsection{Learning in the loop: dynamical failures}
 \label{sec:learning-in-the-loop}
-\draft{Expand from notes/online-neural-control.md; keep the dynamical-versus-statistical distinction sharp.}
 
 The preceding failures are \emph{statistical}: errors average out over
-samples. A distinct family arises when a network is updated online inside
-its own control loop, where errors \emph{circulate through feedback}.
-Combining bootstrapped targets with function approximation and off-policy
-data diverges --- provably, even with linear approximation and exact
-dynamic-programming updates \autocite{baird1995residual,
-tsitsiklis1997analysis,vanhasselt2018deadly}. The acting controller
-additionally corrupts its own data distribution: agents overfit their
-earliest experiences \autocite{nikishin2022primacy}, shifted distributions
-overwrite prior learning \autocite{french1999catastrophic}, and prolonged
-continual training destroys the \emph{capacity to learn} altogether
-\autocite{dohare2024plasticity}. A learned dynamics model invites
-optimizing against its own flattering extrapolations
-\autocite{janner2019trust}. The classical umbrella is Feldbaum's dual
-control, intractable even for linear-Gaussian systems
+samples. A distinct family arises when a network is updated online inside its
+own control loop, where errors \emph{circulate through feedback}. Combining
+bootstrapped targets with function approximation and off-policy data diverges
+--- provably, even with linear approximation and exact dynamic-programming
+updates \autocite{baird1995residual,tsitsiklis1997analysis,
+vanhasselt2018deadly}. The acting controller additionally corrupts its own
+data distribution: agents overfit their earliest experiences
+\autocite{nikishin2022primacy}, shifted distributions overwrite prior
+learning \autocite{french1999catastrophic}, and prolonged continual training
+destroys the \emph{capacity to learn} altogether \autocite{dohare2024plasticity}.
+A learned dynamics model invites optimizing against its own flattering
+extrapolations \autocite{janner2019trust}. The classical umbrella is
+Feldbaum's dual control, intractable even for linear-Gaussian systems
 \autocite{wittenmark1995adaptive}; the principled escape is two-timescale
 separation of estimation from action \autocite{borkar1997stochastic}.
 
+The plain-language summary: a system that rewrites itself while it acts is
+not just a statistical learner with a faster clock --- it is a feedback
+system, and feedback systems have failure modes (oscillation, collapse,
+lock-in) that no amount of additional data cures. This is why the memory
+question of Section~\ref{sec:memory} cannot be solved by simply letting the
+model update itself, and why the governance architecture of
+Section~\ref{sec:neurosymbolic} keeps normative state outside the trained
+weights.
+
 \section{Alternatives in the generator design space}
 \label{sec:alternatives}
-\draft{Expand from notes/memory-and-diffusion.md; keep the plain-language
-framing for the intended audience.}
 
 Autoregressive models write like a typist, one token after another;
 diffusion models sculpt the whole answer at once, refining noise into text
-like a photograph developing. The sculptor is measurably faster --- over a
-thousand tokens per second on current hardware, with sub-second first
-tokens \autocite{inception2025mercury} --- and handles sound and images
-natively; an 8B-parameter diffusion model trained on a fraction of the data
-matches an equivalent autoregressive model \autocite{nie2025llada}. The
-typist still holds two advantages: very long documents are cheaper to serve
-thanks to key--value caching, and deliberate step-by-step reasoning is
-currently built on sequential generation. Better on speed and modality;
-better overall --- still an open, empirical question.
+like a photograph developing. The distinction is not aesthetic. Because the
+sculptor works all positions simultaneously, it is measurably faster ---
+over a thousand tokens per second on current hardware, with sub-second first
+tokens \autocite{inception2025mercury} --- and because the same denoising
+mechanism natively handles continuous signals, it extends to sound and
+images without text being the privileged medium. An 8B-parameter diffusion
+language model trained on a fraction of the data matches an equivalent
+autoregressive model \autocite{nie2025llada}, which is evidence that the
+autoregressive objective is not the only route to competence.
+
+The typist still holds two advantages, and honest reporting requires naming
+them. First, very long documents are cheaper to serve autoregressively: the
+model keeps compact notes about what it has already read, so continuing is
+inexpensive, while the diffusion approach re-examines the whole document at
+every refinement step. Second, deliberate step-by-step reasoning --- the
+``think for a long time before answering'' style behind the strongest
+current results --- is built on long sequential generation, which is the
+autoregressive shape. Diffusion has a structural self-correction advantage
+in principle (it can revise an early part of the answer without regenerating
+the rest; the typist cannot), but that advantage has not yet won the
+frontier. The verdict: better on speed and modality, demonstrated; better
+overall, still an open empirical question whose deciding battlegrounds are
+reasoning-time compute and long-context serving.
 
 \section{What the limitations imply}
 \label{sec:implications}
-\draft{Survey the mitigation landscape---retrieval augmentation, tool use,
-verification, neuro-symbolic hybrids---and assess honestly which limitations
-each addresses and which it merely hides \autocite{gao2023rag}.}
+
+A catalogue is only useful if it changes decisions. The family structure of
+Section~\ref{sec:taxonomy} sorts the mitigation landscape --- retrieval
+augmentation, tool use, verification, neuro-symbolic hybrids --- into those
+that address a limitation, those that merely hide it, and those that are
+category errors \autocite{gao2023rag}. Retrieval augmentation attacks
+data-derived limits (recency, long-tail thinness) but inherits the read-side
+memory problem of Section~\ref{sec:memory}: whatever is retrieved poorly is
+silently absent. Tool use lets a model delegate what it cannot compute, but
+delegation is only as reliable as the model's judgment about when to
+delegate. Verification --- checking outputs against a formal or empirical
+oracle --- is the strongest statistical remedy, because it converts
+plausibility into checked correctness, and it is no accident that the
+flagship neurosymbolic successes below are verification-shaped. None of the
+statistical remedies touches the dynamical family, which yields only to
+architectural separation, or the normative family, which is the subject of
+the next subsection.
 
 \subsection{The neurosymbolic case: governance demands structure}
 \label{sec:neurosymbolic}
-\draft{Expand from notes/neurosymbolic-governance.md; keep the coherence
-criterion and the corrected deployment claim.}
 
 Some obligations on AI systems are not statistical questions. Privacy, in
-its dominant positive theory (contextual integrity), is a system of norms
-over who may transmit what information about whom, to whom, in which
-context --- and when it was formalized, that theory became a deontic logic
-with temporal operators \autocite{barth2006privacy}. Reading the formal
-requirements off yields exactly multi-type, multi-agent, multimodal logic
-with temporality and probabilism for risk: recipient beliefs, role and
-group structure, retention over time, leak-path probabilities. A corpus
-gradient can imitate descriptions of norms; it cannot apply one. It can
-produce instances of protective behavior, but coherence --- norm
-consistency, auditability, reversibility --- requires inspectable
-structure. The semiotic layer supplies what the formalization leaves
-informal: a typed account of what kind of sign is transmitted about whom
-(indexical links, iconic portrayals, symbolic misuses). Narrow hybrids are
-deployed commercially; the full normative profile is deployed nowhere
-\autocite{garcez2023neurosymbolic,trinh2024alphageometry,
-hubert2025alphaproof}. Architecturally, the precedent is the ethical
-governor \autocite{arkin2009governing}: normative state outside the
-trained weights, neural perception fast and graded --- the same
-two-timescale separation that Section~\ref{sec:learning-in-the-loop}
-derives from stability, derived here from accountability.
+its dominant positive theory --- Helen Nissenbaum's contextual integrity
+\autocite{nissenbaum2009privacy} --- is a system of norms over who may
+transmit what information about whom, to whom, in which context. When that
+theory was formalized, it became a deontic logic with temporal operators
+\autocite{barth2006privacy}: the formalization requires recipient beliefs,
+role and group structure, retention over time, and probabilities of leak
+paths for risk assessment. Read the required machinery off the formalization
+and one gets exactly multi-type, multi-agent, multimodal logic with
+temporality and probabilism --- a profile that no trained statistical model
+possesses, because nothing in a corpus gradient can represent ``this
+transmission violates this norm in this context.''
+
+The distinction that matters is between producing \emph{instances} of
+protective behavior and maintaining \emph{coherence}. A large model fine-tuned
+on privacy-conscious text will sometimes refuse to repeat someone's address;
+it will do so unreliably, without an audit trail, without consistency across
+conversations and time, and with no mechanism for correction short of
+retraining. Coherence --- norm consistency, auditability, reversibility ---
+requires inspectable structure. The semiotic layer supplies what even the
+formal theory leaves informal: a typed account of what \emph{kind} of sign
+is transmitted about whom, since an indexical link (this photo of a face
+\emph{is} this person) is a doxxing vector, an iconic rendering is
+representational harm, and a symbolic misuse is a norm violation with an
+identifiable norm object.
+
+The current state of deployment is worth stating precisely, because both
+hype and dismissal get it wrong. Narrow hybrids --- symbolic structure in
+load-bearing but restricted roles, such as constrained decoding and
+rule-based guardrails over model output --- are deployed commercially.
+Flagship neurosymbolic systems exist but at research stage: an
+olympiad-geometry solver pairing a neural language model with a symbolic
+deduction engine \autocite{trinh2024alphageometry}, and formal mathematical
+reasoning at olympiad level \autocite{hubert2025alphaproof}. What is deployed
+nowhere is the full governance-demanding profile --- normative, multi-agent,
+multimodal, temporal. The vacuum is the finding. Architecturally, the
+precedent for how to fill it is the ethical governor
+\autocite{arkin2009governing}: normative state held outside the trained
+weights, with neural perception fast and graded --- the same two-timescale
+separation that Section~\ref{sec:learning-in-the-loop} derives from
+stability, derived here from accountability.
 
 \subsection{The shape of the machine shapes the science}
 \label{sec:saas}
-\draft{Expand from notes/saas-political-economy.md; keep intent deliberately
-underdetermined; the effects are the citable part.}
 
-One further limitation is not inside the models but around them. The
-dominant delivery mechanism of the past decade --- models offered only as
-hosted services, weights withheld --- was selected under incentives where
-keeping the service proprietary had commercial value, and the choice has
-measurable costs for research: transparency scores for major developers
-are low and declining, with the worst indicators exactly where a service
-model hides things (training data, compute)
-\autocite{bommasani2023fmti}; published findings silently break when
-hosted models are updated or retired without documentation
-\autocite{pozzobon2023blackbox}; and access to the necessary scale was
+One further limitation is not inside the models but around them. The dominant
+delivery mechanism of the past decade --- models offered only as hosted
+services, weights withheld --- was selected under incentives where keeping
+the service proprietary had commercial value, and the choice has measurable
+costs for research. Transparency scores for major developers are low, with
+the worst indicators exactly where a service model hides things: training
+data, compute, hardware \autocite{bommasani2023fmti}. Published findings
+silently break when hosted models are updated or retired without
+documentation \autocite{pozzobon2023blackbox} --- an entire literature can
+become unreplicable by a quiet API change. Access to the necessary scale was
 already concentrating industrially before the commercial boom
-\autocite{ahmed2020dedemocratization,kapoor2023leakage}. An internal
-document leaked from Google in 2023 acknowledged the moat reasoning
-directly \autocite{patel2023nomoat}. Competing explanations --- safety,
-legal exposure --- predict much the same behavior, so motive must remain
-an open question; the measurable damage to the research commons is the
-part that can be stated without hedging.
+\autocite{ahmed2020dedemocratization}, and the reproducibility crisis in
+machine-learning-based science compounds the effect
+\autocite{kapoor2023leakage}. An internal document leaked from Google in
+2023 acknowledged the moat reasoning directly
+\autocite{patel2023nomoat}.
+
+Honesty requires marking the boundary of what the evidence shows. Competing
+explanations --- safety review, legal exposure --- predict much the same
+observable behavior as moat preservation, so the \emph{motive} must remain an
+open question; the measurable damage to the research commons is the part
+that can be stated without hedging. For the reader, the practical lesson is
+about the shape of the machine: a technology delivered as an opaque service
+is not merely expensive --- it is structurally harder to study, audit,
+reproduce, and therefore to trust.
 
 \section{Open questions}
 \label{sec:open-questions}
-\draft{Collect open research questions, including which limitations are
-in-principle vs.\ in-practice.}
+
+Distinguishing in-principle limits from in-practice ones is the honest way to
+hold open questions. The following are open, with the current state of
+evidence noted.
+
+\begin{itemize}
+\item \textbf{Is confabulation reducible to acceptable levels under an
+objective that rewards plausibility?} Scaling has diluted but not removed it,
+and retrieval patches the symptom on popular topics
+\autocite{mallen2023trust} while leaving the long tail exposed. Nothing in
+the current evidence settles whether the objective itself can be repaired.
+
+\item \textbf{Do effective and advertised context lengths converge?} The
+measured gap \autocite{hsieh2024ruler} and the position pathology
+\autocite{liu2024lost} have persisted across model generations; whether
+architectural change (including diffusion's all-position access) closes them
+is unresolved.
+
+\item \textbf{Is reliable compositionality reachable by training alone?}
+Errors compound with reasoning depth \autocite{dziri2023faith}, and the
+leading current proposal is hybridization rather than pure scale
+\autocite{kambhampati2024llms} --- which concedes the in-principle question
+without proving it.
+
+\item \textbf{What generally restores lost plasticity?} Shrink-and-perturb
+and resets work empirically \autocite{dohare2024plasticity,nikishin2022primacy};
+a general theory of when continual learning remains possible is missing.
+
+\item \textbf{Will diffusion displace autoregression?} The named
+battlegrounds --- reasoning-time compute and long-context economics --- are
+genuine open empirical questions, not settled either way
+(Section~\ref{sec:alternatives}).
+
+\item \textbf{Can the semiotic typing of contextual integrity be
+formalized?} Filling the theory's informal slot --- what kind of sign is
+transmitted about whom --- with Peircean sign classes is, to the author's
+knowledge, unclaimed formalization work
+(Section~\ref{sec:neurosymbolic}).
+
+\item \textbf{Motive versus effect in the service architecture.} The
+falsification directions are specific: release decisions tracking safety
+review rather than competitive events would weaken the moat account;
+persistent unrestricted frontier releases would undermine it outright; and
+regulatory discovery could settle it directly
+(Section~\ref{sec:saas}).
+
+\item \textbf{Which limitations survive a well-designed hybrid?} The honest
+design target is not a system with no limitations but one whose remaining
+limitations are known and bounded --- the question of what that system still
+cannot do is the one this catalogue cannot yet answer.
+\end{itemize}
 
 \section{Conclusion}
 \label{sec:conclusion}
-\draft{Summarize; avoid the twin failure modes of hype and dismissiveness.}
+
+The generative systems of the past decade are genuinely useful, and nothing
+in this catalogue should be read as dismissing them. The point of a
+limitation catalogue is calibration of trust: knowing what a tool cannot do
+is what makes its successes usable. The catalogue organizes into three
+families with different causes and different remedies --- statistical
+failures that respond to data and measurement, dynamical failures that
+respond only to architectural separation, and normative failures that
+respond only to representable, inspectable structure. Most of the gap
+between the promises made for these systems and their delivered performance
+is, on the evidence assembled here, a category error about which family a
+given problem belongs to.
+
+For the non-specialist reader, the catalogue compresses into a handful of
+questions worth asking of any claim: Is the evidence observed, explained, or
+merely narrated? Which family of failure is the claim about? Does the
+proposed remedy match the family, or is a statistical answer being offered
+for a dynamical or normative problem? Those questions cut through both hype
+and dismissal, and they will outlast the current product cycle --- because
+the families, unlike the benchmarks, are not going anywhere.
 
 \printbibliography
 
