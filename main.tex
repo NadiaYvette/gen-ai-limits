@@ -270,19 +270,42 @@ described and contamination is addressed.
 \subsection{Social and systemic risks}
 \label{sec:social}
 
-The families above are per-interaction failure modes. Their social
-consequences compound: harms to persons and institutions arise at scale
-\autocite{weidinger2021ethical} --- from stereotyping and privacy violation
-through to misinformation --- and the compounding intensifies when
-generators are chained into \emph{agentic} pipelines, where one system's
-output becomes another's input with no human between the stages. An error
-rate that is merely annoying in a chat window becomes structurally
-consequential when the same class of errors silently propagates through
-software, documents, and decisions. This subsection is where the statistical
-family touches the normative one: scale converts individual sampling errors
-into systemic outcomes, but as Section~\ref{sec:neurosymbolic} argues, some
-of those outcomes are then governed by \emph{rules} that the underlying
-systems cannot represent.
+The families above are per-interaction failure modes; their social
+consequences compound. The first compounding is plain scale: harms to
+persons and institutions arise when individual failures --- stereotyping,
+privacy violation, misinformation, skewed representation --- are emitted at
+the rate and volume of industrial text production
+\autocite{weidinger2021ethical}. A single confabulated claim is an
+irritant; a million per hour is an information environment.
+
+The second compounding is structural. When generators are chained into
+\emph{agentic} pipelines --- one system's output becoming another's input
+with no human between the stages --- error classes propagate instead of
+being caught: the foundation-model literature treats this as a systemic
+property of the technology rather than an accident of any one deployment
+\autocite{bommasani2021opportunities}. An error rate that is merely annoying
+in a chat window becomes consequential when the same class of errors
+silently flows through software, documents, and decisions, and the
+reproducibility problems documented for the underlying systems
+\autocite{kapoor2023leakage} make the propagation hard to audit after the
+fact.
+
+The third compounding is the least discussed: fluent prose carries an
+implicit claim to intention. Human readers have a lifetime's training in the
+dramaturgy of communication \autocite{bender2021stochastic} --- when
+something speaks in confident, well-formed sentences, we extend it the
+credibility we would extend a competent person, and we feel betrayed or
+persuaded rather than merely notified of noise. A misfiled document does not
+generate outrage; a fluent confabulation does. This asymmetry means the
+social harm of a statistical failure can exceed its information content,
+and it is one more reason vigilance cannot be the last line of defense: it
+puts the burden of skepticism on the least-informed party, at the moment of
+reading, forever.
+
+This subsection is where the statistical family touches the normative one:
+scale converts individual sampling errors into systemic outcomes, but as
+Section~\ref{sec:neurosymbolic} argues, some of those outcomes are then
+governed by \emph{rules} that the underlying systems cannot represent.
 
 \subsection{Memory and context: the read side of state}
 \label{sec:memory}
@@ -532,5 +555,36 @@ and dismissal, and they will outlast the current product cycle --- because
 the families, unlike the benchmarks, are not going anywhere.
 
 \printbibliography
+
+\appendix
+\section{A note on method: verifying a bibliography}
+\label{sec:verification}
+
+Because this document's central discipline is the separation of the
+observed from the merely narrated, it would be self-defeating to support
+that discipline with a bibliography assembled from memory. It was not.
+Every entry was checked on 2026-09-03 against at least one public
+bibliographic index --- DBLP, the arXiv API, and Crossref --- by a small
+verification script, with the raw machine-readable results and a
+human-readable corrections log distributed alongside this document.
+
+The verification pass caught real errors worth confessing, because they are
+representative of how citation folklore forms. Two arXiv identifiers written
+from memory resolved to entirely unrelated papers (one, remarkably, to a
+study of intracranial aneurysms); a flagship result's year and co-author
+list were wrong in exactly the way that survives years of casual quoting;
+and one near-collision of titles --- there are two different papers beginning
+``Lost in the Middle'' --- would have silently redirected a reader. None of
+these errors would have survived an attempt to download and read the cited
+papers, which is the deeper point: the failure mode that produces citation
+folklore is the same one this document catalogues in
+Section~\ref{sec:hallucination}, running at human speed.
+
+Open-access copies of twenty-five of the cited papers are archived locally
+with cryptographic hashes and source URLs recorded, so that the specific
+evidence behind each claim can be checked rather than trusted. Where a claim
+rests on a paywalled source, the bibliography says so; where the literature
+disagrees, the text reports the disagreement rather than resolving it by
+fiat.
 
 \end{document}
