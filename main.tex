@@ -1,0 +1,127 @@
+% main.tex — The Limitations of Generative AI (working draft)
+% Build with `make` (requires TeX Live with latexmk and biber).
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{xcolor}
+\usepackage{microtype}
+\usepackage{booktabs}
+\usepackage[style=authoryear,backend=biber,maxcitenames=2]{biblatex}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,citecolor=blue!50!black,urlcolor=blue!50!black]{hyperref}
+
+\addbibresource{references.bib}
+
+% Marker for passages that still need substantive work.
+\newcommand{\draft}[1]{\textcolor{red}{[DRAFT: #1]}}
+
+\title{The Limitations of Generative AI\\[0.3em]\large A critical working draft}
+\author{Nadia Yvette}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+This write-up systematizes the known limitations of contemporary generative AI
+systems---large language models chief among them---and distinguishes carefully
+between what is \emph{observed}, what is \emph{explained}, and what is merely
+\emph{narrated}. The organizing claim is that the most consequential failures
+are not incidental bugs but structural consequences of how these systems are
+built: next-token prediction over compressed corpora, optimization for
+plausibility rather than truth, and evaluation regimes that reward fluent
+imitation of understanding.
+\draft{Sharpen the thesis once the section drafts stabilize.}
+\end{abstract}
+
+\tableofcontents
+
+\section{Introduction}
+\label{sec:introduction}
+\draft{Motivate the write-up; state scope, method, and intended audience.}
+
+Generative systems now produce fluent text, images, audio, and code at near-zero
+marginal cost. Fluency, however, is not knowledge, and plausibility is not
+correctness \autocite{bender2021stochastic,bender2020climbing}. This document
+catalogs the failure modes that follow from that gap, with attention to which
+limitations are \emph{fundamental} to the paradigm and which are
+\emph{engineering shortfalls} that may yield to better tooling, data, or
+verification.
+
+\section{Background and terminology}
+\label{sec:background}
+\draft{Define the object of study: autoregressive LLMs, diffusion models,
+multimodal generators. Fix vocabulary early (hallucination vs.\ confabulation,
+grounding, calibration).}
+
+The dominant architecture for language generation is the transformer
+\autocite{vaswani2017attention}, trained to continue sequences. Image and audio
+generators increasingly share the denoising/diffusion paradigm. Throughout, we
+use \emph{limitation} to mean a systematic constraint on reliability,
+grounding, or reasoning---not a one-off defect of a particular product.
+
+\section{A taxonomy of limitations}
+\label{sec:taxonomy}
+\draft{This is the core of the write-up; each subsection gets its own
+evidence base before any generalizing claims.}
+
+\subsection{Reliability: confabulation and hallucination}
+\label{sec:hallucination}
+Generative models produce statements unsupported by their inputs, their
+training data, or the world
+\autocite{ji2023survey,mallen2023trust}. The phenomenon is not rare-model
+noise: it follows from training objectives that reward plausible continuations.
+
+\subsection{Reasoning, compositionality, and planning}
+\label{sec:reasoning}
+Transformers degrade sharply on tasks whose solution requires reliable
+composition of sub-computations \autocite{dziri2023faith}, and large language
+models demonstrably fail classical planning benchmarks
+\autocite{valmeekam2023planning,kambhampati2024llms}.
+
+\subsection{Grounding: form versus meaning}
+\label{sec:grounding}
+Language-only training leaves meaning underdetermined: the same strings are
+compatible with many worlds \autocite{bender2020climbing}. Multimodal training
+narrow but does not close this gap.
+
+\subsection{Data-derived limits}
+\label{sec:data}
+Bias, temporal cutoffs, duplication, contamination of evaluation sets, and the
+thin coverage of the long tail propagate directly into model behavior
+\autocite{bommasani2021opportunities,weidinger2021ethical}.
+
+\subsection{Calibration and uncertainty}
+\label{sec:calibration}
+Models often lack well-calibrated confidence over their own outputs; fluent
+delivery is a poor proxy for posterior probability
+\autocite{kadavath2022language}.
+
+\subsection{Evaluation pathologies}
+\label{sec:evaluation}
+Heuristic shortcuts \autocite{mccoy2019right}, benchmark contamination, and
+Goodhart effects make headline metrics unreliable guides to capability.
+
+\subsection{Social and systemic risks}
+\label{sec:social}
+Harms to persons and institutions \autocite{weidinger2021ethical}, and the
+compounding of the above when generators are chained into agentic pipelines.
+
+\section{What the limitations imply}
+\label{sec:implications}
+\draft{Survey the mitigation landscape---retrieval augmentation, tool use,
+verification, neuro-symbolic hybrids---and assess honestly which limitations
+each addresses and which it merely hides \autocite{gao2023rag}.}
+
+\section{Open questions}
+\label{sec:open-questions}
+\draft{Collect open research questions, including which limitations are
+in-principle vs.\ in-practice.}
+
+\section{Conclusion}
+\label{sec:conclusion}
+\draft{Summarize; avoid the twin failure modes of hype and dismissiveness.}
+
+\printbibliography
+
+\end{document}
