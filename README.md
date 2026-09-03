@@ -2,6 +2,15 @@
 
 A critical write-up on the limitations of generative AI, in LaTeX.
 
+## Audience and purpose
+
+Written for a less-technical reader whose exposure to AI is primarily
+through generative systems of the past decade. The scope spills beyond
+generative AI where the same limitation categories apply, but generative
+systems remain the anchor. Where findings suggest ways to bulletproof the
+companion MOWGLI project (`~/src/logic/`), they are recorded in
+`notes/`.
+
 ## Layout
 
 ```text

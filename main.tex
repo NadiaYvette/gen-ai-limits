@@ -107,6 +107,24 @@ Goodhart effects make headline metrics unreliable guides to capability.
 Harms to persons and institutions \autocite{weidinger2021ethical}, and the
 compounding of the above when generators are chained into agentic pipelines.
 
+\subsection{Memory and context: the read side of state}
+\label{sec:memory}
+\draft{Expand from notes/memory-and-diffusion.md; keep the read/write split
+explicit.}
+
+Contemporary models do not remember: they are functions of their context
+window, and long-term memory is externalized to engineering scaffolding.
+The \emph{write} side --- changing what the system knows through
+experience --- is the dual-control problem of
+Section~\ref{sec:learning-in-the-loop}. The \emph{read} side is a distinct
+failure that persists even with frozen weights: models reliably use
+information at the edges of long contexts but miss the middle
+\autocite{liu2024lost}, and models advertising 32K-plus token windows often
+fail realistic tasks well below their advertised limits
+\autocite{hsieh2024ruler}. Context is best understood as short-term working
+memory with unmeasured fidelity --- and retrieval scaffolds inherit the same
+read-reliability problem one layer out.
+
 \subsection{Learning in the loop: dynamical failures}
 \label{sec:learning-in-the-loop}
 \draft{Expand from notes/online-neural-control.md; keep the dynamical-versus-statistical distinction sharp.}
@@ -128,6 +146,23 @@ optimizing against its own flattering extrapolations
 control, intractable even for linear-Gaussian systems
 \autocite{wittenmark1995adaptive}; the principled escape is two-timescale
 separation of estimation from action \autocite{borkar1997stochastic}.
+
+\section{Alternatives in the generator design space}
+\label{sec:alternatives}
+\draft{Expand from notes/memory-and-diffusion.md; keep the plain-language
+framing for the intended audience.}
+
+Autoregressive models write like a typist, one token after another;
+diffusion models sculpt the whole answer at once, refining noise into text
+like a photograph developing. The sculptor is measurably faster --- over a
+thousand tokens per second on current hardware, with sub-second first
+tokens \autocite{inception2025mercury} --- and handles sound and images
+natively; an 8B-parameter diffusion model trained on a fraction of the data
+matches an equivalent autoregressive model \autocite{nie2025llada}. The
+typist still holds two advantages: very long documents are cheaper to serve
+thanks to key--value caching, and deliberate step-by-step reasoning is
+currently built on sequential generation. Better on speed and modality;
+better overall --- still an open, empirical question.
 
 \section{What the limitations imply}
 \label{sec:implications}
