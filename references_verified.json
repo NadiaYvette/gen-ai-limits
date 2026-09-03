@@ -1,0 +1,965 @@
+{
+  "vaswani2017attention": {
+    "status": "arxiv-matched",
+    "sources": {
+      "arxiv": "1706.03762"
+    },
+    "dblp_candidates": [
+      {
+        "title": "Attentional Transfer is All You Need: Technology-aware Layout Pattern Generation.",
+        "year": "2021",
+        "ee": "https://doi.org/10.1109/DAC18074.2021.9586227"
+      },
+      {
+        "title": "Attention Is All You Need But You Don&apos;t Need All Of It For Inference of Large Language Models.",
+        "year": "2024",
+        "ee": "https://doi.org/10.48550/arXiv.2407.15516"
+      },
+      {
+        "title": "Context Is All You Need: A Hybrid Attention-Based Method for Detecting Code Design Patterns.",
+        "year": "2025",
+        "ee": "https://doi.org/10.1109/ACCESS.2025.3525849"
+      },
+      {
+        "title": "Attention is All You Need Until You Need Retention.",
+        "year": "2025",
+        "ee": "https://doi.org/10.48550/arXiv.2501.09166"
+      }
+    ],
+    "title": "Attention Is All You Need",
+    "authors": [
+      "Ashish Vaswani",
+      "Noam Shazeer",
+      "Niki Parmar",
+      "Jakob Uszkoreit",
+      "Llion Jones",
+      "Aidan N. Gomez",
+      "Lukasz Kaiser",
+      "Illia Polosukhin"
+    ],
+    "venue": "arXiv",
+    "year": "17",
+    "pdf": "pdfs/vaswani2017attention.pdf"
+  },
+  "bender2021stochastic": {
+    "status": "dblp-matched",
+    "sources": {
+      "unpaywall": "https://doi.org/10.1145/3442188.3445922",
+      "crossref": "10.1145/3442188.3445922",
+      "dblp": "https://doi.org/10.1145/3442188.3445922"
+    },
+    "dblp_candidates": [
+      {
+        "title": "On the Dangers of Stochastic Parrots: Can Language Models Be Too Big?",
+        "year": "2021",
+        "ee": "https://doi.org/10.1145/3442188.3445922"
+      }
+    ],
+    "oa_license": "cc-by",
+    "title": "On the Dangers of Stochastic Parrots: Can Language Models Be Too Big?",
+    "authors": [
+      "Emily M. Bender",
+      "Timnit Gebru",
+      "Angelina McMillan-Major",
+      "Shmargaret Shmitchell"
+    ],
+    "venue": "FAccT",
+    "pages": "610-623",
+    "year": "2021",
+    "doi": "10.1145/3442188.3445922",
+    "volume": "",
+    "number": "",
+    "dblp_score": 0.95
+  },
+  "ji2023survey": {
+    "status": "dblp-matched",
+    "sources": {
+      "dblp": "https://doi.org/10.1145/3571730"
+    },
+    "title": "Survey of Hallucination in Natural Language Generation.",
+    "authors": [
+      "Ziwei Ji 0001",
+      "Nayeon Lee",
+      "Rita Frieske",
+      "Tiezheng Yu",
+      "Dan Su 0003",
+      "Yan Xu 0012",
+      "Etsuko Ishii",
+      "Yejin Bang",
+      "Andrea Madotto",
+      "Pascale Fung"
+    ],
+    "venue": "ACM Comput. Surv.",
+    "year": "2023",
+    "volume": "55",
+    "number": "12",
+    "pages": "248:1-248:38",
+    "doi": "10.1145/3571730",
+    "dblp_score": 1.0
+  },
+  "dziri2023faith": {
+    "status": "dblp-matched",
+    "sources": {
+      "dblp": "http://papers.nips.cc/paper_files/paper/2023/hash/deb3c28192f979302c157cb653c15e90-Abstract-Conference.html",
+      "arxiv": "2210.05618"
+    },
+    "title": "Faith and Fate: Limits of Transformers on Compositionality.",
+    "authors": [
+      "Nouha Dziri",
+      "Ximing Lu",
+      "Melanie Sclar",
+      "Xiang Lorraine Li",
+      "Liwei Jiang",
+      "Bill Yuchen Lin",
+      "Sean Welleck",
+      "Peter West",
+      "Chandra Bhagavatula",
+      "Ronan Le Bras 0001",
+      "Jena D. Hwang",
+      "Soumya Sanyal 0001",
+      "Xiang Ren 0001",
+      "Allyson Ettinger",
+      "Zaïd Harchaoui",
+      "Yejin Choi 0001"
+    ],
+    "venue": "NeurIPS",
+    "year": "2023",
+    "volume": "",
+    "number": "",
+    "pages": "",
+    "doi": "",
+    "dblp_score": 1.0,
+    "arxiv_flag": "Zero-Order One-Point Estimate with Distributed Stochastic Gradient-Tracking Technique",
+    "pdf": "pdfs/dziri2023faith.pdf"
+  },
+  "valmeekam2023planning": {
+    "status": "verified",
+    "sources": {
+      "dblp": "http://papers.nips.cc/paper_files/paper/2023/hash/efb2072a358cefb75886a315a6fcf880-Abstract-Conference.html",
+      "arxiv": "2302.06706"
+    },
+    "title": "On the Planning Abilities of Large Language Models - A Critical Investigation.",
+    "authors": [
+      "Karthik Valmeekam",
+      "Matthew Marquez",
+      "Sarath Sreedharan",
+      "Subbarao Kambhampati"
+    ],
+    "venue": "NeurIPS",
+    "year": "2023",
+    "volume": "",
+    "number": "",
+    "pages": "",
+    "doi": "",
+    "dblp_score": 0.95,
+    "arxiv_flag": "On the Planning Abilities of Large Language Models (A Critical Investigation with a Proposed Benchmark)",
+    "pdf": "pdfs/valmeekam2023planning.pdf"
+  },
+  "kambhampati2024llms": {
+    "status": "dblp-matched",
+    "sources": {
+      "dblp": "https://proceedings.mlr.press/v235/kambhampati24a.html"
+    },
+    "title": "Position: LLMs Can&apos;t Plan, But Can Help Planning in LLM-Modulo Frameworks.",
+    "authors": [
+      "Subbarao Kambhampati",
+      "Karthik Valmeekam",
+      "Lin Guan 0003",
+      "Mudit Verma",
+      "Kaya Stechly",
+      "Siddhant Bhambri",
+      "Lucas Saldyt",
+      "Anil Murthy"
+    ],
+    "venue": "ICML",
+    "year": "2024",
+    "volume": "",
+    "number": "",
+    "pages": "22895-22907",
+    "doi": "",
+    "dblp_score": 0.95
+  },
+  "mccoy2019right": {
+    "status": "dblp-matched",
+    "sources": {
+      "dblp": "https://doi.org/10.18653/v1/p19-1334",
+      "unpaywall": "https://www.aclweb.org/anthology/P19-1334.pdf"
+    },
+    "title": "Right for the Wrong Reasons: Diagnosing Syntactic Heuristics in Natural Language Inference.",
+    "authors": [
+      "Tom McCoy 0001",
+      "Ellie Pavlick",
+      "Tal Linzen"
+    ],
+    "venue": "ACL",
+    "year": "2019",
+    "volume": "",
+    "number": "",
+    "pages": "3428-3448",
+    "doi": "10.18653/V1/P19-1334",
+    "dblp_score": 0.915,
+    "oa_license": "cc-by",
+    "pdf": "pdfs/mccoy2019right.pdf"
+  },
+  "mallen2023trust": {
+    "status": "dblp-matched",
+    "sources": {
+      "dblp": "https://doi.org/10.18653/v1/2023.acl-long.546",
+      "unpaywall": "https://aclanthology.org/2023.acl-long.546.pdf"
+    },
+    "title": "When Not to Trust Language Models: Investigating Effectiveness of Parametric and Non-Parametric Memories.",
+    "authors": [
+      "Alex Mallen",
+      "Akari Asai",
+      "Victor Zhong",
+      "Rajarshi Das",
+      "Daniel Khashabi",
+      "Hannaneh Hajishirzi"
+    ],
+    "venue": "ACL",
+    "year": "2023",
+    "volume": "",
+    "number": "",
+    "pages": "9802-9822",
+    "doi": "10.18653/V1/2023.ACL-LONG.546",
+    "dblp_score": 0.95,
+    "oa_license": "cc-by",
+    "pdf": "pdfs/mallen2023trust.pdf"
+  },
+  "kadavath2022language": {
+    "status": "arxiv-matched",
+    "sources": {
+      "arxiv": "2207.05221"
+    },
+    "title": "Language Models (Mostly) Know What They Know",
+    "authors": [
+      "Saurav Kadavath",
+      "Tom Conerly",
+      "Amanda Askell",
+      "Tom Henighan",
+      "Dawn Drain",
+      "Ethan Perez",
+      "Nicholas Schiefer",
+      "Zac Hatfield-Dodds",
+      "Nova DasSarma",
+      "Eli Tran-Johnson",
+      "Scott Johnston",
+      "Sheer El-Showk",
+      "Andy Jones",
+      "Nelson Elhage",
+      "Tristan Hume",
+      "Anna Chen",
+      "Yuntao Bai",
+      "Sam Bowman",
+      "Stanislav Fort",
+      "Deep Ganguli",
+      "Danny Hernandez",
+      "Josh Jacobson",
+      "Jackson Kernion",
+      "Shauna Kravec",
+      "Liane Lovitt",
+      "Kamal Ndousse",
+      "Catherine Olsson",
+      "Sam Ringer",
+      "Dario Amodei",
+      "Tom Brown",
+      "Jack Clark",
+      "Nicholas Joseph",
+      "Ben Mann",
+      "Sam McCandlish",
+      "Chris Olah",
+      "Jared Kaplan"
+    ],
+    "venue": "arXiv",
+    "year": "22",
+    "pdf": "pdfs/kadavath2022language.pdf"
+  },
+  "bommasani2021opportunities": {
+    "status": "arxiv-matched",
+    "sources": {
+      "arxiv": "2108.07258"
+    },
+    "title": "On the Opportunities and Risks of Foundation Models",
+    "authors": [
+      "Rishi Bommasani",
+      "Drew A. Hudson",
+      "Ehsan Adeli",
+      "Russ Altman",
+      "Simran Arora",
+      "Sydney von Arx",
+      "Michael S. Bernstein",
+      "Jeannette Bohg",
+      "Antoine Bosselut",
+      "Emma Brunskill",
+      "Erik Brynjolfsson",
+      "Shyamal Buch",
+      "Dallas Card",
+      "Rodrigo Castellon",
+      "Niladri Chatterji",
+      "Annie Chen",
+      "Kathleen Creel",
+      "Jared Quincy Davis",
+      "Dora Demszky",
+      "Chris Donahue",
+      "Moussa Doumbouya",
+      "Esin Durmus",
+      "Stefano Ermon",
+      "John Etchemendy",
+      "Kawin Ethayarajh",
+      "Li Fei-Fei",
+      "Chelsea Finn",
+      "Trevor Gale",
+      "Lauren Gillespie",
+      "Karan Goel",
+      "Noah Goodman",
+      "Shelby Grossman",
+      "Neel Guha",
+      "Tatsunori Hashimoto",
+      "Peter Henderson",
+      "John Hewitt",
+      "Daniel E. Ho",
+      "Jenny Hong",
+      "Kyle Hsu",
+      "Jing Huang",
+      "Thomas Icard",
+      "Saahil Jain",
+      "Dan Jurafsky",
+      "Pratyusha Kalluri",
+      "Siddharth Karamcheti",
+      "Geoff Keeling",
+      "Fereshte Khani",
+      "Omar Khattab",
+      "Pang Wei Koh",
+      "Mark Krass",
+      "Ranjay Krishna",
+      "Rohith Kuditipudi",
+      "Ananya Kumar",
+      "Faisal Ladhak",
+      "Mina Lee",
+      "Tony Lee",
+      "Jure Leskovec",
+      "Isabelle Levent",
+      "Xiang Lisa Li",
+      "Xuechen Li",
+      "Tengyu Ma",
+      "Ali Malik",
+      "Christopher D. Manning",
+      "Suvir Mirchandani",
+      "Eric Mitchell",
+      "Zanele Munyikwa",
+      "Suraj Nair",
+      "Avanika Narayan",
+      "Deepak Narayanan",
+      "Ben Newman",
+      "Allen Nie",
+      "Juan Carlos Niebles",
+      "Hamed Nilforoshan",
+      "Julian Nyarko",
+      "Giray Ogut",
+      "Laurel Orr",
+      "Isabel Papadimitriou",
+      "Joon Sung Park",
+      "Chris Piech",
+      "Eva Portelance",
+      "Christopher Potts",
+      "Aditi Raghunathan",
+      "Rob Reich",
+      "Hongyu Ren",
+      "Frieda Rong",
+      "Yusuf Roohani",
+      "Camilo Ruiz",
+      "Jack Ryan",
+      "Christopher Ré",
+      "Dorsa Sadigh",
+      "Shiori Sagawa",
+      "Keshav Santhanam",
+      "Andy Shih",
+      "Krishnan Srinivasan",
+      "Alex Tamkin",
+      "Rohan Taori",
+      "Armin W. Thomas",
+      "Florian Tramèr",
+      "Rose E. Wang",
+      "William Wang",
+      "Bohan Wu",
+      "Jiajun Wu",
+      "Yuhuai Wu",
+      "Sang Michael Xie",
+      "Michihiro Yasunaga",
+      "Jiaxuan You",
+      "Matei Zaharia",
+      "Michael Zhang",
+      "Tianyi Zhang",
+      "Xikun Zhang",
+      "Yuhui Zhang",
+      "Lucia Zheng",
+      "Kaitlyn Zhou",
+      "Percy Liang"
+    ],
+    "venue": "arXiv",
+    "year": "21",
+    "pdf": "pdfs/bommasani2021opportunities.pdf"
+  },
+  "weidinger2021ethical": {
+    "status": "arxiv-matched",
+    "sources": {
+      "arxiv": "2112.04359"
+    },
+    "title": "Ethical and social risks of harm from Language Models",
+    "authors": [
+      "Laura Weidinger",
+      "John Mellor",
+      "Maribeth Rauh",
+      "Conor Griffin",
+      "Jonathan Uesato",
+      "Po-Sen Huang",
+      "Myra Cheng",
+      "Mia Glaese",
+      "Borja Balle",
+      "Atoosa Kasirzadeh",
+      "Zac Kenton",
+      "Sasha Brown",
+      "Will Hawkins",
+      "Tom Stepleton",
+      "Courtney Biles",
+      "Abeba Birhane",
+      "Julia Haas",
+      "Laura Rimell",
+      "Lisa Anne Hendricks",
+      "William Isaac",
+      "Sean Legassick",
+      "Geoffrey Irving",
+      "Iason Gabriel"
+    ],
+    "venue": "arXiv",
+    "year": "21",
+    "pdf": "pdfs/weidinger2021ethical.pdf"
+  },
+  "gao2023rag": {
+    "status": "arxiv-matched",
+    "sources": {
+      "arxiv": "2312.10997"
+    },
+    "title": "Retrieval-Augmented Generation for Large Language Models: A Survey",
+    "authors": [
+      "Yunfan Gao",
+      "Yun Xiong",
+      "Xinyu Gao",
+      "Kangxiang Jia",
+      "Jinliu Pan",
+      "Yuxi Bi",
+      "Yi Dai",
+      "Jiawei Sun",
+      "Meng Wang",
+      "Haofen Wang"
+    ],
+    "venue": "arXiv",
+    "year": "23",
+    "pdf": "pdfs/gao2023rag.pdf"
+  },
+  "baird1995residual": {
+    "status": "dblp-matched",
+    "sources": {
+      "dblp": "https://doi.org/10.1016/b978-1-55860-377-6.50013-x"
+    },
+    "title": "Residual Algorithms: Reinforcement Learning with Function Approximation.",
+    "authors": [
+      "Leemon C. Baird III"
+    ],
+    "venue": "ICML",
+    "year": "1995",
+    "volume": "",
+    "number": "",
+    "pages": "30-37",
+    "doi": "10.1016/B978-1-55860-377-6.50013-X",
+    "dblp_score": 0.922
+  },
+  "tsitsiklis1997analysis": {
+    "status": "dblp-matched",
+    "sources": {
+      "dblp": "https://doi.org/10.1109/9.580874",
+      "unpaywall": "http://hdl.handle.net/1721.1/3419"
+    },
+    "title": "An analysis of temporal-difference learning with function approximation.",
+    "authors": [
+      "John N. Tsitsiklis",
+      "Benjamin Van Roy"
+    ],
+    "venue": "IEEE Trans. Autom. Control.",
+    "year": "1997",
+    "volume": "42",
+    "number": "5",
+    "pages": "674-690",
+    "doi": "10.1109/9.580874",
+    "dblp_score": 0.845,
+    "oa_license": "cc-by-nc"
+  },
+  "vanhasselt2018deadly": {
+    "status": "arxiv-matched",
+    "sources": {
+      "arxiv": "1812.02648"
+    },
+    "title": "Deep Reinforcement Learning and the Deadly Triad",
+    "authors": [
+      "Hado van Hasselt",
+      "Yotam Doron",
+      "Florian Strub",
+      "Matteo Hessel",
+      "Nicolas Sonnerat",
+      "Joseph Modayil"
+    ],
+    "venue": "arXiv",
+    "year": "18",
+    "pdf": "pdfs/vanhasselt2018deadly.pdf"
+  },
+  "nikishin2022primacy": {
+    "status": "dblp-matched",
+    "sources": {
+      "dblp": "https://proceedings.mlr.press/v162/nikishin22a.html"
+    },
+    "title": "The Primacy Bias in Deep Reinforcement Learning.",
+    "authors": [
+      "Evgenii Nikishin",
+      "Max Schwarzer",
+      "Pierluca D&apos;Oro",
+      "Pierre-Luc Bacon",
+      "Aaron C. Courville"
+    ],
+    "venue": "ICML",
+    "year": "2022",
+    "volume": "",
+    "number": "",
+    "pages": "16828-16847",
+    "doi": "",
+    "dblp_score": 0.956,
+    "pdf": "pdfs/nikishin2022primacy.pdf"
+  },
+  "dohare2024plasticity": {
+    "status": "dblp-matched",
+    "sources": {
+      "dblp": "https://doi.org/10.1038/s41586-024-07711-7",
+      "unpaywall": "https://www.nature.com/articles/s41586-024-07711-7.pdf"
+    },
+    "title": "Loss of plasticity in deep continual learning.",
+    "authors": [
+      "Shibhansh Dohare",
+      "J. Fernando Hernandez-Garcia",
+      "Qingfeng Lan",
+      "Parash Rahman",
+      "A. Rupam Mahmood",
+      "Richard S. Sutton"
+    ],
+    "venue": "Nat.",
+    "year": "2024",
+    "volume": "632",
+    "number": "8026",
+    "pages": "768-774",
+    "doi": "10.1038/S41586-024-07711-7",
+    "dblp_score": 1.0,
+    "oa_license": "cc-by",
+    "pdf": "pdfs/dohare2024plasticity.pdf"
+  },
+  "janner2019trust": {
+    "status": "dblp-matched",
+    "sources": {
+      "dblp": "https://proceedings.neurips.cc/paper/2019/hash/5faf461eff3099671ad63c6f3f094f7f-Abstract.html"
+    },
+    "title": "When to Trust Your Model: Model-Based Policy Optimization.",
+    "authors": [
+      "Michael Janner",
+      "Justin Fu",
+      "Marvin Zhang",
+      "Sergey Levine"
+    ],
+    "venue": "NeurIPS",
+    "year": "2019",
+    "volume": "",
+    "number": "",
+    "pages": "12498-12509",
+    "doi": "",
+    "dblp_score": 1.0,
+    "pdf": "pdfs/janner2019trust.pdf"
+  },
+  "hsieh2024ruler": {
+    "status": "arxiv-matched",
+    "sources": {
+      "arxiv": "2404.06654"
+    },
+    "title": "RULER: What's the Real Context Size of Your Long-Context Language Models?",
+    "authors": [
+      "Cheng-Ping Hsieh",
+      "Simeng Sun",
+      "Samuel Kriman",
+      "Shantanu Acharya",
+      "Dima Rekesh",
+      "Fei Jia",
+      "Yang Zhang",
+      "Boris Ginsburg"
+    ],
+    "venue": "arXiv",
+    "year": "24",
+    "pdf": "pdfs/hsieh2024ruler.pdf"
+  },
+  "nie2025llada": {
+    "status": "arxiv-matched",
+    "sources": {
+      "arxiv": "2502.09992"
+    },
+    "title": "Large Language Diffusion Models",
+    "authors": [
+      "Shen Nie",
+      "Fengqi Zhu",
+      "Zebin You",
+      "Xiaolu Zhang",
+      "Jingyang Ou",
+      "Jun Hu",
+      "Jun Zhou",
+      "Yankai Lin",
+      "Ji-Rong Wen",
+      "Chongxuan Li"
+    ],
+    "venue": "arXiv",
+    "year": "25",
+    "pdf": "pdfs/nie2025llada.pdf"
+  },
+  "inception2025mercury": {
+    "status": "arxiv-matched",
+    "sources": {
+      "arxiv": "2506.17298"
+    },
+    "title": "Mercury: Ultra-Fast Language Models Based on Diffusion",
+    "authors": [
+      "Inception Labs",
+      "Samar Khanna",
+      "Siddhant Kharbanda",
+      "Shufan Li",
+      "Harshit Varma",
+      "Eric Wang",
+      "Sawyer Birnbaum",
+      "Ziyang Luo",
+      "Yanis Miraoui",
+      "Akash Palrecha",
+      "Stefano Ermon",
+      "Aditya Grover",
+      "Volodymyr Kuleshov"
+    ],
+    "venue": "arXiv",
+    "year": "25",
+    "pdf": "pdfs/inception2025mercury.pdf"
+  },
+  "barth2006privacy": {
+    "status": "dblp-matched",
+    "sources": {
+      "dblp": "https://doi.org/10.1109/SP.2006.32"
+    },
+    "title": "Privacy and Contextual Integrity: Framework and Applications.",
+    "authors": [
+      "Adam Barth",
+      "Anupam Datta",
+      "John C. Mitchell",
+      "Helen Nissenbaum"
+    ],
+    "venue": "S&amp;P",
+    "year": "2006",
+    "volume": "",
+    "number": "",
+    "pages": "184-198",
+    "doi": "10.1109/SP.2006.32",
+    "dblp_score": 0.965
+  },
+  "nissenbaum2009privacy": {
+    "status": "manual",
+    "sources": {},
+    "_resume": true
+  },
+  "garcez2023neurosymbolic": {
+    "status": "arxiv-matched",
+    "sources": {
+      "arxiv": "2012.05876"
+    },
+    "title": "Neurosymbolic AI: The 3rd Wave",
+    "authors": [
+      "Artur d'Avila Garcez",
+      "Luis C. Lamb"
+    ],
+    "venue": "arXiv",
+    "year": "20",
+    "pdf": "pdfs/garcez2023neurosymbolic.pdf"
+  },
+  "trinh2024alphageometry": {
+    "status": "dblp-matched",
+    "sources": {
+      "dblp": "https://doi.org/10.1038/s41586-023-06747-5",
+      "unpaywall": "https://www.nature.com/articles/s41586-023-06747-5.pdf"
+    },
+    "title": "Solving olympiad geometry without human demonstrations.",
+    "authors": [
+      "Trieu H. Trinh",
+      "Yuhuai Wu",
+      "Quoc V. Le",
+      "He He",
+      "Thang Luong"
+    ],
+    "venue": "Nat.",
+    "year": "2024",
+    "volume": "625",
+    "number": "7995",
+    "pages": "476-482",
+    "doi": "10.1038/S41586-023-06747-5",
+    "dblp_score": 1.0,
+    "oa_license": "cc-by",
+    "pdf": "pdfs/trinh2024alphageometry.pdf"
+  },
+  "hubert2026alphaproof": {
+    "status": "crossref-matched",
+    "sources": {
+      "crossref-doi": "10.1038/s41586-025-09833-y",
+      "unpaywall": "https://www.nature.com/articles/s41586-025-09833-y_reference.pdf"
+    },
+    "title": "Olympiad-level formal mathematical reasoning with reinforcement learning",
+    "authors": [
+      "Hubert, Thomas",
+      "Mehta, Rishi",
+      "Sartran, Laurent",
+      "Horváth, Miklós Z.",
+      "Žužić, Goran",
+      "Wieser, Eric",
+      "Huang, Aja",
+      "Schrittwieser, Julian",
+      "Schroecker, Yannick",
+      "Masoom, Hussain",
+      "Bertolli, Ottavia",
+      "Zahavy, Tom",
+      "Mandhane, Amol",
+      "Yung, Jessica",
+      "Beloshapka, Iuliya",
+      "Ibarz, Borja",
+      "Veeriah, Vivek",
+      "Yu, Lei",
+      "Nash, Oliver",
+      "Lezeau, Paul",
+      "Mercuri, Salvatore",
+      "Sönne, Calle",
+      "Mehta, Bhavik",
+      "Davies, Alex",
+      "Zheng, Daniel",
+      "Pedregosa, Fabian",
+      "Li, Yin",
+      "von Glehn, Ingrid",
+      "Rowland, Mark",
+      "Albanie, Samuel",
+      "Velingker, Ameya",
+      "Schmitt, Simon",
+      "Lockhart, Edward",
+      "Hughes, Edward",
+      "Michalewski, Henryk",
+      "Sonnerat, Nicolas",
+      "Hassabis, Demis",
+      "Kohli, Pushmeet",
+      "Silver, David"
+    ],
+    "venue": "Nature",
+    "volume": "651",
+    "number": "8106",
+    "pages": "607-613",
+    "year": "2025",
+    "doi": "10.1038/s41586-025-09833-y",
+    "crossref_doi_used": true,
+    "oa_license": "cc-by",
+    "pdf": "pdfs/hubert2026alphaproof.pdf"
+  },
+  "arkin2009governing": {
+    "status": "manual",
+    "sources": {},
+    "_resume": true
+  },
+  "bommasani2023fmti": {
+    "status": "arxiv-matched",
+    "sources": {
+      "arxiv": "2310.12941"
+    },
+    "title": "The Foundation Model Transparency Index",
+    "authors": [
+      "Rishi Bommasani",
+      "Kevin Klyman",
+      "Shayne Longpre",
+      "Sayash Kapoor",
+      "Nestor Maslej",
+      "Betty Xiong",
+      "Daniel Zhang",
+      "Percy Liang"
+    ],
+    "venue": "arXiv",
+    "year": "23",
+    "pdf": "pdfs/bommasani2023fmti.pdf"
+  },
+  "ahmed2020dedemocratization": {
+    "status": "verified",
+    "sources": {
+      "dblp": "https://arxiv.org/abs/2010.15581",
+      "arxiv": "2010.15581"
+    },
+    "title": "The De-democratization of AI: Deep Learning and the Compute Divide in Artificial Intelligence Research.",
+    "authors": [
+      "Nur Ahmed",
+      "Muntasir Wahed"
+    ],
+    "venue": "CoRR",
+    "year": "2020",
+    "volume": "abs/2010.15581",
+    "number": "",
+    "pages": "",
+    "doi": "",
+    "dblp_score": 0.95,
+    "pdf": "pdfs/ahmed2020dedemocratization.pdf"
+  },
+  "pozzobon2023blackbox": {
+    "status": "dblp-matched",
+    "sources": {
+      "dblp": "https://doi.org/10.18653/v1/2023.emnlp-main.472",
+      "unpaywall": "https://aclanthology.org/2023.emnlp-main.472.pdf"
+    },
+    "title": "On the Challenges of Using Black-Box APIs for Toxicity Evaluation in Research.",
+    "authors": [
+      "Luiza Pozzobon",
+      "Beyza Ermis",
+      "Patrick Lewis 0002",
+      "Sara Hooker"
+    ],
+    "venue": "EMNLP",
+    "year": "2023",
+    "volume": "",
+    "number": "",
+    "pages": "7595-7609",
+    "doi": "10.18653/V1/2023.EMNLP-MAIN.472",
+    "dblp_score": 0.876,
+    "oa_license": "cc-by",
+    "pdf": "pdfs/pozzobon2023blackbox.pdf"
+  },
+  "kapoor2023leakage": {
+    "status": "verified",
+    "sources": {
+      "dblp": "https://doi.org/10.1016/j.patter.2023.100804",
+      "unpaywall": "http://www.cell.com/article/S2666389923001599/pdf",
+      "arxiv": "2207.07048"
+    },
+    "title": "Leakage and the reproducibility crisis in machine-learning-based science.",
+    "authors": [
+      "Sayash Kapoor",
+      "Arvind Narayanan"
+    ],
+    "venue": "Patterns",
+    "year": "2023",
+    "volume": "4",
+    "number": "9",
+    "pages": "100804",
+    "doi": "10.1016/J.PATTER.2023.100804",
+    "dblp_score": 0.95,
+    "oa_license": "cc-by",
+    "pdf": "pdfs/kapoor2023leakage.pdf"
+  },
+  "patel2023nomoat": {
+    "status": "manual",
+    "sources": {},
+    "_resume": true
+  },
+  "bender2020climbing": {
+    "status": "crossref-matched",
+    "sources": {
+      "crossref-doi": "10.18653/v1/2020.acl-main.463"
+    },
+    "title": "Climbing towards NLU: On Meaning, Form, and Understanding in the Age of Data",
+    "authors": [
+      "Bender, Emily M.",
+      "Koller, Alexander"
+    ],
+    "venue": "Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics",
+    "pages": "5185-5198",
+    "year": "2020",
+    "doi": "10.18653/v1/2020.acl-main.463",
+    "crossref_doi_used": true,
+    "pdf": "pdfs/bender2020climbing.pdf"
+  },
+  "wittenmark1995adaptive": {
+    "status": "crossref-matched",
+    "sources": {
+      "crossref-doi": "10.1016/b978-0-08-042375-3.50010-x"
+    },
+    "title": "Adaptive dual control methods: An overview",
+    "authors": [
+      "Wittenmark, Björn"
+    ],
+    "venue": "Adaptive Systems in Control and Signal Processing 1995",
+    "pages": "67-72",
+    "year": "1995",
+    "doi": "10.1016/b978-0-08-042375-3.50010-x",
+    "crossref_doi_used": true
+  },
+  "borkar1997stochastic": {
+    "status": "crossref-matched",
+    "sources": {
+      "crossref-doi": "10.1016/s0167-6911(97)90015-3"
+    },
+    "title": "Stochastic approximation with two time scales",
+    "authors": [
+      "Borkar, Vivek S."
+    ],
+    "venue": "Systems &amp; Control Letters",
+    "volume": "29",
+    "number": "5",
+    "pages": "291-294",
+    "year": "1997",
+    "doi": "10.1016/s0167-6911(97)90015-3",
+    "crossref_doi_used": true
+  },
+  "liu2024lost": {
+    "status": "dblp-matched",
+    "sources": {
+      "dblp": "https://doi.org/10.1162/tacl_a_00638",
+      "unpaywall": "https://direct.mit.edu/tacl/article-pdf/doi/10.1162/tacl_a_00638/2336043/tacl_a_00638.pdf"
+    },
+    "title": "Lost in the Middle: How Language Models Use Long Contexts.",
+    "authors": [
+      "Nelson F. Liu",
+      "Kevin Lin",
+      "John Hewitt",
+      "Ashwin Paranjape",
+      "Michele Bevilacqua",
+      "Fabio Petroni",
+      "Percy Liang"
+    ],
+    "venue": "Trans. Assoc. Comput. Linguistics",
+    "year": "2024",
+    "volume": "12",
+    "number": "",
+    "pages": "157-173",
+    "doi": "10.1162/TACL_A_00638",
+    "dblp_score": 0.95,
+    "oa_license": "cc-by",
+    "pdf": "pdfs/liu2024lost.pdf"
+  },
+  "french1999catastrophic": {
+    "status": "crossref-matched",
+    "sources": {
+      "crossref-doi": "10.1016/s1364-6613(99)01294-2"
+    },
+    "dblp_candidates": [
+      {
+        "title": "Using Noise to Compute Error Surfaces in Connectionist Networks: A Novel Means of Reducing Catastrophic Forgetting.",
+        "year": "2002",
+        "ee": "https://doi.org/10.1162/08997660260028700"
+      }
+    ],
+    "title": "Catastrophic forgetting in connectionist networks",
+    "authors": [
+      "French, R"
+    ],
+    "venue": "Trends in Cognitive Sciences",
+    "volume": "3",
+    "number": "4",
+    "pages": "128-135",
+    "year": "1999",
+    "doi": "10.1016/s1364-6613(99)01294-2",
+    "crossref_doi_used": true
+  }
+}

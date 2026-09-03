@@ -1,8 +1,9 @@
-% references.bib — seed bibliography for the limitations write-up.
+% references.bib — bibliography for the limitations write-up.
 %
-% NOTE: Entries were added from memory and are intended as a starting point.
-% Verify every field (authors, venue, year, pages, DOI) against DBLP or the
-% publisher page before this draft is circulated.
+% Every entry verified against DBLP, the arXiv API, or Crossref on
+% 2026-09-03 by tools/verify_references.py (see references_verified.json
+% and VERIFICATION.md). Downloaded OA copies live in gitignored pdfs/
+% with a sha256 manifest.
 
 @inproceedings{vaswani2017attention,
   title     = {Attention is all you need},
@@ -15,8 +16,8 @@
 }
 
 @inproceedings{bender2021stochastic,
-  title     = {On the Dangers of Stochastic Parrots: Can Language Models Be Too
-               Big? {\relax}},
+  title     = {On the Dangers of Stochastic Parrots: Can Language Models Be
+               Too Big?},
   author    = {Bender, Emily M. and Gebru, Timnit and McMillan-Major, Angelina
                and Shmitchell, Shmargaret},
   booktitle = {Proceedings of the 2021 ACM Conference on Fairness,
@@ -27,41 +28,45 @@
 }
 
 @inproceedings{bender2020climbing,
-  title     = {Climbing towards {NLU}: On meaning, form, and understanding in
-               the age of data models},
+  title     = {Climbing towards {NLU}: On Meaning, Form, and Understanding in
+               the Age of Data},
   author    = {Bender, Emily M. and Koller, Alexander},
   booktitle = {Proceedings of the 58th Annual Meeting of the Association for
                Computational Linguistics},
   pages     = {5185--5198},
-  year      = {2020}
+  year      = {2020},
+  doi       = {10.18653/v1/2020.acl-main.463}
 }
 
 @article{ji2023survey,
   title   = {Survey of hallucination in natural language generation},
   author  = {Ji, Ziwei and Lee, Nayeon and Frieske, Rita and Yu, Tiezheng and
-             Su, Dan and Xu, Yan and Ishii, Etsuko and Bang, Ye Jin and
+             Su, Dan and Xu, Yan and Ishii, Etsuko and Bang, Yejin and
              Madotto, Andrea and Fung, Pascale},
   journal = {ACM Computing Surveys},
   volume  = {55},
   number  = {12},
-  pages   = {1--38},
-  year    = {2023}
+  pages   = {248:1--248:38},
+  year    = {2023},
+  doi     = {10.1145/3571730}
 }
 
 @inproceedings{dziri2023faith,
-  title     = {Faith and fate: Limits of transformers on compositionality},
+  title     = {Faith and Fate: Limits of Transformers on Compositionality},
   author    = {Dziri, Nouha and Lu, Ximing and Sclar, Melanie and
                Li, Xiang Lorraine and Jiang, Liwei and Lin, Bill Yuchen and
                Welleck, Sean and West, Peter and Bhagavatula, Chandra and
-               Le Bras, Ronan and others},
+               Le Bras, Ronan and Hwang, Jena D. and Sanyal, Soumya and
+               Ren, Xiang and Ettinger, Allyson and Harchaoui, Za{\"i}d and
+               Choi, Yejin},
   booktitle = {Advances in Neural Information Processing Systems},
   volume    = {36},
   year      = {2023}
 }
 
 @inproceedings{valmeekam2023planning,
-  title     = {On the planning abilities of large language models---a critical
-               investigation},
+  title     = {On the Planning Abilities of Large Language Models -- A
+               Critical Investigation},
   author    = {Valmeekam, Karthik and Marquez, Matthew and
                Sreedharan, Sarath and Kambhampati, Subbarao},
   booktitle = {Advances in Neural Information Processing Systems},
@@ -70,11 +75,14 @@
 }
 
 @inproceedings{kambhampati2024llms,
-  title     = {{LLMs} can't plan, but can help planning in {LLM-Modulo}
-               frameworks},
-  author    = {Kambhampati, Subbarao and others},
+  title     = {Position: {LLMs} Can't Plan, But Can Help Planning in
+               {LLM-Modulo} Frameworks},
+  author    = {Kambhampati, Subbarao and Valmeekam, Karthik and Guan, Lin and
+               Verma, Mudit and Stechly, Kaya and Bhambri, Siddhant and
+               Saldyt, Lucas and Murthy, Anil},
   booktitle = {Proceedings of the 41st International Conference on Machine
                Learning (ICML)},
+  pages     = {22895--22907},
   year      = {2024}
 }
 
@@ -85,17 +93,20 @@
   booktitle = {Proceedings of the 57th Annual Meeting of the Association for
                Computational Linguistics},
   pages     = {3428--3448},
-  year      = {2019}
+  year      = {2019},
+  doi       = {10.18653/v1/P19-1334}
 }
 
 @inproceedings{mallen2023trust,
-  title     = {When not to trust language models: Investigating effectiveness
-               of parametric and non-parametric memories},
+  title     = {When Not to Trust Language Models: Investigating Effectiveness
+               of Parametric and Non-Parametric Memories},
   author    = {Mallen, Alex and Asai, Akari and Zhong, Victor and
                Das, Rajarshi and Khashabi, Daniel and Hajishirzi, Hannaneh},
   booktitle = {Proceedings of the 61st Annual Meeting of the Association for
                Computational Linguistics},
-  year      = {2023}
+  pages     = {9802--9822},
+  year      = {2023},
+  doi       = {10.18653/v1/2023.acl-long.546}
 }
 
 @article{kadavath2022language,
@@ -119,7 +130,7 @@
 }
 
 @article{weidinger2021ethical,
-  title   = {Ethical and social risks of harm from language models},
+  title   = {Ethical and social risks of harm from Language Models},
   author  = {Weidinger, Laura and Mellor, John and Rauh, Maribeth and
              Griffin, Conor and Uesato, Jonathan and Huang, Po-Sen and
              Cheng, Myra and Glaese, Mia and Balle, Borja and
@@ -139,17 +150,16 @@
 }
 
 % ---- Learning in the loop (dynamical failures; see notes/online-neural-control.md) ----
-% Fields verified against live sources 2026-09-03; page numbers for Baird and
-% Borkar should be double-checked against the published versions.
 
 @inproceedings{baird1995residual,
-  title     = {Residual algorithms: Reinforcement learning with function
-               approximation},
+  title     = {Residual Algorithms: Reinforcement Learning with Function
+               Approximation},
   author    = {Baird, Leemon C., III},
   booktitle = {Proceedings of the 12th International Conference on Machine
                Learning (ICML)},
   pages     = {30--37},
-  year      = {1995}
+  year      = {1995},
+  doi       = {10.1016/B978-1-55860-377-6.50013-X}
 }
 
 @article{tsitsiklis1997analysis,
@@ -160,23 +170,25 @@
   volume  = {42},
   number  = {5},
   pages   = {674--690},
-  year    = {1997}
+  year    = {1997},
+  doi     = {10.1109/9.580874}
 }
 
 @article{vanhasselt2018deadly,
   title   = {Deep reinforcement learning and the deadly triad},
   author  = {van Hasselt, Hado and Doron, Yotam and Strub, Florian and
-             Hessel, Matteo and Mitra, Nicole and Bellemare, Marc G.},
+             Hessel, Matteo and Sonnerat, Nicolas and Modayil, Joseph},
   journal = {arXiv preprint arXiv:1812.02648},
   year    = {2018}
 }
 
 @inproceedings{nikishin2022primacy,
-  title     = {The primacy bias in deep reinforcement learning},
+  title     = {The Primacy Bias in Deep Reinforcement Learning},
   author    = {Nikishin, Evgenii and Schwarzer, Max and D'Oro, Pierluca and
-               Courville, Aaron and Bacon, Pierre-Luc},
+               Bacon, Pierre-Luc and Courville, Aaron},
   booktitle = {Proceedings of the 39th International Conference on Machine
                Learning (ICML)},
+  pages     = {16828--16847},
   year      = {2022}
 }
 
@@ -187,7 +199,8 @@
   volume  = {3},
   number  = {4},
   pages   = {128--135},
-  year    = {1999}
+  year    = {1999},
+  doi     = {10.1016/S1364-6613(99)01294-2}
 }
 
 @article{dohare2024plasticity,
@@ -199,25 +212,28 @@
   volume  = {632},
   number  = {8026},
   pages   = {768--774},
-  year    = {2024}
+  year    = {2024},
+  doi     = {10.1038/s41586-024-07711-7}
 }
 
 @inproceedings{janner2019trust,
-  title     = {When to trust your model: Model-based policy optimization},
+  title     = {When to Trust Your Model: Model-Based Policy Optimization},
   author    = {Janner, Michael and Fu, Justin and Zhang, Marvin and
                Levine, Sergey},
   booktitle = {Advances in Neural Information Processing Systems},
   volume    = {32},
+  pages     = {12498--12509},
   year      = {2019}
 }
 
 @inproceedings{wittenmark1995adaptive,
   title     = {Adaptive dual control methods: An overview},
-  author    = {Wittenmark, Bj{"o}rn},
+  author    = {Wittenmark, Bj{\"o}rn},
   booktitle = {Adaptive Systems in Control and Signal Processing 1995
                (IFAC Postprint Volume)},
   pages     = {67--72},
-  year      = {1995}
+  year      = {1995},
+  doi       = {10.1016/B978-0-08-042375-3.50010-X}
 }
 
 @article{borkar1997stochastic,
@@ -227,7 +243,8 @@
   volume  = {29},
   number  = {5},
   pages   = {291--294},
-  year    = {1997}
+  year    = {1997},
+  doi     = {10.1016/S0167-6911(97)90015-3}
 }
 
 % ---- Memory and generator design space (see notes/memory-and-diffusion.md) ----
@@ -240,31 +257,35 @@
   journal = {Transactions of the Association for Computational Linguistics},
   volume  = {12},
   pages   = {157--173},
-  year    = {2024}
+  year    = {2024},
+  doi     = {10.1162/tacl_a_00638}
 }
 
-% Author list needs verification against the arXiv page.
 @article{hsieh2024ruler,
-  title   = {{RULER}: What's the real context size of your long-context
-             language models?},
-  author  = {Hsieh, Cheng-Yu and others},
+  title   = {{RULER}: What's the Real Context Size of Your Long-Context
+             Language Models?},
+  author  = {Hsieh, Cheng-Ping and Sun, Simeng and Kriman, Samuel and
+             Acharya, Shantanu and Rekesh, Dima and Jia, Fei and
+             Zhang, Yang and Ginsburg, Boris},
   journal = {arXiv preprint arXiv:2404.06654},
   year    = {2024}
 }
 
-% Author list needs verification against the arXiv page.
 @article{nie2025llada,
-  title   = {Large language diffusion models},
-  author  = {Nie, Fengqi and others},
+  title   = {Large Language Diffusion Models},
+  author  = {Nie, Shen and Zhu, Fengqi and You, Zebin and Zhang, Xiaolu and
+             Ou, Jingyang and Hu, Jun and Zhou, Jun and Lin, Yankai and
+             Wen, Ji-Rong and Li, Chongxuan},
   journal = {arXiv preprint arXiv:2502.09992},
   year    = {2025}
 }
 
-% Author list needs verification against the arXiv page; throughput
-% figures are vendor-reported.
 @article{inception2025mercury,
-  title   = {Mercury: Ultra-fast language models based on diffusion},
-  author  = {{Inception Labs}},
+  title   = {Mercury: Ultra-Fast Language Models Based on Diffusion},
+  author  = {Khanna, Samar and Kharbanda, Siddhant and Li, Shufan and
+             Varma, Harshit and Wang, Eric and Birnbaum, Sawyer and
+             Luo, Ziyang and Miraoui, Yanis and Palrecha, Akash and
+             Ermon, Stefano and Grover, Aditya and Kuleshov, Volodymyr},
   journal = {arXiv preprint arXiv:2506.17298},
   year    = {2025}
 }
@@ -272,12 +293,13 @@
 % ---- Neurosymbolic governance (see notes/neurosymbolic-governance.md) ----
 
 @inproceedings{barth2006privacy,
-  title     = {Privacy and contextual integrity: Framework and applications},
+  title     = {Privacy and Contextual Integrity: Framework and Applications},
   author    = {Barth, Adam and Datta, Anupam and Mitchell, John C. and
                Nissenbaum, Helen},
   booktitle = {2006 IEEE Symposium on Security and Privacy},
-  pages     = {184--193},
-  year      = {2006}
+  pages     = {184--198},
+  year      = {2006},
+  doi       = {10.1109/SP.2006.32}
 }
 
 @book{nissenbaum2009privacy,
@@ -295,25 +317,34 @@
   volume  = {56},
   number  = {11},
   pages   = {12387--12406},
-  year    = {2023}
+  year    = {2023},
+  doi     = {10.1007/s10462-023-10448-w}
 }
 
-% Page numbers need verification against the published version.
 @article{trinh2024alphageometry,
   title   = {Solving olympiad geometry without human demonstrations},
-  author  = {Trinh, Trieu H. and others},
+  author  = {Trinh, Trieu H. and Wu, Yuhuai and Le, Quoc V. and He, He and
+             Luong, Thang},
   journal = {Nature},
   volume  = {625},
-  pages   = {468--474},
-  year    = {2024}
+  number  = {7995},
+  pages   = {476--482},
+  year    = {2024},
+  doi     = {10.1038/s41586-023-06747-5}
 }
 
-% Volume and pages need verification against the published version.
-@article{hubert2026alphaproof,
-  title   = {Olympiad-level formal mathematical reasoning with AlphaProof},
-  author  = {Hubert, Thomas and others},
+@article{hubert2025alphaproof,
+  title   = {Olympiad-level formal mathematical reasoning with reinforcement
+             learning},
+  author  = {Hubert, Thomas and Mehta, Rishi and Sartran, Laurent and
+             Horv{\'a}th, Mikl{\'o}s Z. and {\v{Z}}u{\v{z}}i{\'c}, Goran and
+             Wieser, Eric and others},
   journal = {Nature},
-  year    = {2026}
+  volume  = {651},
+  number  = {8106},
+  pages   = {607--613},
+  year    = {2025},
+  doi     = {10.1038/s41586-025-09833-y}
 }
 
 @book{arkin2009governing,
@@ -326,32 +357,33 @@
 % ---- Political economy of the service architecture
 %      (see notes/saas-political-economy.md) ----
 
-% Author list needs verification against the arXiv page (full index
-% authorship is extensive).
 @article{bommasani2023fmti,
   title   = {The Foundation Model Transparency Index},
-  author  = {Bommasani, Rishi and others},
+  author  = {Bommasani, Rishi and Klyman, Kevin and Longpre, Shayne and
+             Kapoor, Sayash and Maslej, Nestor and Xiong, Betty and
+             Zhang, Daniel and Liang, Percy},
   journal = {arXiv preprint arXiv:2310.12941},
   year    = {2023}
 }
 
-% Author list needs verification against the arXiv page.
 @article{ahmed2020dedemocratization,
-  title   = {The de-democratization of {AI}: Deep learning and the compute
-             divide in artificial intelligence research},
+  title   = {The De-democratization of {AI}: Deep Learning and the Compute
+             Divide in Artificial Intelligence Research},
   author  = {Ahmed, Nur and Wahed, Muntasir},
   journal = {arXiv preprint arXiv:2010.15581},
   year    = {2020}
 }
 
 @inproceedings{pozzobon2023blackbox,
-  title     = {On the challenges of using black-box {APIs} for toxicity
-               evaluation in research},
+  title     = {On the Challenges of Using Black-Box APIs for Toxicity
+               Evaluation in Research},
   author    = {Pozzobon, Luiza and Ermis, Beyza and Lewis, Patrick and
                Hooker, Sara},
   booktitle = {Proceedings of the 2023 Conference on Empirical Methods in
                Natural Language Processing (EMNLP)},
-  year      = {2023}
+  pages     = {7595--7609},
+  year      = {2023},
+  doi       = {10.18653/v1/2023.emnlp-main.472}
 }
 
 @article{kapoor2023leakage,
@@ -360,14 +392,16 @@
   author  = {Kapoor, Sayash and Narayanan, Arvind},
   journal = {Patterns},
   volume  = {4},
-  number  = {7},
-  year    = {2023}
+  number  = {9},
+  pages   = {100804},
+  year    = {2023},
+  doi     = {10.1016/j.patter.2023.100804}
 }
 
 @misc{patel2023nomoat,
-  title         = {Google ``{W}e have no moat, and neither does {OpenAI}''},
-  author        = {Patel, Dylan and SemiAnalysis},
-  howpublished  = {SemiAnalysis newsletter, May 4, 2023},
-  url           = {https://newsletter.semianalysis.com/p/google-we-have-no-moat-and-neither},
-  year          = {2023}
+  title        = {Google ``{W}e have no moat, and neither does {OpenAI}''},
+  author       = {Patel, Dylan and SemiAnalysis},
+  howpublished = {SemiAnalysis newsletter, May 4, 2023},
+  url          = {https://newsletter.semianalysis.com/p/google-we-have-no-moat-and-neither},
+  year         = {2023}
 }

@@ -30,3 +30,6 @@
 
 # latexmk failure artifacts
 *-SAVE-ERROR
+
+# reference verifier caches
+cache/
