@@ -1,0 +1,11 @@
+The Limitations of Generative AI (gen-ai-limits) is a documentation project
+with a small amount of build tooling.
+
+See LICENSES.md for the applicable license by artifact category:
+
+- Document text, research notes, and prose: CC-BY-SA-4.0
+- Bibliographic metadata and verification data: CC-BY-4.0
+- Build tooling and scripts: EUPL-1.2
+
+Cited papers remain under their own copyrights; this project cites them and
+records provenance but does not relicence them.
