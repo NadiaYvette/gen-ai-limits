@@ -107,6 +107,28 @@ Goodhart effects make headline metrics unreliable guides to capability.
 Harms to persons and institutions \autocite{weidinger2021ethical}, and the
 compounding of the above when generators are chained into agentic pipelines.
 
+\subsection{Learning in the loop: dynamical failures}
+\label{sec:learning-in-the-loop}
+\draft{Expand from notes/online-neural-control.md; keep the dynamical-versus-statistical distinction sharp.}
+
+The preceding failures are \emph{statistical}: errors average out over
+samples. A distinct family arises when a network is updated online inside
+its own control loop, where errors \emph{circulate through feedback}.
+Combining bootstrapped targets with function approximation and off-policy
+data diverges --- provably, even with linear approximation and exact
+dynamic-programming updates \autocite{baird1995residual,
+tsitsiklis1997analysis,vanhasselt2018deadly}. The acting controller
+additionally corrupts its own data distribution: agents overfit their
+earliest experiences \autocite{nikishin2022primacy}, shifted distributions
+overwrite prior learning \autocite{french1999catastrophic}, and prolonged
+continual training destroys the \emph{capacity to learn} altogether
+\autocite{dohare2024plasticity}. A learned dynamics model invites
+optimizing against its own flattering extrapolations
+\autocite{janner2019trust}. The classical umbrella is Feldbaum's dual
+control, intractable even for linear-Gaussian systems
+\autocite{wittenmark1995adaptive}; the principled escape is two-timescale
+separation of estimation from action \autocite{borkar1997stochastic}.
+
 \section{What the limitations imply}
 \label{sec:implications}
 \draft{Survey the mitigation landscape---retrieval augmentation, tool use,
