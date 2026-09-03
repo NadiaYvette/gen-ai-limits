@@ -33,3 +33,7 @@
 
 # reference verifier caches
 cache/
+
+# local reading copies and bytecode
+pdfs/
+__pycache__/
