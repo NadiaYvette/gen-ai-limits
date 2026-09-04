@@ -17,8 +17,9 @@
 *.nav
 *.out
 *.pdf
-# the built document IS the artifact of record and ships via Pages
+# the built document and slides ARE the artifacts of record and ship via Pages
 !/main.pdf
+!/slides.pdf
 *.run.xml
 *.snm
 *.synctex.gz

@@ -1,13 +1,14 @@
-# Publishes the landing page and the PDF via GitLab Pages (framagit).
-# main.pdf is committed (it is the artifact of record; the TeX toolchain is
-# too heavy to run in framagit's shared CI), so this job just ships the
-# current committed build artifacts.
+# Publishes the landing page, the paper, and the slide deck via GitLab
+# Pages (framagit). Both PDFs are committed (they are the artifacts of
+# record; the TeX toolchain is too heavy to run in framagit's shared CI),
+# so this job just ships the current committed build artifacts.
 pages:
   stage: deploy
   image: alpine:latest
   script:
     - mkdir -p public
     - cp main.pdf public/
+    - cp slides.pdf public/
     - cp index.html public/
     - cp VERIFICATION.md public/VERIFICATION.txt
   artifacts:

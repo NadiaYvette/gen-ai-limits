@@ -28,6 +28,7 @@ cleanall: clean
 pages: $(MAIN).pdf
 	mkdir -p pages-staging
 	cp $(MAIN).pdf pages-staging/
+	cp slides.pdf pages-staging/
 	cp index.html pages-staging/
 	cp VERIFICATION.md pages-staging/VERIFICATION.txt
 	@echo "pages-staging/ ready — commit source changes and push; CI ships these files."

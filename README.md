@@ -43,6 +43,8 @@ in §5.2; the dropped NSA-2015 item should not be confused with it.
 ```text
 main.tex                    the document (article class, biblatex/biber)
 main.pdf                    committed build (artifact of record, served by Pages)
+slides.tex                  companion beamer deck for giving the talk
+slides.pdf                  committed build of the deck (served by Pages)
 references.bib              verified bibliography (51 entries)
 references_verified.json    raw verification results per entry
 VERIFICATION.md             verification report and corrections log

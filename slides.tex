@@ -1,0 +1,320 @@
+% slides.tex — companion talk deck for "The Limitations of Generative AI"
+% Build with: latexmk -pdf slides.tex
+%
+% The deck follows the paper's structure and holds its discipline: every
+% number on these slides comes from the paper's verified bibliography, and
+% claims are marked observed / explained / narrated where the distinction
+% carries weight. Attributions are inline author-year text; the paper is
+% the citation of record.
+
+\documentclass[11pt]{beamer}
+\usetheme{metropolis}
+\usepackage{booktabs}
+\usepackage{appendixnumberbeamer}
+
+\title{The Limitations of Generative AI}
+\subtitle{What these systems cannot (yet) do, and why}
+\author{Nadia Yvette}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{frame}{The problem with how AI is explained}
+  \begin{itemize}
+    \item Public understanding is built on \alert{demonstrations of success}:
+          successes are easy to see, the structure of failures is not.
+    \item Someone who has only seen a system succeed cannot tell a reliable
+          tool from an unreliable one, judge announced fixes, or assess
+          breathless claims in either direction.
+    \item This talk supplies the missing half of the picture, under one
+          discipline: every claim is marked as \textbf{observed} (measured),
+          \textbf{explained} (well-argued mechanism), or
+          \textbf{narrated} (repeated until it sounds established).
+    \item The bibliography was not assembled from memory: all 51 entries were
+          verified against DBLP, the arXiv API, and Crossref by a script, and
+          open-access copies of 29 cited papers are archived with pinned
+          hashes. Two claims that failed verification were dropped, not cited.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Three families of failure --- not one laundry list}
+  \begin{table}
+    \centering\footnotesize
+    \begin{tabular}{@{}p{0.20\textwidth}p{0.34\textwidth}p{0.38\textwidth}@{}}
+      \toprule
+      \textbf{Family} & \textbf{Signature} & \textbf{Matching remedy} \\
+      \midrule
+      Statistical & errors average out over samples & better data, better measurement \\
+      Dynamical   & errors circulate through feedback & separate learning from acting \\
+      Normative   & the violated rule cannot even be represented & inspectable structure outside the weights \\
+      \bottomrule
+    \end{tabular}
+  \end{table}
+  \begin{alertblock}{The consequential category error}
+    Offering a statistical remedy for a dynamical or normative failure ---
+    the most common shape of announced fixes and AI policy debates alike.
+  \end{alertblock}
+\end{frame}
+
+\section{Statistical failures}
+
+\begin{frame}{Confabulation is the training objective working as designed}
+  \begin{itemize}
+    \item ``Hallucination'' suggests a perception problem; the mechanism is
+          the objective itself rewarding \alert{plausible-sounding continuation}.
+    \item Observed: scaling \emph{dilutes} but does not remove it; retrieval
+          patches the symptom on popular topics while the long tail stays
+          exposed (Mallen et al., 2023).
+    \item The state is \emph{malleable}: a masked-word test that changes one
+          word of the prompt flips the answer it gives (Pride \& Prejudice
+          marriage dates, .org/.com) --- what is ``known'' versus what is
+          reported come apart.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Context and calibration}
+  \begin{block}{Context is a budget, not a capability}
+    \begin{itemize}
+      \item Effective vs.\ advertised length: measured gap (Hsieh et al.,
+            2024, RULER); ``lost in the middle'': recall is high at the
+            edges and collapses in between (Liu et al., 2024).
+      \item Retrieval augmentation inherits the problem: whatever is
+            retrieved poorly is silently absent.
+    \end{itemize}
+  \end{block}
+  \begin{block}{Calibration}
+    \begin{itemize}
+      \item A system that is right 80\% of the time should say so;
+            badly calibrated systems sound equally sure either way.
+      \item Masked-word experiments show the disconnect between held
+            knowledge and reported confidence directly.
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}{Even the measurement layer is compromised}
+  \begin{itemize}
+    \item \textbf{Contamination}: test questions leak into training data ---
+          examinations become memory tests.
+    \item Fresh GSM1k problems matching the GSM8k distribution: drops of up
+          to \alert{8 percentage points} in several model families ---
+          though, honestly, the frontier systems showed little of it
+          (Zhang et al., 2024).
+    \item So a headline benchmark number can conflate reasoning with
+          memorization, and you cannot tell which from the score alone.
+  \end{itemize}
+\end{frame}
+
+\section{Dynamical failures}
+
+\begin{frame}{Memory: the read side of state}
+  \begin{itemize}
+    \item A fixed context window meets unbounded interaction: long sessions
+          degrade retrieval of their own beginnings --- forgetting what was
+          said \emph{in this conversation}.
+    \item This is architectural, not a data problem: no amount of better
+          training data changes the shape.
+    \item Remedies that actually match: explicit external state ---
+          scratchpads, retrieval over interaction history, persistent stores
+          --- with write policies that are themselves inspectable.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Learning in the loop: when errors circulate}
+  \begin{itemize}
+    \item A system that learns while it acts turns isolated errors into
+          \alert{oscillations}: feedback loops, reward hacking, objective
+          gaming --- and \emph{model collapse} when models train on their own
+          outputs and the tail of the distribution decays.
+    \item The remedy is \textbf{architectural separation}: learning on one
+          timescale, acting on another --- two-process designs, frozen
+          weights with an external controller.
+    \item Statistical remedies (more data, better prompts) do not touch
+          this family at all.
+  \end{itemize}
+\end{frame}
+
+\section{Normative failures}
+
+\begin{frame}{Some obligations are rules, not probabilities}
+  \begin{itemize}
+    \item Privacy (contextual integrity, Nissenbaum 2009) is a system of
+          norms: who may transmit what about whom, to whom, in which context.
+    \item Formalized, it becomes a deontic logic with temporal operators
+          (Barth et al., 2006) --- requiring recipient beliefs, role and
+          group structure, retention over time, leak probabilities.
+    \item Read the machinery off the formalization: \alert{multi-type,
+          multi-agent, multimodal logic with temporality and probabilism}.
+    \item Nothing in a corpus gradient can represent ``this transmission
+          violates this norm in this context.''
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Instances are not coherence}
+  \begin{itemize}
+    \item A fine-tuned model sometimes refuses to repeat someone's address:
+          unreliably, with no audit trail, no consistency across time, and
+          no correction short of retraining.
+    \item Coherence --- norm consistency, auditability, reversibility ---
+          requires \textbf{inspectable structure outside the trained weights}.
+    \item The semiotic layer matters here: an \emph{indexical} link (this
+          photo \emph{is} this person) is a doxxing vector; an iconic
+          rendering is representational harm; a symbolic misuse violates an
+          identifiable norm.
+  \end{itemize}
+  \begin{block}{Deployment reality}
+    Narrow hybrids (guardrails, constrained decoding) are commercial.
+    Flagship neurosymbolic systems (AlphaGeometry, AlphaProof) are research
+    stage. The full governance-demanding profile is deployed
+    \alert{nowhere} --- the vacuum is the finding.
+  \end{block}
+\end{frame}
+
+\section{Alternatives in the design space}
+
+\begin{frame}{Diffusion language models change the trade-offs}
+  \begin{itemize}
+    \item Generate \alert{all positions in parallel}, in any order; every
+          token is conditioned on every other (bidirectional context).
+    \item Observed: an 8B diffusion LM is competitive with an equivalently
+          sized autoregressive model (LLaDA vs.\ LLaMA 3 8B).
+    \item Caveats: unlearning pathological associations is harder when all
+          tokens are mutually conditioned; latency wins come at scale.
+    \item Scope: helps \emph{statistical} limits (all-position access for
+          context, parallel generation) --- not the dynamical or normative
+          families.
+  \end{itemize}
+\end{frame}
+
+\section{Delivery, incentives, and misrepresentation}
+
+\begin{frame}{The shape of the machine shapes the science}
+  \begin{itemize}
+    \item Weights withheld, service only: transparency scores are lowest
+          exactly where a service model hides things --- training data,
+          compute, hardware (Bommasani et al., 2023, FMTI).
+    \item Hosted models are updated or retired without documentation, and
+          published findings silently break (Pozzobon et al., 2023).
+    \item Access to scale was concentrating before the boom (Ahmed,
+          2020); ML-based science has a reproducibility crisis of its own
+          (Kapoor \& Narayanan, 2023). Google's 2023 memo said the quiet
+          part: no moat, and neither does OpenAI.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Why states now treat hosted AI as a dependency question}
+  \begin{itemize}
+    \item A hosted service runs on someone else's infrastructure and
+          jurisdiction, and the history keeps arriving: Merkel's phone
+          (2013), Crypto AG secretly CIA-owned (2020), Danish cables used
+          against European politicians (2021), a nine-year campaign of
+          surveillance and intimidation against ICC staff (2024),
+          ECHELON, and \emph{Schrems II} (2020).
+    \item The lesson generalizes: exposure is a property of
+          \alert{who operates the infrastructure}, not of who holds which
+          alliance today.
+    \item Hence \emph{digitale Souver\"anit\"at}: procurement moves
+          (Schleswig-Holstein, Denmark) and the Data Act's switching and
+          portability obligations.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{The everyday side: what does the customer possess?}
+  \begin{itemize}
+    \item A self-contained product keeps working when its maker does not;
+          a service that shuts down --- acquisition, repricing, lost
+          interest, bankruptcy --- takes its function with it.
+    \item Not distinctive to AI: the standard lifecycle risk of hosting ---
+          which is exactly what the sovereignty programs legislate against.
+    \item Self-hosting and open weights exist in the design space (the
+          Mowgli stack is a small, deliberately modest existence proof);
+          the question is why the dominant presentation is the one where
+          the customer owns least.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Misrepresentation needs no dishonesty}
+  \begin{itemize}
+    \item Each link is individually reasonable; the chain is not:
+          vendors fund demonstrations of success, the visible scoreboard is
+          run with the firms it ranks, and the products are tuned for
+          approval.
+    \item \textbf{Sycophancy} (Sharma et al., 2023): agreement with the
+          user's stated belief across every assistant studied, traced to
+          human preference data and amplified by preference-model
+          optimization --- apparent agreement is not evidence of correctness.
+    \item \textbf{Leaderboard Illusion} (Singh et al., 2025): up to
+          \alert{27 private variants} tested in parallel by select
+          providers; \alert{205 of 243} public models silently deprecated;
+          restricted tuning worth up to \alert{112\%} on a downstream
+          benchmark.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Honesty about the boundary}
+  \begin{block}{Measured}
+    The capability claims are shaped by the same incentives that selected
+    the architecture: this half is evidenced.
+  \end{block}
+  \begin{block}{Open, falsifiable}
+    Whether those incentives \emph{reduce} total progress or merely
+    \emph{redistribute} it toward the measurable and saleable.
+    \emph{Weakening conditions}: independent instruments anchoring public
+    perception; replication failure of the asymmetries; their absence in
+    deployed systems.
+  \end{block}
+\end{frame}
+
+\section{Open questions}
+
+\begin{frame}{What remains open}
+  \begin{itemize}
+    \item Is confabulation reducible to acceptable levels under an objective
+          that rewards plausibility? (\emph{unresolved})
+    \item Do effective and advertised context lengths converge?
+          (\emph{persistent across generations})
+    \item Is reliable compositionality reachable by training alone?
+          (\emph{evidence points to structural support})
+    \item Do the incentives slow progress, or redistribute it?
+          (\emph{falsifiable; conditions stated})
+  \end{itemize}
+  \begin{block}{The discipline}
+    In-principle limits and in-practice shortfalls are different claims,
+    and conflating them is how both hype and dismissal manufacture
+    their certainty.
+  \end{block}
+\end{frame}
+
+\section{Takeaways}
+
+\begin{frame}{Takeaways}
+  \begin{enumerate}
+    \item Ask \textbf{which family} of failure you are looking at --- the
+          remedy only exists in the matching family.
+    \item Distrust single-number evaluations: fresh test sets, independent
+          instruments, style-sensitivity checks.
+    \item For deployed decisions, ask what you \textbf{possess}: weights,
+          audit rights, switching paths --- or only a subscription.
+    \item Coherence (privacy, audit, consistency) demands inspectable
+          structure; a probability distribution cannot break a rule it
+          cannot represent.
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}
+  \centering
+  \vspace{1.5em}
+  {\Large The Limitations of Generative AI}\\[0.8em]
+  \begin{itemize}
+    \item Paper (with verified bibliography and corrections log):
+          \url{https://nadiayvette.frama.io/gen-ai-limits/main.pdf}
+    \item Source on all mirrors; framagit is canonical:
+          \url{https://framagit.org/NadiaYvette/gen-ai-limits}
+  \end{itemize}
+  \vspace{1em}
+  Thank you.
+\end{frame}
+
+\end{document}
