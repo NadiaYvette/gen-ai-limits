@@ -141,6 +141,7 @@ ENTRIES = [
     dict(key="spiegel2013merkel", manual="web"),
     dict(key="cryptoag2020rubicon", manual="web"),
     dict(key="dunhammer2021spying", manual="web"),
+    dict(key="iraqi2024icc", manual="web"),
 
     # ---- Misrepresentation / incentive addendum (2026-09-04). The frame
     # "what AI can do is misrepresented; incentives hinder progress"

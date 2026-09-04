@@ -36,6 +36,25 @@ verification round (`hubert2026alphaproof`); a rerun would have desynchronized
 the JSON report from the corrected bib. Fixed in this session; orphan record
 removed from the JSON.
 
+## Addendum 2026-09-04 (third): Israeli ICC-surveillance investigation (1 entry)
+
+One entry added to §5.2 at the operator's request (51 total):
+`iraqi2024icc` — the joint +972 Magazine / Local Call / Guardian
+investigation of 2024-05-28 documenting a nine-year Israeli campaign of
+surveillance and witness intimidation against the ICC's Palestine
+investigation. Verified by direct inspection of the source plus a
+three-way corroboration chain (outlet topic page, Wikipedia citation record,
+syndicated reporting); recorded as `manual` like the other incident items.
+The byline (Iraqi, Abraham, Rapoport) was confirmed against the outlet's own
+listing before use — the same conservative-byline discipline as the other
+press entries.
+
+This claim is **distinct from the dropped NSA-2015 item** in the first
+addendum: different actor, different years, different sources. The §5.2 text
+also now makes the operator's analytical point explicit — ally-status is not
+a defence, so exposure is a property of who operates the infrastructure, and
+the incident set is deliberately multi-actor.
+
 ## Addendum 2026-09-04 (second): misrepresentation frame (3 entries)
 
 Three arXiv-verified entries added for the new §5.4 (misrepresentation and

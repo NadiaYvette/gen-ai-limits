@@ -1129,5 +1129,9 @@
     "venue": "arXiv",
     "year": "23",
     "pdf": "pdfs/sharma2023sycophancy.pdf"
+  },
+  "iraqi2024icc": {
+    "status": "manual",
+    "sources": {}
   }
 }

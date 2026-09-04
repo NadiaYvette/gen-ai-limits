@@ -95,6 +95,22 @@ documents). Multiple targeted searches could not recover the primary story
 discipline an unfindable citation does not ship. If the primary source
 resurfaces, it would be the single strongest incident in the table.
 
+**Related claim that DID verify (added 2026-09-04, operator's framing):**
+Israeli espionage against the ICC — the joint +972 Magazine / Local Call /
+Guardian investigation of 2024-05-28 ("Surveillance and interference:
+Israel's covert war on the ICC exposed", byline Amjad Iraqi, Yuval Abraham,
+Meron Rapoport; nine-year campaign of surveillance and witness intimidation,
+top officials and intelligence services overseeing) — is cited in §5.2, and
+is kept **strictly distinct** from the dropped NSA claim: different actor,
+different years, different sources, and a chain of corroboration (outlet
+topic page, Wikipedia citation record, syndicated reporting) that the NSA
+item never had. The §5.2 text adds the operator's analytical point, which is
+the motivation for including it: ally-status is not a defence, so a state
+that has watched one nominal ally surveil it has stronger reason to treat
+every foreign-operated service (AI included) as an intelligence surface.
+The incident table is deliberately multi-actor for this reason — no single
+adversary narrative, one structural lesson.
+
 **Scholarship and policy:** Couture & Toupin 2019 (concept genealogy,
 DOI 10.1177/1461444819865984); Pohle & Thiel 2020 (European framing, DOI
 10.14763/2020.4.1532, OA); Schleswig-Holstein migration (EU OSOR 2026);
