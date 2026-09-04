@@ -73,11 +73,38 @@ For a citable, versioned DOI, the recommended path is
 enable the GitHub mirror (`NadiaYvette/gen-ai-limits`) in
 zenodo.org/account/settings/github, and **release a tag** — Zenodo then
 mints a fresh version DOI per release under a concept DOI that always
-targets the latest. Deposit metadata (title, creator, license, keywords)
+targets the latest.Deposit metadata (title, creator, license, keywords)
 preloads from `.zenodo.json`, so the first deposit needs no manual entry.
-Because Zenodo archives the released tag, each DOI is frozen: publishing
-revisions is a matter of cutting further releases, and nothing about the
-workflow changes how the document itself is maintained.
+Note the asymmetry: **framagit is the canonical git URL** (used in the
+document's footnotes and the Pages deploy), but **GitHub releases are what
+trigger the DOI minting** — if GitHub were ever unavailable, the fallback is
+a manual deposit upload at zenodo.org, which changes nothing else here.
+
+### Versioning policy
+
+Each release tag mints a permanent, frozen version DOI: versions can be
+added but never removed or re-pointed, and Zenodo deduplicates unchanged
+files, so the real cost of a version is *citation surface*, not storage.
+Accordingly:
+
+- **Tag a version only when the state is one you would be comfortable
+  having cited and frozen forever.** This is the single filter; everything
+  below derives from it.
+- **Tag substance, not noise.** A new section, newly verified claims, or a
+  correction that changes an argument (minor for additions, major for
+  restructurings or claim reversals, patch sparingly for corrections worth
+  freezing). Typos, formatting, and infrastructure work are batched into
+  the next substantive version.
+- **Metadata-only fixes mint nothing.** Title, keyword, and description
+  edits happen in place on the deposit without a new DOI; versions are for
+  *file* changes.
+- **Cite the version DOI** when reproducibility matters; the concept DOI
+  suffices for "the document, current". A handful of substantive versions
+  a year is a realistic cadence for a living survey; there is no technical
+  ceiling on version count, only permanence.
+- Because `main.pdf` is committed, every tag's frozen PDF sits in git
+  history too, so the DOI'd deposit and the tagged repo state are
+  byte-identical by construction.
 
 ## Building
 
@@ -92,7 +119,7 @@ make cleanall # also remove the PDF
 
 ## Related project
 
-The companion [MOWGLI](https://git.sr.ht/~nadiayvette/mowgli) project
+The companion [MOWGLI](https://framagit.org/NadiaYvette/mowgli) project
 implements the multi-type multi-agent multimodal logic profile that the
 normative-failure family argues governance demands — see the neurosymbolic
 section of the document. The projects are separate repositories with separate
@@ -102,11 +129,11 @@ histories; they share only licensing conventions.
 
 | Forge | URL |
 |---|---|
+| Framagit *(canonical — used in the document and Pages)* | https://framagit.org/NadiaYvette/gen-ai-limits |
 | Sourcehut | https://git.sr.ht/~nadiayvette/gen-ai-limits |
-| Framagit | https://framagit.org/NadiaYvette/gen-ai-limits |
 | Disroot | https://git.disroot.org/NadiaYvette/gen-ai-limits |
 | GitCode | https://gitcode.com/NadiaYvette/gen-ai-limits |
-| GitHub | https://github.com/NadiaYvette/gen-ai-limits |
+| GitHub *(releases drive the Zenodo DOI)* | https://github.com/NadiaYvette/gen-ai-limits |
 | Radicle | `rad:zZxJXEHTX81NfbRWw2jLXCp5vgLi` |
 
 ## License
