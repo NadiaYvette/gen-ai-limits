@@ -542,6 +542,64 @@ reinforced: a technology delivered as an opaque service is not merely expensive
 --- it is structurally harder to study, audit, reproduce, and therefore to
 trust; and, for the dependent customer, harder to keep.
 
+\subsection{Misrepresentation and the incentive structure}
+\label{sec:incentives}
+
+The incentives that selected the service architecture of
+Section~\ref{sec:saas} do not stop at shaping how the technology is delivered;
+they shape what is claimed about it. Vendors are the interested party in their
+own performance claims, the evaluation instruments most visible to buyers are
+run by or with those same vendors, and the systems themselves are tuned for
+human approval. None of this requires dishonesty by any individual to produce
+systematic misrepresentation --- it requires only that each link in the chain
+be individually reasonable.
+
+The mismatch between marketing and capability is the familiar category error
+of Table~\ref{tab:trichotomy} wearing a sales pitch: fluency presented as
+reasoning, fluent delivery as calibrated knowledge, benchmark gains as
+understanding. Section~\ref{sec:evaluation} already documents why headline
+metrics are unreliable guides; here the point is that the gap between claimed
+and delivered capability is not an accident of immature evaluation practice
+but a predictable product of who profits from the claim. A firm competing on
+perceived capability has every reason to fund demonstrations of success and
+little to fund quantifications of failure --- and the academic freedom to
+publish the latter has historically been concentrated at exactly the firms
+with the strongest commercial interest in the former's interpretation.
+
+Two measured findings sharpen the concern beyond marketing rhetoric. The
+first concerns the products themselves: assistants trained with human feedback
+consistently exhibit \emph{sycophancy} --- agreeing with a user's stated
+belief, flattering their work, abandoning correct answers under pushback ---
+across every assistant and task family studied, and the behavior traces to
+human preference data and is amplified when responses are optimized against
+preference models \autocite{sharma2023sycophancy}. A system tuned for approval
+is a system whose apparent agreement is not evidence of correctness; sold to
+non-experts, it actively interferes with the corrections on which its useful
+application depends. The second concerns the measurement layer. On the most
+visible public leaderboard, a small group of large providers was permitted to
+test many private model variants in parallel --- up to twenty-seven at once ---
+before public release, an asymmetry unavailable to independent researchers;
+silent deprecation of the majority of public models made rankings unreliably
+lopsided; and scores proved responsive to surface style --- restricted data
+access during tuning produced relative gains of up to 112\% on a downstream
+benchmark \autocite{singh2025leaderboard}. The scoreboard that anchors public
+perception is itself shaped by the firms it ranks.
+
+Overfitting to the tests is the quiet complement. When a fresh set of
+everday school arithmetic problems was written to match an established
+benchmark, several model families dropped by up to eight percentage points
+--- systematic overfitting to the original test --- though, for honesty's
+sake, the frontier systems showed little of it \autocite{zhang2024gsm1k}.
+Reading that result commercially is instructive: for a firm whose next
+funding round or product cycle depends on the headline number, teaching to
+the test is the rational strategy, and nothing in the evaluation market
+penalizes it. Effort flows to what is measured and sold; comprehension of the
+kind Section~\ref{sec:reasoning} found unreliable generates no leaderboard
+score at all. Whether this slows genuine progress, or merely redistributes it
+toward the measurable and the saleable, is exactly the kind of open question
+Section~\ref{sec:open-questions} holds apart from the evidence --- and the
+falsification conditions are stated there.
+
 \section{Open questions}
 \label{sec:open-questions}
 
@@ -583,12 +641,19 @@ transmitted about whom --- with Peircean sign classes is, to the author's
 knowledge, unclaimed formalization work
 (Section~\ref{sec:neurosymbolic}).
 
-\item \textbf{Motive versus effect in the service architecture.} The
-falsification directions are specific: release decisions tracking safety
-review rather than competitive events would weaken the moat account;
-persistent unrestricted frontier releases would undermine it outright; and
-regulatory discovery could settle it directly
-(Section~\ref{sec:saas}).
+\item \textbf{Motive, effect, and misrepresentation in the service
+architecture.} The falsification directions are specific. On motive:
+release decisions tracking safety review rather than competitive events would
+weaken the moat account; persistent unrestricted frontier releases would
+undermine it outright; and regulatory discovery could settle it directly
+(Section~\ref{sec:saas}). On the political-effect claim: transparency,
+interoperability, and access metrics recovering while the service model
+persists would weaken the attribution to architecture. On misrepresentation:
+if vendor-independent evaluation instruments come to anchor public perception,
+if leaderboard findings fail replication, or if measured asymmetries (private
+variant testing, silent deprecation, sycophancy rates) do not persist in
+deployed systems, the misrepresentation argument of
+Section~\ref{sec:incentives} weakens; their persistence strengthens it.
 
 \item \textbf{Which limitations survive a well-designed hybrid?} The honest
 design target is not a system with no limitations but one whose remaining

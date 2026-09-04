@@ -141,6 +141,16 @@ ENTRIES = [
     dict(key="spiegel2013merkel", manual="web"),
     dict(key="cryptoag2020rubicon", manual="web"),
     dict(key="dunhammer2021spying", manual="web"),
+
+    # ---- Misrepresentation / incentive addendum (2026-09-04). The frame
+    # "what AI can do is misrepresented; incentives hinder progress"
+    # rests on three measured pillars beyond the existing FMTI/RULER cites.
+    dict(key="singh2025leaderboard", arxiv="2504.20879",
+         dblp="Leaderboard Illusion"),
+    dict(key="zhang2024gsm1k", arxiv="2405.00332",
+         dblp="Careful examination large language model performance grade school arithmetic"),
+    dict(key="sharma2023sycophancy", arxiv="2310.13548",
+         dblp="Towards understanding sycophancy language models"),
 ]
 
 

@@ -907,7 +907,8 @@
   "hubert2025alphaproof": {
     "status": "crossref-matched",
     "sources": {
-      "crossref-doi": "10.1038/s41586-025-09833-y"
+      "crossref-doi": "10.1038/s41586-025-09833-y",
+      "unpaywall": "https://www.nature.com/articles/s41586-025-09833-y_reference.pdf"
     },
     "title": "Olympiad-level formal mathematical reasoning with reinforcement learning",
     "authors": [
@@ -957,12 +958,15 @@
     "pages": "607-613",
     "year": "2025",
     "doi": "10.1038/s41586-025-09833-y",
-    "crossref_doi_used": true
+    "crossref_doi_used": true,
+    "oa_license": "cc-by",
+    "pdf": "pdfs/hubert2025alphaproof.pdf"
   },
   "pohle2020sovereignty": {
     "status": "crossref-matched",
     "sources": {
-      "crossref-doi": "10.14763/2020.4.1532"
+      "crossref-doi": "10.14763/2020.4.1532",
+      "unpaywall": "https://doi.org/10.14763/2020.4.1532"
     },
     "title": "Digital sovereignty",
     "authors": [
@@ -974,12 +978,14 @@
     "number": "4",
     "year": "2020",
     "doi": "10.14763/2020.4.1532",
-    "crossref_doi_used": true
+    "crossref_doi_used": true,
+    "oa_license": "cc-by"
   },
   "couture2019sovereignty": {
     "status": "crossref-matched",
     "sources": {
-      "crossref-doi": "10.1177/1461444819865984"
+      "crossref-doi": "10.1177/1461444819865984",
+      "unpaywall": "https://doi.org/10.1177/1461444819865984"
     },
     "title": "What does the notion of “sovereignty” mean when referring to the digital?",
     "authors": [
@@ -992,38 +998,136 @@
     "pages": "2305-2322",
     "year": "2019",
     "doi": "10.1177/1461444819865984",
-    "crossref_doi_used": true
+    "crossref_doi_used": true,
+    "oa_license": "cc-by"
   },
   "schrems2020judgment": {
     "status": "manual",
-    "sources": {}
+    "sources": {},
+    "_resume": true
   },
   "eu2023dataact": {
     "status": "manual",
-    "sources": {}
+    "sources": {},
+    "_resume": true
   },
   "osor2026schleswig": {
     "status": "manual",
-    "sources": {}
+    "sources": {},
+    "_resume": true
   },
   "denmark2025open": {
     "status": "manual",
-    "sources": {}
+    "sources": {},
+    "_resume": true
   },
   "echelon2001resolution": {
     "status": "manual",
-    "sources": {}
+    "sources": {},
+    "_resume": true
   },
   "spiegel2013merkel": {
     "status": "manual",
-    "sources": {}
+    "sources": {},
+    "_resume": true
   },
   "cryptoag2020rubicon": {
     "status": "manual",
-    "sources": {}
+    "sources": {},
+    "_resume": true
   },
   "dunhammer2021spying": {
     "status": "manual",
-    "sources": {}
+    "sources": {},
+    "_resume": true
+  },
+  "singh2025leaderboard": {
+    "status": "verified",
+    "sources": {
+      "dblp": "http://papers.nips.cc/paper_files/paper/2025/hash/70a93f260a51123b3c0e33ecd1b4de97-Abstract-Datasets_and_Benchmarks_Track.html",
+      "arxiv": "2504.20879"
+    },
+    "title": "The Leaderboard Illusion.",
+    "authors": [
+      "Shivalika Singh",
+      "Yiyang Nan",
+      "Alex Wang",
+      "Daniel D&apos;souza",
+      "Sayash Kapoor",
+      "Ahmet Üstün",
+      "Sanmi Koyejo",
+      "Yuntian Deng",
+      "Shayne Longpre",
+      "Noah A. Smith",
+      "Beyza Ermis",
+      "Marzieh Fadaee",
+      "Sara Hooker"
+    ],
+    "venue": "NeurIPS",
+    "year": "2025",
+    "volume": "",
+    "number": "",
+    "pages": "",
+    "doi": "",
+    "dblp_score": 0.95,
+    "pdf": "pdfs/singh2025leaderboard.pdf"
+  },
+  "zhang2024gsm1k": {
+    "status": "arxiv-matched",
+    "sources": {
+      "arxiv": "2405.00332"
+    },
+    "title": "A Careful Examination of Large Language Model Performance on Grade School Arithmetic",
+    "authors": [
+      "Hugh Zhang",
+      "Jeff Da",
+      "Dean Lee",
+      "Vaughn Robinson",
+      "Catherine Wu",
+      "Will Song",
+      "Tiffany Zhao",
+      "Pranav Raja",
+      "Charlotte Zhuang",
+      "Dylan Slack",
+      "Qin Lyu",
+      "Sean Hendryx",
+      "Russell Kaplan",
+      "Michele Lunati",
+      "Summer Yue"
+    ],
+    "venue": "arXiv",
+    "year": "24",
+    "pdf": "pdfs/zhang2024gsm1k.pdf"
+  },
+  "sharma2023sycophancy": {
+    "status": "arxiv-matched",
+    "sources": {
+      "arxiv": "2310.13548"
+    },
+    "title": "Towards Understanding Sycophancy in Language Models",
+    "authors": [
+      "Mrinank Sharma",
+      "Meg Tong",
+      "Tomasz Korbak",
+      "David Duvenaud",
+      "Amanda Askell",
+      "Samuel R. Bowman",
+      "Newton Cheng",
+      "Esin Durmus",
+      "Zac Hatfield-Dodds",
+      "Scott R. Johnston",
+      "Shauna Kravec",
+      "Timothy Maxwell",
+      "Sam McCandlish",
+      "Kamal Ndousse",
+      "Oliver Rausch",
+      "Nicholas Schiefer",
+      "Da Yan",
+      "Miranda Zhang",
+      "Ethan Perez"
+    ],
+    "venue": "arXiv",
+    "year": "23",
+    "pdf": "pdfs/sharma2023sycophancy.pdf"
   }
 }

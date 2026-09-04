@@ -36,6 +36,26 @@ verification round (`hubert2026alphaproof`); a rerun would have desynchronized
 the JSON report from the corrected bib. Fixed in this session; orphan record
 removed from the JSON.
 
+## Addendum 2026-09-04 (second): misrepresentation frame (3 entries)
+
+Three arXiv-verified entries added for the new §5.4 (misrepresentation and
+the incentive structure), bringing the total to 50. Canonical author lists
+harvested from the arXiv API and written to the bib from the verifier output,
+not from memory:
+
+| Key | arXiv ID | Status | PDF |
+|---|---|---|---|
+| `singh2025leaderboard` | 2504.20879 | dblp+arXiv agree (`verified`), NeurIPS 2025 D&B | yes |
+| `zhang2024gsm1k` | 2405.00332 | arxiv-matched (DBLP returned 500/503 throughout the session) | yes |
+| `sharma2023sycophancy` | 2310.13548 | arxiv-matched (same DBLP outage) | yes |
+
+Quantitative claims in §5.4 (up to 27 private variants; 205/243 silently
+deprecated; up to 112% ArenaHard; up to 8% GSM1k drop with the frontier
+exception) were extracted from the archived copies via pdftotext, not from
+abstracts recalled from memory. The ICC-surveillance claim was re-attempted
+(five query strategies + Wayback CDX; the Archive was returning outage pages)
+and remains dropped; see `notes/saas-political-economy.md`.
+
 All 37 bibliography entries were verified on **2026-09-03** by
 `tools/verify_references.py` against DBLP, the arXiv API, and Crossref
 (raw results in `references_verified.json`).

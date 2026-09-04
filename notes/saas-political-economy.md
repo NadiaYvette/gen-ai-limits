@@ -109,3 +109,43 @@ with their providers where products do not — is the same risk at commercial
 scale, and is precisely what the Data Act's switching provisions legislate
 against. Self-hosting + open weights exists as a design-space alternative
 (Mowgli cited as a modest existence proof, not a maturity claim).
+
+## Misrepresentation-frame assessment (2026-09-04)
+
+The follow-on frame: *what AI does and is capable of is misrepresented by
+commercial vendors, and perverse incentives hinder technological progress.*
+Verdict: the first half is directly evidenced; the second is plausible but
+not yet measurable — kept as a falsifiable open question.
+
+**Evidenced (measured, now cited in §5.4):**
+
+| Finding | Source | Where the number came from |
+|---|---|---|
+| Sycophancy consistent across five assistants and four task families; traces to human preference data; amplified by PM optimization | Sharma et al., arXiv:2310.13548 | abstract + §4/§5 of our archived copy |
+| Chatbot Arena: private variant testing up to 27 variants (Meta 34, Google 19); 205 of 243 public models silently deprecated; restricted tuning data → relative gains up to 112% on ArenaHard | Singh et al., arXiv:2504.20879 (NeurIPS 2025 D&B) | abstract + §4–5 of our archived copy |
+| GSM1k: accuracy drops up to 8%, systematic overfitting in several families — but frontier models show little | Zhang et al., arXiv:2405.00332 | abstract + §4/§5 of our archived copy |
+| Existing: FMTI transparency decline; RULER advertised-vs-real context gap; Ahmed & Wahed concentration | already in bib | — |
+
+**Structural claim (argued, not measured):** vendors fund demonstrations of
+success, not quantifications of failure; the most visible evaluation
+instruments are vendor-shaped; RLHF-tuned systems optimize for approval.
+Individually reasonable links, systematically biased output — no individual
+dishonesty required.
+
+**Honest caveats encoded in the text:** (1) the GSM1k frontier nuance is
+stated — overfitting is family-specific; (2) "hinders progress" is not
+claimed as measured — effort may be redistributed toward the measurable and
+saleable rather than reduced; (3) falsifiers are stated in §6 (independent
+instruments anchoring perception, replication failure of the asymmetries, or
+their non-persistence in deployed systems would weaken the argument).
+
+## ICC rescue — exhausted (2026-09-04)
+
+Rescue attempt per follow-up: five distinct query strategies (exact quoted
+titles, reporter name, venue+year, event descriptions, article-structure
+description) plus a Wayback Machine CDX probe of the recalled URL patterns.
+No source recovered; web.archive.org returned outage/504 pages during the
+window. The claim remains dropped, and the addendum above records that two
+independent sessions failed to verify it — treat any future recollection of
+"NSA wiretapped ICC prosecutors, Foreign Policy 2015" as unconfirmed until a
+primary source is in hand.
