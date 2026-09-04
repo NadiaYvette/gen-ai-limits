@@ -25,10 +25,17 @@ cleanall: clean
 # pages-staging/ for inspection. (GitLab's `artifacts: export` form lets the
 # CI job ship files that are not committed to git; this target simply
 # reproduces what the job's script does, locally.)
-pages: $(MAIN).pdf
+slides.pdf: slides.tex
+	$(LATEXMK) $(LATEXMKFLAGS) slides.tex
+
+slides-notes.pdf: slides.tex slides-notes.tex
+	$(LATEXMK) $(LATEXMKFLAGS) slides-notes.tex
+
+pages: $(MAIN).pdf slides.pdf slides-notes.pdf
 	mkdir -p pages-staging
 	cp $(MAIN).pdf pages-staging/
 	cp slides.pdf pages-staging/
+	cp slides-notes.pdf pages-staging/
 	cp index.html pages-staging/
 	cp VERIFICATION.md pages-staging/VERIFICATION.txt
 	@echo "pages-staging/ ready — commit source changes and push; CI ships these files."

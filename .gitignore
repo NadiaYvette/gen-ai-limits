@@ -20,6 +20,7 @@
 # the built document and slides ARE the artifacts of record and ship via Pages
 !/main.pdf
 !/slides.pdf
+!/slides-notes.pdf
 *.run.xml
 *.snm
 *.synctex.gz

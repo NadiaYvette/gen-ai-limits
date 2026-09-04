@@ -9,6 +9,7 @@ pages:
     - mkdir -p public
     - cp main.pdf public/
     - cp slides.pdf public/
+    - cp slides-notes.pdf public/
     - cp index.html public/
     - cp VERIFICATION.md public/VERIFICATION.txt
   artifacts:
