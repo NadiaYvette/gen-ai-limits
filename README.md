@@ -106,6 +106,13 @@ Accordingly:
   history too, so the DOI'd deposit and the tagged repo state are
   byte-identical by construction.
 
+**Current status**: `v1.0.0` is tagged on all mirrors and released at
+<https://github.com/NadiaYvette/gen-ai-limits/releases/tag/v1.0.0> (with
+`main.pdf` attached). The deposit is pending the one-time Zenodo↔GitHub
+enablement under the author's ORCID; once minted, the concept DOI will be
+recorded here and in the document's own footnote (the concept DOI is the
+one to embed in the document, since it survives future versions).
+
 ## Building
 
 Requires TeX Live with `latexmk` and `biber`:
