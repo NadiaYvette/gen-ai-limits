@@ -1,6 +1,6 @@
 # gen-ai-limits licensing
 
-Copyright (c) 2026 Nadia Yvette Chambers
+Copyright (c) 2026 Nadia Yvette Chambers (ORCID 0009-0009-7073-1726)
 
 The Limitations of Generative AI is a documentation project with a small
 amount of build tooling. The licenses below apply by category; they are not

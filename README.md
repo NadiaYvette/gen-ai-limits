@@ -3,6 +3,8 @@
 **The Limitations of Generative AI** — a lay-readable, citation-verified
 survey in LaTeX.
 
+Author: Nadia Yvette Chambers — [ORCID 0009-0009-7073-1726](https://orcid.org/0009-0009-7073-1726)
+
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22294860.svg)](https://doi.org/10.5281/zenodo.22294860)
 
 ## Audience and purpose
