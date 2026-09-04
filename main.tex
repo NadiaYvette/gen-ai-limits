@@ -472,10 +472,75 @@ Honesty requires marking the boundary of what the evidence shows. Competing
 explanations --- safety review, legal exposure --- predict much the same
 observable behavior as moat preservation, so the \emph{motive} must remain an
 open question; the measurable damage to the research commons is the part
-that can be stated without hedging. For the reader, the practical lesson is
-about the shape of the machine: a technology delivered as an opaque service
-is not merely expensive --- it is structurally harder to study, audit,
-reproduce, and therefore to trust.
+that can be stated without hedging. The consequences have never stayed hypothetical. A hosted service runs on the
+operator's infrastructure, under the operator's jurisdiction, and the political
+history of that arrangement has kept arriving. In 2013 the National Security
+Agency was found to have monitored the German chancellor's mobile phone from
+the United States embassy in Berlin \autocite{spiegel2013merkel}. In 2020 the
+Central Intelligence Agency was revealed to have secretly owned Crypto AG, a
+Swiss vendor whose encryption machines served governments around the world
+\autocite{cryptoag2020rubicon}. In 2021, reporting on a leaked Danish
+intelligence inquiry showed American partners using Danish cables to spy on
+European politicians, the German chancellor among them
+\autocite{dunhammer2021spying}. The European Parliament had drawn the
+corresponding conclusion two decades earlier, recommending encryption when its
+investigation into the ECHELON interception system confirmed it existed
+\autocite{echelon2001resolution}. And the Court of Justice of the European
+Union has invalidated the legal instruments meant to legitimize transatlantic
+data flows more than once on exactly this ground --- the second time, in the
+2020 \emph{Schrems II} judgment, holding that United States surveillance law
+did not ensure protection essentially equivalent to European law
+\autocite{schrems2020judgment}.
+
+Out of this history grew a named policy program: \emph{digitale Souveränität}
+in German, \emph{souveraineté numérique} in French, digital sovereignty in the
+European Commission's English. The scholarship traces the concept's migration
+from activist and community usage --- where it named autonomy and
+self-determination in shared infrastructure --- into state-centric policy
+discourse \autocite{couture2019sovereignty}, and the European version is
+explicitly framed as reducing dependence on foreign, chiefly American,
+infrastructure \autocite{pohle2020sovereignty}. Its practice is visible in
+procurement: the German state of Schleswig-Holstein is replacing Microsoft
+products across its administration with Linux and LibreOffice
+\autocite{osor2026schleswig}, Denmark's digital agency has announced plans to
+replace Microsoft products with open-source alternatives for the same stated
+reasons \autocite{denmark2025open}, and the EU's Data Act obliges vendors to
+make switching providers and exporting data practical rather than nominal
+\autocite{eu2023dataact}.
+
+Contemporary generative AI arrived into exactly this weather. It is consumed
+almost entirely as a hosted service, offered by a small number of
+predominantly American firms --- and the same disclosures that started the
+sovereignty turn are the reason European policymakers treat that presentation
+as a dependency question rather than a convenience. Read this way, the
+research costs documented above and the political costs are two faces of one
+architecture: the same opacity that makes a service hard to study makes it
+hard to audit domestically, and the same withheld weights that make findings
+unreplicable make the deployed function something the customer does not
+possess.
+
+Independently of geopolitics, the service model changes what buying anything
+means. A self-contained product keeps working when its maker does not; a
+service that shuts down --- for the ordinary commercial reasons providers shut
+down: acquisition, repricing, lost interest, bankruptcy --- takes its function
+with it, and the customer's data and workflow go with both. This is not
+distinctive to AI; it is the standard lifecycle risk of hosting, which is
+precisely why the sovereignty programs above legislate switching and
+portability. But regulation reacts to a market shape that was already chosen,
+and the choice was commercial. Self-hosting and open weights exist in the
+generator design space --- the author's Mowgli stack is a small, deliberately
+modest existence proof\footnote{\emph{Mowgli}
+(\url{https://github.com/NadiaYvette/mowgli}) is a small-scale neurosymbolic
+stack that runs on commodity local hardware with weights, rules, and logic
+inspectable --- an existence proof of the self-contained shape, not a claim of
+maturity.} --- so the relevant question is not whether self-contained AI is
+possible but why the dominant presentation is the one where the customer owns
+least.
+
+For the reader, the practical lesson is unchanged by the political detour, only
+reinforced: a technology delivered as an opaque service is not merely expensive
+--- it is structurally harder to study, audit, reproduce, and therefore to
+trust; and, for the dependent customer, harder to keep.
 
 \section{Open questions}
 \label{sec:open-questions}

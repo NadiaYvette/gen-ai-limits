@@ -1,5 +1,41 @@
 # Reference verification report
 
+## Addendum 2026-09-04: digitale Souveränität expansion (10 entries)
+
+Ten entries were added to §5.2 (service architecture → sovereignty) and
+verified on 2026-09-04, bringing the total to 47. Two scholarly entries were
+confirmed by Crossref DOI lookup (`references_verified.json`):
+`pohle2020sovereignty` (10.14763/2020.4.1532, Internet Policy Review 9(4),
+OA landing page) and `couture2019sovereignty` (10.1177/1461444819865984,
+New Media & Society 21(10):2305–2322; DBLP returned HTTP 500 during the
+session, Crossref is the verification source of record).
+
+Eight are incident/legal/policy items outside the indexes' coverage, verified
+by direct inspection of the source during this session:
+
+| Key | What was checked |
+|---|---|
+| `spiegel2013merkel` | Der Spiegel English edition, 2013-10-27, Berlin embassy story |
+| `cryptoag2020rubicon` | Washington Post "The Intelligence Coup of the Century", 2020-02-11 |
+| `dunhammer2021spying` | BBC, 2021-05-31, Danish-cables revelation (DR-led coalition) |
+| `echelon2001resolution` | European Parliament resolution TA-5-2001-0264, 2001-09-05 |
+| `schrems2020judgment` | CJEU C-311/18, Grand Chamber, 2020-07-16, ECLI:EU:C:2020:559 |
+| `eu2023dataact` | Regulation (EU) 2023/2854, EUR-Lex ELI page |
+| `osor2026schleswig` | EU Interoperable Europe / OSOR progress report |
+| `denmark2025open` | The Record, 2025-06-13, Danish digital agency |
+
+**One claim was dropped for verification failure.** The recurring report that
+the NSA wiretapped International Criminal Court prosecutors (Bensouda era,
+Snowden documents, recalled as Foreign Policy 2015) could not be re-derived
+from any reachable source despite repeated targeted searches. It is not
+cited. Press bylines were also written conservatively: outlet as author for
+items whose bylines were not inspected directly.
+
+The tool's ENTRIES list carried a stale internal key from the original
+verification round (`hubert2026alphaproof`); a rerun would have desynchronized
+the JSON report from the corrected bib. Fixed in this session; orphan record
+removed from the JSON.
+
 All 37 bibliography entries were verified on **2026-09-03** by
 `tools/verify_references.py` against DBLP, the arXiv API, and Crossref
 (raw results in `references_verified.json`).

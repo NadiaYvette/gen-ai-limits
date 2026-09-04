@@ -113,7 +113,7 @@ ENTRIES = [
          dblp="Neurosymbolic AI 3rd wave"),
     dict(key="trinh2024alphageometry", crossref_doi="10.1038/s41586-024-07403-2",
          dblp="Solving olympiad geometry without human demonstrations"),
-    dict(key="hubert2026alphaproof", crossref_doi="10.1038/s41586-025-09833-y",
+    dict(key="hubert2025alphaproof", crossref_doi="10.1038/s41586-025-09833-y",
          dblp="Olympiad-level formal mathematical reasoning AlphaProof"),
     dict(key="arkin2009governing", manual="book"),
     dict(key="bommasani2023fmti", arxiv="2310.12941",
@@ -125,6 +125,22 @@ ENTRIES = [
     dict(key="kapoor2023leakage", arxiv="2207.07048",
          dblp="Leakage reproducibility crisis machine-learning-based science"),
     dict(key="patel2023nomoat", manual="web"),
+
+    # ---- Digitale Souveränität / everyday-discontinuation addendum (2026-09-04).
+    # Incident reporting (Snowden-era journalism) is not indexed by DBLP/arXiv;
+    # press and legal items are marked manual and hand-verified via the sources
+    # recorded in VERIFICATION.md.
+    dict(key="pohle2020sovereignty", crossref_doi="10.14763/2020.4.1532"),
+    dict(key="couture2019sovereignty", crossref_doi="10.1177/1461444819865984",
+         dblp="notion of sovereignty mean when referring to the digital"),
+    dict(key="schrems2020judgment", manual="web"),
+    dict(key="eu2023dataact", manual="web"),
+    dict(key="osor2026schleswig", manual="web"),
+    dict(key="denmark2025open", manual="web"),
+    dict(key="echelon2001resolution", manual="web"),
+    dict(key="spiegel2013merkel", manual="web"),
+    dict(key="cryptoag2020rubicon", manual="web"),
+    dict(key="dunhammer2021spying", manual="web"),
 ]
 
 

@@ -710,64 +710,6 @@
     "oa_license": "cc-by",
     "pdf": "pdfs/trinh2024alphageometry.pdf"
   },
-  "hubert2026alphaproof": {
-    "status": "crossref-matched",
-    "sources": {
-      "crossref-doi": "10.1038/s41586-025-09833-y",
-      "unpaywall": "https://www.nature.com/articles/s41586-025-09833-y_reference.pdf"
-    },
-    "title": "Olympiad-level formal mathematical reasoning with reinforcement learning",
-    "authors": [
-      "Hubert, Thomas",
-      "Mehta, Rishi",
-      "Sartran, Laurent",
-      "Horváth, Miklós Z.",
-      "Žužić, Goran",
-      "Wieser, Eric",
-      "Huang, Aja",
-      "Schrittwieser, Julian",
-      "Schroecker, Yannick",
-      "Masoom, Hussain",
-      "Bertolli, Ottavia",
-      "Zahavy, Tom",
-      "Mandhane, Amol",
-      "Yung, Jessica",
-      "Beloshapka, Iuliya",
-      "Ibarz, Borja",
-      "Veeriah, Vivek",
-      "Yu, Lei",
-      "Nash, Oliver",
-      "Lezeau, Paul",
-      "Mercuri, Salvatore",
-      "Sönne, Calle",
-      "Mehta, Bhavik",
-      "Davies, Alex",
-      "Zheng, Daniel",
-      "Pedregosa, Fabian",
-      "Li, Yin",
-      "von Glehn, Ingrid",
-      "Rowland, Mark",
-      "Albanie, Samuel",
-      "Velingker, Ameya",
-      "Schmitt, Simon",
-      "Lockhart, Edward",
-      "Hughes, Edward",
-      "Michalewski, Henryk",
-      "Sonnerat, Nicolas",
-      "Hassabis, Demis",
-      "Kohli, Pushmeet",
-      "Silver, David"
-    ],
-    "venue": "Nature",
-    "volume": "651",
-    "number": "8106",
-    "pages": "607-613",
-    "year": "2025",
-    "doi": "10.1038/s41586-025-09833-y",
-    "crossref_doi_used": true,
-    "oa_license": "cc-by",
-    "pdf": "pdfs/hubert2026alphaproof.pdf"
-  },
   "arkin2009governing": {
     "status": "manual",
     "sources": {},
@@ -961,5 +903,127 @@
     "year": "1999",
     "doi": "10.1016/s1364-6613(99)01294-2",
     "crossref_doi_used": true
+  },
+  "hubert2025alphaproof": {
+    "status": "crossref-matched",
+    "sources": {
+      "crossref-doi": "10.1038/s41586-025-09833-y"
+    },
+    "title": "Olympiad-level formal mathematical reasoning with reinforcement learning",
+    "authors": [
+      "Hubert, Thomas",
+      "Mehta, Rishi",
+      "Sartran, Laurent",
+      "Horváth, Miklós Z.",
+      "Žužić, Goran",
+      "Wieser, Eric",
+      "Huang, Aja",
+      "Schrittwieser, Julian",
+      "Schroecker, Yannick",
+      "Masoom, Hussain",
+      "Bertolli, Ottavia",
+      "Zahavy, Tom",
+      "Mandhane, Amol",
+      "Yung, Jessica",
+      "Beloshapka, Iuliya",
+      "Ibarz, Borja",
+      "Veeriah, Vivek",
+      "Yu, Lei",
+      "Nash, Oliver",
+      "Lezeau, Paul",
+      "Mercuri, Salvatore",
+      "Sönne, Calle",
+      "Mehta, Bhavik",
+      "Davies, Alex",
+      "Zheng, Daniel",
+      "Pedregosa, Fabian",
+      "Li, Yin",
+      "von Glehn, Ingrid",
+      "Rowland, Mark",
+      "Albanie, Samuel",
+      "Velingker, Ameya",
+      "Schmitt, Simon",
+      "Lockhart, Edward",
+      "Hughes, Edward",
+      "Michalewski, Henryk",
+      "Sonnerat, Nicolas",
+      "Hassabis, Demis",
+      "Kohli, Pushmeet",
+      "Silver, David"
+    ],
+    "venue": "Nature",
+    "volume": "651",
+    "number": "8106",
+    "pages": "607-613",
+    "year": "2025",
+    "doi": "10.1038/s41586-025-09833-y",
+    "crossref_doi_used": true
+  },
+  "pohle2020sovereignty": {
+    "status": "crossref-matched",
+    "sources": {
+      "crossref-doi": "10.14763/2020.4.1532"
+    },
+    "title": "Digital sovereignty",
+    "authors": [
+      "Pohle, Julia",
+      "Thiel, Thorsten"
+    ],
+    "venue": "Internet Policy Review",
+    "volume": "9",
+    "number": "4",
+    "year": "2020",
+    "doi": "10.14763/2020.4.1532",
+    "crossref_doi_used": true
+  },
+  "couture2019sovereignty": {
+    "status": "crossref-matched",
+    "sources": {
+      "crossref-doi": "10.1177/1461444819865984"
+    },
+    "title": "What does the notion of “sovereignty” mean when referring to the digital?",
+    "authors": [
+      "Couture, Stephane",
+      "Toupin, Sophie"
+    ],
+    "venue": "New Media &amp; Society",
+    "volume": "21",
+    "number": "10",
+    "pages": "2305-2322",
+    "year": "2019",
+    "doi": "10.1177/1461444819865984",
+    "crossref_doi_used": true
+  },
+  "schrems2020judgment": {
+    "status": "manual",
+    "sources": {}
+  },
+  "eu2023dataact": {
+    "status": "manual",
+    "sources": {}
+  },
+  "osor2026schleswig": {
+    "status": "manual",
+    "sources": {}
+  },
+  "denmark2025open": {
+    "status": "manual",
+    "sources": {}
+  },
+  "echelon2001resolution": {
+    "status": "manual",
+    "sources": {}
+  },
+  "spiegel2013merkel": {
+    "status": "manual",
+    "sources": {}
+  },
+  "cryptoag2020rubicon": {
+    "status": "manual",
+    "sources": {}
+  },
+  "dunhammer2021spying": {
+    "status": "manual",
+    "sources": {}
   }
 }

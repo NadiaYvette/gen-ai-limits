@@ -72,3 +72,40 @@ write-up can note this without overclaiming: the point is feasibility of
 the structure, not maturity.
 
 License: documentation → CC BY-SA 4.0 (see `LICENSES.md`).
+
+## Digitale Souveränität addendum (2026-09-04)
+
+Second-order effect added to §5.2 after the first draft: the service model's
+consequences were never confined to research. The same architecture sits at
+center of the European *digitale Souveränität / souveraineté numérique*
+policy turn, whose proximate causes are documented US surveillance incidents:
+
+| Incident | Year | Verified source | Status |
+|---|---|---|---|
+| NSA monitoring of Merkel's mobile from the Berlin embassy | 2013 | Der Spiegel, 2013-10-27 (Snowden documents) | hand-verified |
+| Crypto AG secretly owned by CIA with BND ("Operation Rubicon") | 2020 | Washington Post, 2020-02-11 | hand-verified |
+| NSA via Danish cables on European politicians (Operation Dunhammer) | 2021 | BBC / DR-led coalition, 2021-05-31 | hand-verified |
+| ECHELON interim report → EP recommends encryption | 2001 | EP resolution TA-5-2001-0264, 2001-09-05 | hand-verified |
+| Privacy Shield invalidation on US surveillance law | 2020 | CJEU C-311/18, ECLI:EU:C:2020:559 | hand-verified |
+
+**Dropped for verification failure (recorded as such):** the recurring claim
+that the NSA wiretapped ICC prosecutors (Bensouda-era, 2015, Snowden
+documents). Multiple targeted searches could not recover the primary story
+(recalled as Foreign Policy, 2015), and per this document's verification
+discipline an unfindable citation does not ship. If the primary source
+resurfaces, it would be the single strongest incident in the table.
+
+**Scholarship and policy:** Couture & Toupin 2019 (concept genealogy,
+DOI 10.1177/1461444819865984); Pohle & Thiel 2020 (European framing, DOI
+10.14763/2020.4.1532, OA); Schleswig-Holstein migration (EU OSOR 2026);
+Denmark digital agency (The Record 2025); EU Data Act, Regulation (EU)
+2023/2854 (switching/portability obligations). All verified 2026-09-04.
+
+**The join to AI (text added to §5.2):** generative AI is consumed almost
+entirely as a hosted service from a small number of US firms, arriving into
+the exact weather these incidents created; research costs and political costs
+are two faces of one architecture. The everyday counterpart — services die
+with their providers where products do not — is the same risk at commercial
+scale, and is precisely what the Data Act's switching provisions legislate
+against. Self-hosting + open weights exists as a design-space alternative
+(Mowgli cited as a modest existence proof, not a maturity claim).
