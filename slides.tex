@@ -1,11 +1,14 @@
 % slides.tex — companion talk deck for "The Limitations of Generative AI"
 % Build with: latexmk -pdf slides.tex
 %
-% Structure: findings before framing. (Not "evidence-first" in the
-% Minto/BLUF sense --- that label means conclusion-first, the reverse of
-% this order.) The talk opens with the measured record and the taxonomy it
-% motivates; the delivery-and-incentive material follows the evidence it
-% contextualizes; the framing argument closes, checkable against all three.
+% Structure: a pyramid, robust to cutoffs from both ends. The thesis slide
+% states the paper's abstract-equivalent up front (conclusion first,
+% Minto-style: even a minute-two cutoff leaves the complete claim set); the
+% evidence sections then support it family by family; the
+% delivery-and-incentive material follows the evidence it contextualizes;
+% the closing frame audits each thesis sentence against what was shown.
+% "Findings before framing": the framing argument arrives only where it
+% can be checked against the record.
 % Every number on these slides comes from the paper's verified bibliography,
 % and claims are marked observed / explained / narrated where the
 % distinction carries weight. Attributions are inline author-year text; the
@@ -29,6 +32,40 @@
 \begin{document}
 
 \maketitle
+
+\section{Thesis}
+
+\begin{frame}{The thesis}
+  \small
+  \begin{itemize}
+    \item Public understanding rests on \alert{demonstrations of success};
+          the structure of failures is the missing half.
+    \item Failures have structure --- \textbf{three families}, and the
+          family determines the remedy:
+          \textbf{statistical} (sampling-error-like; better data and better
+          measurement, at best),
+          \textbf{dynamical} (learning while acting circulates errors
+          through feedback),
+          \textbf{normative} (rules, not probabilities --- a system trained
+          only to imitate text cannot represent the rule it breaks).
+    \item Outside the models: \textbf{hosted delivery} carries measurable
+          research and sovereignty costs, and \textbf{incentives} shape the
+          claims as systematically as the builds.
+  \end{itemize}
+  \begin{block}{Method}
+    The rest of the talk is the evidence for these sentences; the closing
+    frame audits each one. Claims are marked \textbf{observed},
+    \textbf{explained}, or \textbf{narrated}.
+  \end{block}
+  \note{This is the deck's abstract, mirroring the paper's: the complete
+    claim set inside ninety seconds, so an early cutoff still leaves the
+    audience with the thesis and its structure. Deliver slowly, and do not
+    argue any sentence yet --- each gets its own evidence section. Naming
+    the observed/explained/narrated discipline here puts the labels in
+    place before any number arrives. If the slot collapses to five
+    minutes: title, this slide, the closing audit --- the talk still
+    stands.}
+\end{frame}
 
 \section{The record}
 
@@ -468,24 +505,35 @@
     be able to reproduce tomorrow.}
 \end{frame}
 
-\begin{frame}{Why the evidence came first}
+\begin{frame}{The thesis, audited}
+  \footnotesize
   \begin{itemize}
-    \item Public understanding is built on \alert{demonstrations of success}:
-          successes are easy to show, the structure of failures is not.
-    \item Someone who has only seen a system succeed cannot tell a reliable
-          tool from an unreliable one, judge announced fixes, or assess
-          claims in either direction.
-    \item Hence this talk's order: the measured record first, the taxonomy
-          it motivates second, the delivery layer third --- and the
-          framing argument only where it can be checked against all three.
+    \item \textbf{Family determines remedy} --- the taxonomy; fixes fail
+          by mismatch (\emph{explained}).
+    \item \textbf{Statistical: data and measurement, at best} ---
+          dilution-not-removal (Mallen); RULER's gap; GSM1k's \alert{8
+          points}, frontier excepted.
+    \item \textbf{Dynamical: errors circulate} --- divergence proofs (Baird
+          1995; Tsitsiklis \& Van Roy 1997); primacy bias (2022); plasticity
+          loss (Dohare 2024).
+    \item \textbf{Normative: rules need representation} --- Barth et al.
+          (2006); deployed \alert{nowhere}: the vacuum is the finding.
+    \item \textbf{Delivery costs are measurable} --- FMTI (2023); Pozzobon
+          (2023); the incident trail; the Data Act's switching duties.
+    \item \textbf{Incentives shape claims} --- sycophancy across every
+          assistant studied (Sharma 2023); \alert{27} variants,
+          \alert{205 of 243}, \alert{112\%} (Singh 2025).
+    \item \textbf{Open, falsifiable}: reduce or redistribute progress ---
+          weakening conditions on the boundary slide.
   \end{itemize}
-  \note{The closing frame returns the framing question the talk
-    deliberately did not open with, now grounded in everything shown:
-    successes are easy to demonstrate, the structure of failures is not,
-    and an audience that has only seen success cannot judge claims in
-    either direction. State the order as method, not preference: evidence,
-    taxonomy, delivery layer, framing --- each stage checkable against the
-    previous one. ~1 min, then the closing slide.}
+  \note{The audit closes the pyramid: each thesis sentence with the
+    evidence that supports it, named precisely enough to be checked ---
+    citation, year, number. If any thesis sentence is challenged in
+    questions, this frame is the map to the answer. The one sentence not
+    closed here --- reduce versus redistribute --- is the boundary slide's
+    falsifiable remainder; point at its weakening conditions rather than
+    arguing it. Takeaways have already been shown; hold this frame and
+    then the closing URLs for questions.}
 \end{frame}
 
 \begin{frame}
