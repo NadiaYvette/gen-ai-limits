@@ -17,6 +17,8 @@
 *.nav
 *.out
 *.pdf
+# the built document IS the artifact of record and ships via Pages
+!/main.pdf
 *.run.xml
 *.snm
 *.synctex.gz

@@ -42,6 +42,7 @@ in §5.2; the dropped NSA-2015 item should not be confused with it.
 
 ```text
 main.tex                    the document (article class, biblatex/biber)
+main.pdf                    committed build (artifact of record, served by Pages)
 references.bib              verified bibliography (51 entries)
 references_verified.json    raw verification results per entry
 VERIFICATION.md             verification report and corrections log
@@ -50,7 +51,7 @@ tools/verify_references.py  rerunnable citation checker
 pdfs/                       local OA reading copies (gitignored, hashed)
 index.html                  landing page for the published PDF
 .gitlab-ci.yml              publishes main.pdf via GitLab Pages (framagit)
-Makefile                    build via latexmk (pdflatex + biber); `make pages` refreshes the deploy artifact
+Makefile                    build via latexmk (pdflatex + biber); `make pages` refreshes the deploy set
 LICENSES.md                 licensing policy
 .zenodo.json                Zenodo deposit metadata (used by the GitHub integration)
 ```
@@ -61,11 +62,11 @@ The current build is published on framagit's GitLab Pages:
 
 > **https://nadiayvette.frama.io/gen-ai-limits/main.pdf**
 
-(with a landing page at the site root). `main.pdf` is deliberately not
-committed to git; the `pages` job ships the locally built PDF using the
-`artifacts: export` form of the `pages` job, so no artifact files need to
-live in the repository. After any change that affects the document, run
-`make pages` and push so the deployed PDF matches the pushed source.
+(with a landing page at the site root). The built `main.pdf` is committed and
+acts as the artifact of record; the `pages` job ships it (plus the landing
+page and this verification report) on every push to `main`, so a plain push
+deploys. If you edit the document, rebuild with `make pages` before pushing
+so the committed PDF matches the source.
 
 For a citable, versioned DOI, the recommended path is
 [Zenodo](https://zenodo.org)'s GitHub integration: sign in via ORCID,

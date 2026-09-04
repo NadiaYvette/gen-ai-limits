@@ -1,8 +1,7 @@
 # Publishes the landing page and the PDF via GitLab Pages (framagit).
-# The PDF is built locally (the TeX toolchain is too heavy to run in CI);
-# main.pdf is deliberately kept OUT of the repository, so this job uses the
-# `artifacts: export` form of the `pages` job: files produced by the job's
-# script are served as Pages without committing them to git.
+# main.pdf is committed (it is the artifact of record; the TeX toolchain is
+# too heavy to run in framagit's shared CI), so this job just ships the
+# current committed build artifacts.
 pages:
   stage: deploy
   image: alpine:latest
@@ -14,9 +13,5 @@ pages:
   artifacts:
     paths:
       - public
-    export:
-      - main.pdf
-      - index.html
-      - VERIFICATION.txt
   rules:
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
