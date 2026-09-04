@@ -44,7 +44,12 @@ systems, such as privacy, are rules rather than probabilities, and a system
 trained only to imitate text cannot even represent the rule it is breaking.
 Recognizing which kind of failure one is looking at changes what counts as a
 remedy --- and explains why many announced fixes do not survive contact with
-the problem they claim to solve.
+the problem they claim to solve. Two further limitations sit outside the
+models themselves: the dominant delivery mechanism --- a hosted service, with
+weights withheld --- has measurable costs for research and for digital
+sovereignty, and the incentives that selected that architecture shape the
+claims made about these systems as systematically as they shape how they are
+built.
 \end{abstract}
 
 \tableofcontents
@@ -73,12 +78,21 @@ limitation in plain language, gives the strongest observed evidence for it,
 and distinguishes three levels of claim: what is directly \emph{observed}
 (measured in published experiments), what is \emph{explained} (proved or
 well-argued mechanistically), and what is merely \emph{narrated} (repeated so
-often it sounds established, but is not). The bibliography was not assembled
+often it sounds established, but is not). The document also looks outside the models. Section~\ref{sec:saas} examines
+the delivery mechanism --- models offered only as hosted services, weights
+withheld --- and traces both its research costs and its political ones,
+through the surveillance incidents and the digital-sovereignty programs that
+have answered them; Section~\ref{sec:incentives} asks how the commercial
+incentives that selected that architecture shape what is claimed about these
+systems, and finds the misrepresentation question half-measured and half-open.
+
+The bibliography was not assembled
 from memory: every entry was checked against public indexes (DBLP, the arXiv
 API, Crossref) by a verification script whose raw output ships alongside this
 document, and open-access copies of the cited papers are archived with
-cryptographic hashes. Where the literature disagrees, the disagreement is
-reported rather than resolved by fiat.
+cryptographic hashes. The method, and the errors verification caught, are
+described in Appendix~\ref{sec:verification}. Where the literature
+disagrees, the disagreement is reported rather than resolved by fiat.
 
 \section{Background and terminology}
 \label{sec:background}
@@ -722,7 +736,7 @@ papers, which is the deeper point: the failure mode that produces citation
 folklore is the same one this document catalogues in
 Section~\ref{sec:hallucination}, running at human speed.
 
-Open-access copies of twenty-five of the cited papers are archived locally
+Open-access copies of twenty-nine of the cited papers are archived locally
 with cryptographic hashes and source URLs recorded, so that the specific
 evidence behind each claim can be checked rather than trusted. Where a claim
 rests on a paywalled source, the bibliography says so; where the literature

@@ -1,0 +1,23 @@
+{
+  "title": "The Limitations of Generative AI: What these systems cannot (yet) do, and why",
+  "creators": [
+    {
+      "name": "Yvette, Nadia"
+    }
+  ],
+  "description": "<p>A lay-readable, citation-verified survey of what generative AI systems systematically cannot do, organized by failure mechanism rather than as a list: statistical failures (confabulation, context, calibration), dynamical failures (learning while acting), and normative failures (obligations the system cannot represent). Beyond the models themselves, it examines the hosted-service delivery model and its research and digital-sovereignty costs, and the incentive structure behind vendor performance claims. Every citation was verified against DBLP, the arXiv API, and Crossref by a rerunnable script; open-access copies of cited papers are archived with cryptographic hashes.</p>",
+  "upload_type": {
+    "type": "publication",
+    "publication_type": "report"
+  },
+  "keywords": [
+    "generative AI",
+    "large language models",
+    "limitations",
+    "neurosymbolic AI",
+    "digital sovereignty",
+    "evaluation"
+  ],
+  "license": "CC-BY-SA-4.0",
+  "access_right": "open"
+}

@@ -28,16 +28,21 @@ errors that verification caught is in
 [`VERIFICATION.md`](VERIFICATION.md). Open-access copies of 29 cited papers
 are archived (gitignored) in `pdfs/` with sha256 hashes and source URLs
 pinned in `pdfs/manifest.json`. Claims in the text are separated into what is
-*observed*, what is *explained*, and what is merely *narrated*. Two claims
+*observed*, what is *explained*, and what is merely *narrated*. Three claims
 that failed verification — an arXiv ID that resolved to an unrelated paper,
-and a widely-repeated surveillance report (ICC prosecutors) whose primary
-source could not be re-derived — are documented as dropped, not cited.
+a widely-repeated 2015 report that NSA wiretaps reached ICC prosecutors
+whose primary source could not be re-derived despite repeated search
+strategies, and one URL guessed from memory that resolved to an unrelated
+paper — are documented as dropped, not cited. One *related but distinct*
+claim — Israeli intelligence surveillance of ICC staff, documented by +972
+Magazine, Local Call, and the Guardian in 2024 — *was* verified and appears
+in §5.2; the dropped NSA-2015 item should not be confused with it.
 
 ## Layout
 
 ```text
 main.tex                    the document (article class, biblatex/biber)
-references.bib              verified bibliography (50 entries)
+references.bib              verified bibliography (51 entries)
 references_verified.json    raw verification results per entry
 VERIFICATION.md             verification report and corrections log
 notes/                      research notes backing each section
@@ -45,24 +50,33 @@ tools/verify_references.py  rerunnable citation checker
 pdfs/                       local OA reading copies (gitignored, hashed)
 index.html                  landing page for the published PDF
 .gitlab-ci.yml              publishes main.pdf via GitLab Pages (framagit)
-Makefile                    build via latexmk (pdflatex + biber)
+Makefile                    build via latexmk (pdflatex + biber); `make pages` refreshes the deploy artifact
 LICENSES.md                 licensing policy
+.zenodo.json                Zenodo deposit metadata (used by the GitHub integration)
 ```
 
 ## Reading it
 
 The current build is published on framagit's GitLab Pages:
 
-> **https://nadiayvette.framagit.io/gen-ai-limits/main.pdf**
+> **https://nadiayvette.frama.io/gen-ai-limits/main.pdf**
 
-(with a landing page at the site root). Pages deploys from the `main`
-branch on push; the PDF in git is the artifact of record. For a citable,
-versioned DOI, the recommended path is [Zenodo](https://zenodo.org):
-sign in via ORCID, create a **new versioned upload** pointing at the GitHub
-mirror (`NadiaYvette/gen-ai-limits`), and reserve a DOI — Zenodo mints a
-fresh version DOI on each GitHub release and keeps a concept DOI that always
-targets the latest. This is done once from the web UI (no API key needed in
-this repo) and needs no changes to the document itself.
+(with a landing page at the site root). `main.pdf` is deliberately not
+committed to git; the `pages` job ships the locally built PDF using the
+`artifacts: export` form of the `pages` job, so no artifact files need to
+live in the repository. After any change that affects the document, run
+`make pages` and push so the deployed PDF matches the pushed source.
+
+For a citable, versioned DOI, the recommended path is
+[Zenodo](https://zenodo.org)'s GitHub integration: sign in via ORCID,
+enable the GitHub mirror (`NadiaYvette/gen-ai-limits`) in
+zenodo.org/account/settings/github, and **release a tag** — Zenodo then
+mints a fresh version DOI per release under a concept DOI that always
+targets the latest. Deposit metadata (title, creator, license, keywords)
+preloads from `.zenodo.json`, so the first deposit needs no manual entry.
+Because Zenodo archives the released tag, each DOI is frozen: publishing
+revisions is a matter of cutting further releases, and nothing about the
+workflow changes how the document itself is maintained.
 
 ## Building
 

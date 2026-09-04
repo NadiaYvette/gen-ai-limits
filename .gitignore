@@ -37,3 +37,6 @@ cache/
 # local reading copies and bytecode
 pdfs/
 __pycache__/
+
+# local Pages deploy staging
+pages-staging/
