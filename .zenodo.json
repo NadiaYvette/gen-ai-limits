@@ -5,11 +5,12 @@
       "name": "Yvette, Nadia"
     }
   ],
-  "description": "<p>A lay-readable, citation-verified survey of what generative AI systems systematically cannot do, organized by failure mechanism rather than as a list: statistical failures (confabulation, context, calibration), dynamical failures (learning while acting), and normative failures (obligations the system cannot represent). Beyond the models themselves, it examines the hosted-service delivery model and its research and digital-sovereignty costs, and the incentive structure behind vendor performance claims. Every citation was verified against DBLP, the arXiv API, and Crossref by a rerunnable script; open-access copies of cited papers are archived with cryptographic hashes.</p>",
-  "upload_type": {
-    "type": "publication",
-    "publication_type": "report"
-  },
+  "description": "A lay-readable, citation-verified survey of what generative AI systems systematically cannot do, organized by failure mechanism rather than as a list: statistical failures (confabulation, context, calibration), dynamical failures (learning while acting), and normative failures (obligations the system cannot represent). Beyond the models themselves, it examines the hosted-service delivery model and its research and digital-sovereignty costs, and the incentive structure behind vendor performance claims. Every citation was verified against DBLP, the arXiv API, and Crossref by a rerunnable script; open-access copies of cited papers are archived with cryptographic hashes.",
+  "access_right": "open",
+  "license": "CC-BY-SA-4.0",
+  "upload_type": "publication",
+  "publication_type": "report",
+  "publication_date": "2026-09-04",
   "keywords": [
     "generative AI",
     "large language models",
@@ -17,7 +18,5 @@
     "neurosymbolic AI",
     "digital sovereignty",
     "evaluation"
-  ],
-  "license": "CC-BY-SA-4.0",
-  "access_right": "open"
+  ]
 }
