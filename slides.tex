@@ -1,11 +1,13 @@
 % slides.tex — companion talk deck for "The Limitations of Generative AI"
 % Build with: latexmk -pdf slides.tex
 %
-% The deck follows the paper's structure and holds its discipline: every
-% number on these slides comes from the paper's verified bibliography, and
-% claims are marked observed / explained / narrated where the distinction
-% carries weight. Attributions are inline author-year text; the paper is
-% the citation of record.
+% Structure: evidence first, framing last. The talk opens with the measured
+% record and the taxonomy it motivates; the delivery-and-incentive material
+% follows the evidence it contextualizes; the framing argument closes.
+% Every number on these slides comes from the paper's verified bibliography,
+% and claims are marked observed / explained / narrated where the
+% distinction carries weight. Attributions are inline author-year text; the
+% paper is the citation of record.
 
 \documentclass[11pt]{beamer}
 \usetheme{metropolis}
@@ -20,39 +22,39 @@
 \title{The Limitations of Generative AI}
 \subtitle{What these systems cannot (yet) do, and why}
 \author{Nadia Yvette Chambers}
-\date{\today\\[0.3em]{\small \url{https://doi.org/10.5281/zenodo.22294860} $\cdot$ \url{https://orcid.org/0009-0009-7073-1726}}}
+\date{{\footnotesize \today\ $\cdot$ \url{https://doi.org/10.5281/zenodo.22294860} $\cdot$ \url{https://orcid.org/0009-0009-7073-1726}}}
 
 \begin{document}
 
 \maketitle
 
-\begin{frame}{The problem with how AI is explained}
+\section{The record}
+
+\begin{frame}{What was measured}
   \begin{itemize}
-    \item Public understanding is built on \alert{demonstrations of success}:
-          successes are easy to see, the structure of failures is not.
-    \item Someone who has only seen a system succeed cannot tell a reliable
-          tool from an unreliable one, judge announced fixes, or assess
-          breathless claims in either direction.
-    \item This talk supplies the missing half of the picture, under one
-          discipline: every claim is marked as \textbf{observed} (measured),
-          \textbf{explained} (well-argued mechanism), or
-          \textbf{narrated} (repeated until it sounds established).
-    \item The bibliography was not assembled from memory: all 51 entries were
-          verified against DBLP, the arXiv API, and Crossref by a script, and
-          open-access copies of 29 cited papers are archived with pinned
-          hashes. Two claims that failed verification were dropped, not cited.
+    \item All \textbf{51 bibliography entries} verified against DBLP, the
+          arXiv API, and Crossref by a rerunnable script; open-access copies
+          of \textbf{29} cited papers archived with pinned hashes.
+    \item One claim failed verification and was \alert{dropped, not cited}
+          --- the discipline is applied to this talk's own assertions.
+    \item Quantitative claims were extracted from the archived copies, not
+          from abstracts recalled from memory.
   \end{itemize}
-  \note{Open cold with the asymmetry: everyone in the room has seen demos;
-    almost nobody has been shown a taxonomy of failures. The three labels
-    --- observed, explained, narrated --- are the talk's contract, so spend
-    real time here (~2 min). Flag the two dropped claims as proof the
-    discipline bites: the bibliography survived verification, two anecdotes
-    did not. If someone asks which claims were dropped: an NSA interception
-    anecdote with no stable sourcing, and a mis-dated surveillance item;
-    both recorded in VERIFICATION.md.}
+  \begin{block}{The measured findings ahead}
+    Benchmark overfitting up to \textbf{8 points}; style-tuning worth up to
+    \textbf{112\%} on a downstream benchmark; \textbf{205 of 243} public
+    leaderboard models silently deprecated.
+  \end{block}
+  \note{Establish the evidence contract before any claim is made. The
+    verification statement is not decoration: one claim in the paper's own
+    draft failed sourcing and was dropped, which is the discipline applied
+    to ourselves. The three numbers in the block are from the archived PDFs
+    and recur through the talk. Timing ~1.5 min. If asked what was dropped:
+    a 2015 surveillance report that could not be re-derived from any
+    reachable source; recorded in VERIFICATION.md.}
 \end{frame}
 
-\begin{frame}{Three families of failure --- not one laundry list}
+\begin{frame}{The failures fall into three families}
   \begin{table}
     \centering\footnotesize
     \begin{tabular}{@{}p{0.20\textwidth}p{0.34\textwidth}p{0.38\textwidth}@{}}
@@ -65,21 +67,20 @@
       \bottomrule
     \end{tabular}
   \end{table}
-  \begin{alertblock}{The consequential category error}
+  \begin{alertblock}{The category error to carry home}
     Offering a statistical remedy for a dynamical or normative failure ---
     the most common shape of announced fixes and AI policy debates alike.
   \end{alertblock}
-  \note{This table is the spine of the talk --- everything after it fills
-    in one row. Walk left to right: family, signature, matching remedy.
-    Then land hard on the alert block: the category error is the thing to
-    carry home. Concrete hook: ``more data'' offered as the fix for a
-    privacy violation is exactly this error --- a statistical remedy for a
-    normative failure. Promise the audience they can diagnose announced
-    fixes with one question: which family does the failure belong to?
-    (~2 min.)}
+  \note{This table organizes the evidence that follows; everything ahead
+    fills in one row. Walk left to right: family, signature, matching
+    remedy. The category error is the practical takeaway: a concrete hook
+    is ``more data'' offered as the remedy for a privacy violation --- a
+    statistical remedy for a normative failure. One diagnostic question
+    for any announced fix: which family does the failure belong to?
+    ~2 min.}
 \end{frame}
 
-\section{Statistical failures}
+\section{Evidence: the failure families}
 
 \begin{frame}{Confabulation is the training objective working as designed}
   \begin{itemize}
@@ -93,15 +94,14 @@
           marriage dates, .org/.com) --- what is ``known'' versus what is
           reported come apart.
   \end{itemize}
-  \note{Set up the reframe first: ``hallucination'' implies a broken
+  \note{Set up the reframe precisely: ``hallucination'' implies a broken
     perception module, but the mechanism is the objective rewarding
-    plausible continuation --- confabulation is the system working as
-    designed. Mallen et al.: retrieval patches the popular tail; the long
-    tail stays exposed. The malleability result is the most vivid datum ---
-    changing ONE word flips the answer, so ``what is known'' and ``what is
-    reported'' come apart. Watch for the heckle ``won't scale fix it?'':
-    answer with the observed dilution-not-removal line, and note that
-    retrieval moves rather than removes the exposure.}
+    plausible continuation --- the behaviour follows from the training
+    objective. Mallen et al.: retrieval patches the popular tail; the long
+    tail stays exposed. The malleability result is the most concrete datum:
+    changing one word flips the answer, so held knowledge and reported
+    output come apart. If asked whether scale fixes it: the observed result
+    is dilution, not removal.}
 \end{frame}
 
 \begin{frame}{Context and calibration}
@@ -125,12 +125,12 @@
   \note{Two distinct failures share a slide --- keep them separate. Context:
     RULER measured the gap between effective and advertised length; Liu's
     ``lost in the middle'' is the positional curve --- edges good, middle
-    collapsed. The RAG point lands well with technical audiences: whatever
+    collapsed. The retrieval point matters for deployed systems: whatever
     retrieval misses is silently absent, and the user cannot see the hole.
-    Calibration: right 80\% of the time should SOUND like 80\%; bad
-    calibration means equal confidence on right and wrong answers. Bridge
-    to next slide: ``and if you think the tests we measure this with are
-    trustworthy --- they aren't.''}
+    Calibration: right 80\% of the time should sound like 80\%; poor
+    calibration means equal confidence on correct and incorrect answers.
+    Bridge: ``and the tests we measure this with are themselves
+    unreliable'' --- next slide.}
 \end{frame}
 
 \begin{frame}{Even the measurement layer is compromised}
@@ -139,23 +139,21 @@
           examinations become memory tests.
     \item Fresh GSM1k problems matching the GSM8k distribution: drops of up
           to \alert{8 percentage points} in several model families ---
-          though, honestly, the frontier systems showed little of it
-          (Zhang et al., 2024).
+          though, for honesty's sake, the frontier systems showed little of
+          it (Zhang et al., 2024).
     \item So a headline benchmark number can conflate reasoning with
           memorization, and you cannot tell which from the score alone.
   \end{itemize}
-  \note{Contamination first: leaked test questions turn exams into memory
-    tests. GSM1k is the headline --- fresh problems, same distribution, up
-    to 8 points down. DELIVER THE HONESTY CLAUSE: frontier models showed
-    little drop. This is where the talk earns trust --- report the result
-    that weakens the dramatic reading. The conclusion is subtle: you can't
-    tell reasoning from memorization from the score alone, so the number
-    itself is the unreliable artifact. If challenged on GSM1k's own
-    validity: it matches GSM8k's distribution by construction; the paper
-    documents the matching procedure.}
+  \note{Contamination first: leaked test questions turn examinations into
+    memory tests. GSM1k is the headline: fresh problems, same distribution,
+    up to 8 points down. State the honesty clause without prompting: the
+    frontier systems showed little drop --- report the result that weakens
+    the dramatic reading. The conclusion is careful: the score alone cannot
+    distinguish reasoning from memorization, so the headline number is
+    itself the unreliable artifact. If challenged on GSM1k's validity: it
+    matches GSM8k's distribution by construction; the matching procedure is
+    documented in the paper.}
 \end{frame}
-
-\section{Dynamical failures}
 
 \begin{frame}{Memory: the read side of state}
   \begin{itemize}
@@ -164,43 +162,45 @@
           said \emph{in this conversation}.
     \item This is architectural, not a data problem: no amount of better
           training data changes the shape.
-    \item Remedies that actually match: explicit external state ---
+    \item Remedies that match the mechanism: explicit external state ---
           scratchpads, retrieval over interaction history, persistent stores
           --- with write policies that are themselves inspectable.
   \end{itemize}
-  \note{Transition into the dynamical family: ``from errors that average
-    out to errors that circulate.'' Frame: a fixed window meets unbounded
-    interaction --- the session forgets its own BEGINNINGS. Emphasize:
-    architectural, not a data problem --- no training corpus changes the
-    shape of the window. The remedy side matters for the Q\&A later:
-    external state with inspectable write policies. This is also where the
-    audience's lived experience (``I have to repeat myself by turn forty'')
-    confirms the mechanism --- invite that recognition.}
+  \note{Transition from errors that average out to errors that persist by
+    construction: a fixed window meets unbounded interaction, and the
+    session loses access to its own beginnings. Emphasize: architectural,
+    not a data problem --- no training corpus changes the shape of the
+    window. The remedy side matters for later questions: external state
+    with inspectable write policies. Audience recognition helps here ---
+    the lived experience of repeating oneself by turn forty confirms the
+    mechanism.}
 \end{frame}
 
 \begin{frame}{Learning in the loop: when errors circulate}
   \begin{itemize}
-    \item A system that learns while it acts turns isolated errors into
-          \alert{oscillations}: feedback loops, reward hacking, objective
-          gaming --- and \emph{model collapse} when models train on their own
-          outputs and the tail of the distribution decays.
+    \item Updating a network inside its own control loop is a \alert{feedback
+          system}, with the failure modes feedback systems have:
+          \begin{itemize}
+            \item bootstrapped updates diverge --- provably, even with linear
+                  approximation (Baird 1995; Tsitsiklis \& Van Roy 1997)
+            \item agents overfit their earliest experience (Nikishin et al., 2022)
+            \item shifted data overwrites prior learning (French, 1999)
+            \item prolonged continual training destroys the capacity to learn
+                  at all (Dohare et al., 2024)
+          \end{itemize}
     \item The remedy is \textbf{architectural separation}: learning on one
-          timescale, acting on another --- two-process designs, frozen
-          weights with an external controller.
+          timescale, acting on another (Borkar, 1997; Feldbaum's dual control).
     \item Statistical remedies (more data, better prompts) do not touch
-          this family at all.
+          this family.
   \end{itemize}
-  \note{The loop slide: learning while acting turns isolated errors into
-    oscillations. Name the phenomena: feedback loops, reward hacking,
-    objective gaming; model collapse when models train on their own
-    outputs and the tail decays. The remedy is architectural separation
-    --- learning on one timescale, acting on another (two-process designs,
-    frozen weights with an external controller). Close the section by
-    calling back to the table: statistical remedies do not touch this
-    family AT ALL. That sentence is the section's takeaway.}
+  \note{Keep this precise --- the section's authority is that the failures
+    are theorems and replicated phenomena, not intuitions. The four cited
+    results: divergence proofs, primacy bias, catastrophic forgetting,
+    plasticity loss. The remedy is the classical one from adaptive control:
+    two-timescale separation of estimation from action. Close the section
+    on the table callback: statistical remedies do not touch this family.
+    That sentence is the section's takeaway.}
 \end{frame}
-
-\section{Normative failures}
 
 \begin{frame}{Some obligations are rules, not probabilities}
   \begin{itemize}
@@ -214,73 +214,73 @@
     \item Nothing in a corpus gradient can represent ``this transmission
           violates this norm in this context.''
   \end{itemize}
-  \note{The pivot slide --- slow down. Privacy via Nissenbaum's contextual
-    integrity: who may transmit what about whom, to whom, in which
-    context. Then the formal move: it becomes a deontic logic with
-    temporal operators (Barth et al.). Read the machinery requirement off
-    the formalization: multi-type, multi-agent, multimodal, temporal,
-    probabilistic. The closing sentence is the thesis of the whole
-    normative section: NOTHING in a corpus gradient can represent ``this
-    transmission violates this norm in this context.'' Expect pushback
-    ``models do refuse'': defer it explicitly to the next slide.}
+  \note{The pivot from measured behaviour to representational limits ---
+    slow down. Privacy via Nissenbaum's contextual integrity: who may
+    transmit what about whom, to whom, in which context. Then the formal
+    move: it becomes a deontic logic with temporal operators (Barth et
+    al.). The machinery requirement is read off the formalization, not
+    asserted: multi-type, multi-agent, multimodal, temporal, probabilistic.
+    The closing sentence is the section's claim: nothing in a corpus
+    gradient can represent ``this transmission violates this norm in this
+    context.'' If someone raises refusals, defer explicitly: next slide.}
 \end{frame}
 
 \begin{frame}{Instances are not coherence}
   \begin{itemize}
-    \item A fine-tuned model sometimes refuses to repeat someone's address:
-          unreliably, with no audit trail, no consistency across time, and
-          no correction short of retraining.
+    \item A fine-tuned model sometimes refuses to repeat an address:
+          unreliably, without audit trail or consistency, correctable only
+          by retraining.
     \item Coherence --- norm consistency, auditability, reversibility ---
           requires \textbf{inspectable structure outside the trained weights}.
-    \item The semiotic layer matters here: an \emph{indexical} link (this
-          photo \emph{is} this person) is a doxxing vector; an iconic
-          rendering is representational harm; a symbolic misuse violates an
-          identifiable norm.
+    \item The semiotic layer matters: an \emph{indexical} link (this photo
+          \emph{is} this person) is a doxxing vector; an iconic rendering,
+          representational harm; a symbolic misuse violates an identifiable
+          norm.
   \end{itemize}
-  \begin{block}{Deployment reality}
-    Narrow hybrids (guardrails, constrained decoding) are commercial.
-    Flagship neurosymbolic systems (AlphaGeometry, AlphaProof) are research
-    stage. The full governance-demanding profile is deployed
+  \begin{block}{Deployment reality}\small
+    Narrow hybrids (guardrails, constrained decoding) are commercial;
+    flagship neurosymbolic systems (AlphaGeometry, AlphaProof) are research
+    stage; the full governance-demanding profile is deployed
     \alert{nowhere} --- the vacuum is the finding.
   \end{block}
   \note{Answer the deferred objection directly: yes, fine-tuned models
-    sometimes refuse --- unreliably, no audit trail, no consistency, no
-    correction short of retraining. Instances are not coherence. The
-    semiotic aside is a gem if the audience is philosophical: an indexical
-    link (this photo IS this person) is a doxxing vector; an iconic
-    rendering is representational harm; a symbolic misuse violates an
-    identifiable norm. Land the block: narrow hybrids are commercial,
-    flagship neurosymbolic is research-stage, the full profile is deployed
-    NOWHERE --- the vacuum is the finding.}
+    sometimes refuse --- unreliably, with no audit trail, no consistency,
+    and no correction short of retraining. Instances are not coherence.
+    The semiotic aside works for philosophically inclined audiences: an
+    indexical link (this photo is this person) is a doxxing vector; an
+    iconic rendering is representational harm; a symbolic misuse violates
+    an identifiable norm. The deployment block is observational, not
+    rhetorical: narrow hybrids are commercial, flagship neurosymbolic is
+    research-stage, the full profile is deployed nowhere --- and that
+    vacuum is itself a finding about the field.}
 \end{frame}
 
-\section{Alternatives in the design space}
+\section{Evidence: the alternatives}
 
 \begin{frame}{Diffusion language models change the trade-offs}
   \begin{itemize}
     \item Generate \alert{all positions in parallel}, in any order; every
           token is conditioned on every other (bidirectional context).
     \item Observed: an 8B diffusion LM is competitive with an equivalently
-          sized autoregressive model (LLaDA vs.\ LLaMA 3 8B).
+          sized autoregressive model (Nie et al., 2025, LLaDA vs.\ LLaMA 3
+          8B).
     \item Caveats: unlearning pathological associations is harder when all
           tokens are mutually conditioned; latency wins come at scale.
     \item Scope: helps \emph{statistical} limits (all-position access for
           context, parallel generation) --- not the dynamical or normative
           families.
   \end{itemize}
-  \note{Guard the scope of this slide or it will be misheard as ``diffusion
+  \note{State the scope first or this slide will be misheard as ``diffusion
     fixes everything.'' What diffusion changes: all positions in parallel,
-    bidirectional conditioning; LLaDA 8B is competitive with LLaMA 3 8B.
-    Honest caveats: unlearning is HARDER when all tokens are mutually
-    conditioned; latency wins come at scale. Then the scope line --- it
-    helps the statistical family only. Connect to their intuitions:
-    parallel generation is why this matters for latency and multimodality,
-    but it is still a distribution learner; no deontic structure appears.
-    This slide exists so the alternatives section doesn't look
-    unexplored.}
+    bidirectional conditioning; LLaDA 8B is competitive with LLaMA 3 8B
+    (Nie et al., 2025). The caveats are part of the record: unlearning is
+    harder under mutual conditioning, and latency wins materialize at
+    scale. Scope line: this addresses the statistical family only --- it
+    remains a distribution learner; no deontic structure appears. This
+    slide exists so the alternatives section is not left unexplored.}
 \end{frame}
 
-\section{Delivery, incentives, and misrepresentation}
+\section{Evidence: the delivery layer}
 
 \begin{frame}{The shape of the machine shapes the science}
   \begin{itemize}
@@ -289,20 +289,26 @@
           compute, hardware (Bommasani et al., 2023, FMTI).
     \item Hosted models are updated or retired without documentation, and
           published findings silently break (Pozzobon et al., 2023).
-    \item Access to scale was concentrating before the boom (Ahmed,
-          2020); ML-based science has a reproducibility crisis of its own
-          (Kapoor \& Narayanan, 2023). Google's 2023 memo said the quiet
-          part: no moat, and neither does OpenAI.
+    \item Access to scale was concentrating before the boom (Ahmed, 2020);
+          ML-based science has a reproducibility crisis of its own
+          (Kapoor \& Narayanan, 2023).
+    \item An internal Google document (2023) acknowledged the moat
+          reasoning directly; competing explanations (safety, legal
+          exposure) predict similar behaviour, so the \emph{motive} stays
+          open --- the measurable cost to the research commons needs no
+          hedge.
   \end{itemize}
   \note{Section pivot: from what the systems cannot do to how they are
-    sold and hosted. FMTI: transparency is lowest exactly where the
+    delivered and studied. FMTI: transparency is lowest exactly where the
     service model hides things (data, compute, hardware). Pozzobon: hosted
-    models updated/retired without documentation --- published findings
-    silently break, which is a reproducibility problem for the FIELD.
-    Ahmed: concentration of access predates the boom; Kapoor \& Narayanan:
-    ML-based science has its own leakage-and-reproducibility crisis. The
-    memo line gets a dry delivery: ``Google's own researchers wrote the
-    moat down: none --- for them or OpenAI.''}
+    models updated or retired without documentation --- published findings
+    silently break, which is a reproducibility problem for the field.
+    Ahmed: concentration predates the boom; Kapoor \& Narayanan: ML-based
+    science has its own leakage-and-reproducibility crisis. The moat
+    bullet is delivered with the paper's exact hedge: the document
+    acknowledged the reasoning, competing motives predict the same
+    behaviour, the motive stays open --- the measurable damage to the
+    research commons is what can be stated without hedging.}
 \end{frame}
 
 \begin{frame}{Why states now treat hosted AI as a dependency question}
@@ -321,16 +327,16 @@
           portability obligations.
   \end{itemize}
   \note{Keep this factual and unhurried --- the incident trail does the
-    work. Merkel's phone (2013), Crypto AG secretly CIA-owned (2020),
-    Danish cables used against European politicians (2021), the nine-year
-    surveillance-and-intimidation campaign against ICC staff (2024),
-    ECHELON, Schrems II. Then the generalization --- the talk's key
-    sovereignty sentence: exposure is a property of WHO OPERATES the
-    infrastructure, not of who holds which alliance today. (The ICC item
-    is deliberately multi-actor: it is not a single-adversary narrative.)
-    Land on digitale Souver\"anit\"at: Schleswig-Holstein and Denmark
-    procurement moves, the Data Act's switching/portability obligations.
-    ~2 min.}
+    work, and it is deliberately multi-actor: Merkel's phone (2013), Crypto
+    AG secretly CIA-owned (2020), Danish cables used against European
+    politicians (2021), the nine-year surveillance-and-intimidation
+    campaign against ICC staff (2024), ECHELON, Schrems II. The
+    generalization is the section's key sentence: exposure is a property
+    of who operates the infrastructure, not of who holds which alliance
+    today --- which is why the incident set implicates allies and
+    adversaries alike. Close on digitale Souver\"anit\"at:
+    Schleswig-Holstein and Denmark procurement moves, the Data Act's
+    switching and portability obligations. ~2 min.}
 \end{frame}
 
 \begin{frame}{The everyday side: what does the customer possess?}
@@ -345,15 +351,15 @@
           the question is why the dominant presentation is the one where
           the customer owns least.
   \end{itemize}
-  \note{The everyday counterweight to the geopolitical slide: what does
-    the customer POSSESS? A self-contained product outlives its maker; a
-    service shutdown (acquisition, repricing, lost interest, bankruptcy)
-    takes the function with it. Stress: not distinctive to AI --- the
-    standard lifecycle risk of hosting, exactly what sovereignty programs
-    legislate against. Name Mowgli as a deliberately modest existence
-    proof, not a competitor. Close with the pointed question --- why is
-    the dominant presentation the one where the customer owns least? Hold
-    the answer for the incentives slides.}
+  \note{The everyday counterweight to the geopolitical slide: what does the
+    customer possess? A self-contained product outlives its maker; a
+    service shutdown --- acquisition, repricing, lost interest, bankruptcy
+    --- takes the function with it. This is not distinctive to AI; it is
+    the standard lifecycle risk of hosting, which is what the sovereignty
+    programs legislate switching and portability against. Name Mowgli as a
+    deliberately modest existence proof, not a competitor. The closing
+    question --- why the dominant presentation is the one where the
+    customer owns least --- is held open for the incentives slides.}
 \end{frame}
 
 \begin{frame}{Misrepresentation needs no dishonesty}
@@ -372,16 +378,16 @@
           restricted tuning worth up to \alert{112\%} on a downstream
           benchmark.
   \end{itemize}
-  \note{The section's punchline --- and the sentence that keeps the paper
-    defensible: misrepresentation needs no dishonesty. Each link is
+  \note{The section's central sentence, and the one that keeps the paper
+    defensible: misrepresentation needs no dishonesty --- each link is
     individually reasonable; the chain is not. Sycophancy (Sharma):
-    agreement with stated belief across EVERY assistant studied, traced
-    to preference data and amplified by preference-model optimization ---
-    so apparent agreement is not evidence of correctness. Leaderboard
-    Illusion (Singh) has the numbers to say slowly: up to 27 private
-    variants tested in parallel by select providers; 205 of 243 public
-    models silently deprecated; restricted tuning worth up to 112\% on a
-    downstream benchmark. Let the numbers sit.}
+    agreement with stated belief across every assistant studied, traced to
+    preference data and amplified by preference-model optimization --- so
+    apparent agreement is not evidence of correctness. Leaderboard
+    Illusion (Singh) carries the numbers, delivered slowly: up to 27
+    private variants tested in parallel by select providers; 205 of 243
+    public models silently deprecated; restricted tuning worth up to 112\%
+    on a downstream benchmark. Let the numbers sit without commentary.}
 \end{frame}
 
 \begin{frame}{Honesty about the boundary}
@@ -396,19 +402,20 @@
     perception; replication failure of the asymmetries; their absence in
     deployed systems.
   \end{block}
-  \note{THE boundary slide --- deliver it with total precision, this is
-    where speakers overreach. Measured: capability claims are shaped by
-    the same incentives that selected the architecture. Open and
-    falsifiable: whether those incentives REDUCE total progress or merely
-    REDISTRIBUTE it toward the measurable and the saleable. Read the
-    weakening conditions aloud --- independent instruments anchoring
-    perception, replication failure of the asymmetries, their absence in
-    deployed systems. Explicitly say: ``this is the claim I would most
-    like to be wrong about, and here is how you would show it.'' That
-    sentence is the talk's credibility in miniature.}
+  \note{The boundary slide --- deliver it with precision, this is where
+    speakers overreach. Measured: capability claims are shaped by the same
+    incentives that selected the architecture. Open and falsifiable:
+    whether those incentives reduce total progress or merely redistribute
+    it toward the measurable and the saleable. Read the weakening
+    conditions aloud: independent instruments anchoring perception,
+    replication failure of the asymmetries, their absence in deployed
+    systems. It is worth saying explicitly: this is the claim most worth
+    being wrong about, and the conditions under which the audience would
+    show it are stated. That sentence is the talk's credibility in
+    miniature.}
 \end{frame}
 
-\section{Open questions}
+\section{Discussion}
 
 \begin{frame}{What remains open}
   \begin{itemize}
@@ -428,15 +435,12 @@
   \end{block}
   \note{Recap the open problems with their status tags --- unresolved,
     persistent across generations, structural support pointed to,
-    falsifiable. Do NOT overclaim any of them; the status tags are the
-    point. Then the closing block, which is the second-most-quotable
-    line of the talk: in-principle limits and in-practice shortfalls are
-    DIFFERENT claims, and conflating them is how both hype and dismissal
-    manufacture their certainty. Pause after it. This is the bridge into
-    takeaways.}
+    falsifiable with stated conditions. Overclaiming none of them is the
+    point; the tags are the content. The closing block is the talk's
+    second-most-quotable sentence: in-principle limits and in-practice
+    shortfalls are different claims, and conflating them is how both hype
+    and dismissal manufacture their certainty. Pause after it.}
 \end{frame}
-
-\section{Takeaways}
 
 \begin{frame}{Takeaways}
   \begin{enumerate}
@@ -450,16 +454,36 @@
           structure; a probability distribution cannot break a rule it
           cannot represent.
   \end{enumerate}
-  \note{Four takeaways, one breath each: (1) ask which FAMILY of failure
-    --- remedy exists only in the matching family; (2) distrust
-    single-number evaluations --- fresh test sets, independent
-    instruments, style-sensitivity checks; (3) for deployed decisions ask
-    what you POSSESS --- weights, audit rights, switching paths, or only
-    a subscription; (4) coherence demands inspectable structure --- a
-    probability distribution cannot break a rule it cannot represent.
-    If time is short, cut nothing here --- cut the diffusion slide and
-    compress open questions instead. These four are what the audience
-    should be able to reproduce tomorrow.}
+  \note{Four takeaways, one breath each: (1) ask which family of failure
+    --- the remedy exists only in the matching family; (2) distrust
+    single-number evaluations --- fresh test sets, independent instruments,
+    style-sensitivity checks; (3) for deployed decisions ask what you
+    possess --- weights, audit rights, switching paths, or only a
+    subscription; (4) coherence demands inspectable structure --- a
+    probability distribution cannot break a rule it cannot represent. If
+    time is short, cut nothing here --- cut the diffusion slide and
+    compress the open questions. These four are what the audience should
+    be able to reproduce tomorrow.}
+\end{frame}
+
+\begin{frame}{Why the evidence came first}
+  \begin{itemize}
+    \item Public understanding is built on \alert{demonstrations of success}:
+          successes are easy to show, the structure of failures is not.
+    \item Someone who has only seen a system succeed cannot tell a reliable
+          tool from an unreliable one, judge announced fixes, or assess
+          claims in either direction.
+    \item Hence this talk's order: the measured record first, the taxonomy
+          it motivates second, the delivery layer third --- and the
+          framing argument only where it can be checked against all three.
+  \end{itemize}
+  \note{The closing frame returns the framing question the talk
+    deliberately did not open with, now grounded in everything shown:
+    successes are easy to demonstrate, the structure of failures is not,
+    and an audience that has only seen success cannot judge claims in
+    either direction. State the order as method, not preference: evidence,
+    taxonomy, delivery layer, framing --- each stage checkable against the
+    previous one. ~1 min, then the closing slide.}
 \end{frame}
 
 \begin{frame}
@@ -475,15 +499,16 @@
   \vspace{1em}
   Thank you.
   \note{Leave this up during questions --- the URLs are the call to
-    action. Expected Q\&A clusters and one-line deflections: (1) ``So AI
-    is useless?'' --- No; the claim is that failure structure is knowable
+    action. Expected question clusters and one-line responses: (1) ``So AI
+    is useless?'' --- no; the claim is that failure structure is knowable
     and remedies are family-specific. (2) ``Isn't neurosymbolic too
-    hard/slow?'' --- deployed-nowhere is the finding, not an argument
-    that it must stay there. (3) ``Isn't this just anti-industry?'' ---
-    the measured/explained/narrated labels apply to the critique too;
-    the falsifiability slide states the weakening conditions. (4)
-    Timing-based: offer the bibliography --- every number on these
-    slides traces to a hash-pinned PDF.}
+    hard or slow?'' --- deployed-nowhere is an observation about the
+    field's current state, not an argument that it must remain so. (3)
+    ``Isn't this just anti-industry?'' --- the observed/explained/narrated
+    labels apply to the critique as well; the falsifiability slide states
+    the weakening conditions. (4) On any specific number: offer the
+    bibliography --- every figure on these slides traces to a hash-pinned
+    PDF.}
 \end{frame}
 
 \end{document}
