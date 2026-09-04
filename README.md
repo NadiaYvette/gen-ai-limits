@@ -3,6 +3,8 @@
 **The Limitations of Generative AI** — a lay-readable, citation-verified
 survey in LaTeX.
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22294860.svg)](https://doi.org/10.5281/zenodo.22294860)
+
 ## Audience and purpose
 
 Written for a less-technical reader whose exposure to AI is primarily through
@@ -108,12 +110,12 @@ Accordingly:
   history too, so the DOI'd deposit and the tagged repo state are
   byte-identical by construction.
 
-**Current status**: `v1.0.0` is tagged on all mirrors and released at
-<https://github.com/NadiaYvette/gen-ai-limits/releases/tag/v1.0.0> (with
-`main.pdf` attached). The deposit is pending the one-time Zenodo↔GitHub
-enablement under the author's ORCID; once minted, the concept DOI will be
-recorded here and in the document's own footnote (the concept DOI is the
-one to embed in the document, since it survives future versions).
+**Zenodo**: the concept DOI **10.5281/zenodo.22294860** (badge above) always
+resolves to the latest frozen version; **10.5281/zenodo.22294861** is the
+v1.0.0 version DOI. The concept DOI is the one embedded in the document's
+own footnote and on the slide deck's title slide, since it survives future
+versions. New release tags mint new version DOIs automatically via the
+GitHub integration.
 
 ## Building
 
