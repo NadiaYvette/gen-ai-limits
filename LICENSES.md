@@ -1,6 +1,6 @@
 # gen-ai-limits licensing
 
-Copyright (c) 2026 Nadia Yvette
+Copyright (c) 2026 Nadia Yvette Chambers
 
 The Limitations of Generative AI is a documentation project with a small
 amount of build tooling. The licenses below apply by category; they are not
